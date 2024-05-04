@@ -83,7 +83,7 @@ export const Signup = () => {
           <div className="h-full hidden  w-3/5 md:flex ">
             <div className=" relative border rounded-lg  w-full h-[-webkit-fill-available] my-1.5 ml-1.5">
               <img
-                className="w-full h-full  object-cover rounded-md"
+                className="w-full h-full vvv object-cover rounded-md"
                 width={1000}
                 height={1000}
                 src={"https://res.cloudinary.com/dnkhkqisg/image/upload/v1714770561/bg_y4tuny.jpg"}
