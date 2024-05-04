@@ -12,15 +12,15 @@ interface Props {
 }
 
 export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
-  const [showPassword, setShowPassword] = useState<boolean>(true);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const [isBlinking, setIsBlinking] = useState<boolean>(false);
 
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const handleClickInsideModal = (event:React.MouseEvent<HTMLDivElement>) => {
-    event.stopPropagation;
-  }
+  const handleClickInsideModal = (event: React.MouseEvent<HTMLDivElement>) => {
+    event.stopPropagation();
+  };
 
   // eye blinking effect
   useEffect(() => {
@@ -114,7 +114,10 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
               </label>
             </div>
             <div className="text-sm justify-end mt-2 font-light gap-2 flex w-full">
-              <p onClick={()=>setShowModal(true)} className="font-medium cursor-pointer text-default_secondary hover:underline">
+              <p
+                onClick={() => setShowModal(true)}
+                className="font-medium cursor-pointer text-default_secondary hover:underline"
+              >
                 Forgot password ?
               </p>
             </div>
@@ -155,15 +158,30 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
 
       {/* forgot password modal */}
 
-      <div onClick={()=> setShowModal(false)} className= {showModal ? "fixed h-screen w-screen flex items-center justify-center cursor-pointer bg-[rgba(0,0,0,0.6)] top-0 left-0" : "hidden"}>
-        <div onClick={handleClickInsideModal} className="bg-white w-[25rem] p-4 rounded h-[13rem]  left-0 items-center z-10 ">
+      <div
+        onClick={() => setShowModal(false)}
+        className={
+          showModal
+            ? "fixed h-screen w-screen flex items-center justify-center cursor-not-allowed bg-[rgba(0,0,0,0.6)] top-0 left-0"
+            : "hidden"
+        }
+      >
+        <div
+          onClick={handleClickInsideModal}
+          className="bg-white w-[25rem] cursor-auto p-4 rounded h-[13rem]  left-0 items-center z-10 "
+        >
           {/* modal head */}
           <div className="flex justify-between items-center">
             <div className="flex flex-wrap">
               <p className="text-xl font-medium">Forgot Password</p>
-              <p className="w-full text-sm">Reset options would be sent to the Email</p>
+              <p className="w-full text-sm">
+                Reset options would be sent to the Email
+              </p>
             </div>
-            <div onClick={()=> setShowModal(false)} className="p-1 rounded-full cursor-pointer  bg-[rgba(0,0,0,0.08)] ">
+            <div
+              onClick={() => setShowModal(false)}
+              className="p-1 rounded-full cursor-pointer  bg-[rgba(0,0,0,0.08)] "
+            >
               <LiaTimesSolid className="text-2xl rounded-full" />
             </div>
           </div>
@@ -171,27 +189,23 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
           {/* moal body */}
 
           <div className="mt-3 ">
+            <input
+              placeholder="Email"
+              type="email"
+              id="email"
+              className={
+                " placeholder:text-black  placeholder:text-opacity-50 font-medium h-10 w-full px-4 bg-inherit border rounded-lg border-black border-opacity-30 outline-none transition duration-300"
+              }
+            />
 
-          <input
-
-            placeholder="Email"
-            type="email"
-            id="email"
-            className={
-              errors.email
-                ? " border-red-700  placeholder:text-black  h-10 w-full px-4 bg-inherit border rounded-lg  border-opacity-50 outline-none   transition duration-300"
-                : " placeholder:text-black  placeholder:text-opacity-50 font-medium h-10 w-full px-4 bg-inherit border rounded-lg border-black border-opacity-30 outline-none transition duration-300"
-            }
-          />
-
-          <div className="mt-3 flex justify-end flex-wrap gap-3 font-semibold">
-            <button
-              type="submit"
-              className=" w-2/5 text-white rounded-lg bg-default_secondary border-black border-opacity-30 px-4  h-12 "
-            >
-              Create account
-            </button>
-          </div>
+            <div className="mt-4 flex justify-end flex-wrap gap-3 font-semibold">
+              <button
+                type="submit"
+                className=" w-3/12 text-white rounded-lg bg-default_secondary border-black border-opacity-30 px-2  h-10 "
+              >
+                Submit
+              </button>
+            </div>
           </div>
         </div>
       </div>

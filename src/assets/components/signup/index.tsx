@@ -17,7 +17,7 @@ import { Login } from "../login";
 
 export const Signup = () => {
   
-  const [showPassword, setShowPassword] = useState<boolean>(true);
+  const [showPassword, setShowPassword] = useState<boolean>(false);
 
   const [isBlinking, setIsBlinking] = useState<boolean>(false);
 
