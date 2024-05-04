@@ -193,7 +193,7 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
             
               placeholder="Email"
               type="email"
-              id="email"
+              id="reset-email"
               className={
                 " placeholder:text-black  placeholder:text-opacity-50 font-medium h-10 w-full px-4 bg-inherit border rounded-lg border-black border-opacity-30 outline-none transition duration-300"
               }
