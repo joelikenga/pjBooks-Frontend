@@ -356,6 +356,7 @@ export const Signup = () => {
                     </div>
                     <div className="flex w-1/2 flex-wrap">
                       <input
+                        placeholder="Date of Birth"
                         type="date"
                         id="dob"
                         {...register("dateOfBirth", {
