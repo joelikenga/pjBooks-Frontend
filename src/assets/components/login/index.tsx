@@ -190,6 +190,7 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
 
           <div className="mt-3 ">
             <input
+            
               placeholder="Email"
               type="email"
               id="email"
