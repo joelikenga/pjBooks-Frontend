@@ -168,7 +168,7 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
       >
         <div
           onClick={handleClickInsideModal}
-          className="bg-white w-[25rem] cursor-auto p-4 rounded h-[13rem]  left-0 items-center z-10 "
+          className="bg-white w-[22rem] md:w-[25rem] cursor-auto p-4 rounded h-[13rem]  left-0 items-center z-10 "
         >
           {/* modal head */}
           <div className="flex justify-between items-center">
