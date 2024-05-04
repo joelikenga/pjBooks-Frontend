@@ -162,7 +162,7 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
         onClick={() => setShowModal(false)}
         className={
           showModal
-            ? "fixed h-screen w-screen flex items-center justify-center cursor-not-allowed bg-[rgba(0,0,0,0.6)] top-0 left-0"
+            ? "reveal fixed h-screen w-screen flex items-center justify-center cursor-not-allowed bg-[rgba(0,0,0,0.6)] top-0 left-0"
             : "hidden"
         }
       >

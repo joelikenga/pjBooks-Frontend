@@ -38,3 +38,20 @@
     transform: translateX(0rem);
   }
 }
+
+
+.reveal {
+  opacity: 1;
+  animation: reveal 500ms ease-out;
+  transition: transform 0.5s,
+    display 0.5s opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
