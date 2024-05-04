@@ -162,25 +162,25 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
         onClick={() => setShowModal(false)}
         className={
           showModal
-            ? "fixed h-screen w-screen flex items-center justify-center cursor-not-allowed bg-[rgba(0,0,0,0.6)] top-0 left-0"
+            ? "reveal fixed h-screen w-screen flex items-center justify-center cursor-not-allowed bg-[rgba(0,0,0,0.6)] top-0 left-0"
             : "hidden"
         }
       >
         <div
           onClick={handleClickInsideModal}
-          className="bg-white w-[25rem] cursor-auto p-4 rounded h-[13rem]  left-0 items-center z-10 "
+          className=" bg-white w-[21rem] md:w-[25rem] cursor-auto p-4 rounded h-[13rem]  left-0 items-center z-10 "
         >
           {/* modal head */}
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between gap-4 items-center">
             <div className="flex flex-wrap">
-              <p className="text-xl font-medium">Forgot Password</p>
+              <p className="text-2xl font-semibold">Forgot Password</p>
               <p className="w-full text-sm">
-                Reset options would be sent to the Email
+                Enter password reset email
               </p>
             </div>
             <div
               onClick={() => setShowModal(false)}
-              className="p-1 rounded-full cursor-pointer  bg-[rgba(0,0,0,0.08)] "
+              className="p-1 rounded-full cursor-pointer  hover:scale-110 duration-300 ease-in-out bg-[rgba(0,0,0,0.08)] "
             >
               <LiaTimesSolid className="text-2xl rounded-full" />
             </div>
@@ -192,7 +192,7 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
             <input
               placeholder="Email"
               type="email"
-              id="email"
+              id="reset-email"
               className={
                 " placeholder:text-black  placeholder:text-opacity-50 font-medium h-10 w-full px-4 bg-inherit border rounded-lg border-black border-opacity-30 outline-none transition duration-300"
               }
