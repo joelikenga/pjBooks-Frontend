@@ -73,12 +73,12 @@ export const Signup = () => {
   }
 
   return (
-    <div className="slideRight h-[100%] flex flex-wrap  justify-center bg-default_primary_2">
+    <div className="slideRight h-[100%] flex flex-wrap  justify-center bg-default_primary_1 md:bg-default_primary_2">
       {/* <Navbar /> */}
 
       <div className="w-full flex justify-center items-center">
         {/* container */}
-        <div className=" overflow-hidden bg-default_primary_1 h-screen md:h-[38rem] w-[65rem] rounded-lg flex items-center justify-between ">
+        <div className=" overflow-hidden bg-default_primary_1 h-[38rem] w-[65rem] rounded-lg flex items-center justify-between ">
           {/* image display section */}
           <div className="h-full hidden  w-3/5 md:flex ">
             <div className=" relative border rounded-lg  w-full h-[-webkit-fill-available] my-1.5 ml-1.5">
