@@ -5,13 +5,13 @@ import warningSvg from "../../svg/warning sign.svg";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { userSignUp, userSignUpSchema } from "../../Schemas/userSignup";
 import { PiEyeClosedLight } from "react-icons/pi";
-import { LiaFemaleSolid, LiaMaleSolid } from "react-icons/lia";
-import { RxCaretSort } from "react-icons/rx";
+// import { LiaFemaleSolid, LiaMaleSolid } from "react-icons/lia";
+// import { RxCaretSort } from "react-icons/rx";
 import { VscEye } from "react-icons/vsc";
 import { useState, useEffect } from "react";
-import { Gender } from "../../Schemas/enums";
+// import { Gender } from "../../Schemas/enums";
 // import { Navbar } from "../global/navbar";
-import { BiMaleFemale } from "react-icons/bi";
+// import { BiMaleFemale } from "react-icons/bi";
 // import photo from "../../img/photo.jpg";
 import { Login } from "../login";
 
@@ -21,21 +21,21 @@ export const Signup = () => {
 
   const [isBlinking, setIsBlinking] = useState<boolean>(false);
 
-  const [genderDropDown, setgenderDropDown] = useState<boolean>(false);
+  // const [genderDropDown, setgenderDropDown] = useState<boolean>(false);
 
-  const [selectedGender, setSelectedGender] = useState<Gender>(Gender.Male);
+  // const [selectedGender, setSelectedGender] = useState<Gender>(Gender.Male);
 
   const [loginToogle, setloginToogle] = useState<boolean>(true);
 
-  let [genderDefaultText, setgenderDefaultText] = useState<string>("Gender");
+  // let [genderDefaultText, setgenderDefaultText] = useState<string>("Gender");
 
   // gender click update
-  const handleGenderClick = (gender: Gender) => {
-    setSelectedGender(gender);
-    setValue("gender", gender, { shouldValidate: true });
-    setgenderDropDown(false);
-    setgenderDefaultText(gender);
-  };
+  // const handleGenderClick = (gender: Gender) => {
+  //   setSelectedGender(gender);
+  //   // setValue("gender", gender, { shouldValidate: true });
+  //   setgenderDropDown(false);
+  //   setgenderDefaultText(gender);
+  // };
 
   // eye blinking effect
   useEffect(() => {
@@ -53,18 +53,18 @@ export const Signup = () => {
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
+    // setValue,
   } = useForm<userSignUp>({ resolver: zodResolver(userSignUpSchema) });
 
   // parsing Date
-  const today = new Date().toISOString().split("T")[0];
-  const parseDate = (dateString: string): Date => {
-    return new Date(dateString);
-  };
+  // const today = new Date().toISOString().split("T")[0];
+  // const parseDate = (dateString: string): Date => {
+  //   return new Date(dateString);
+  // };
 
   // submit handler
   const onSubmit: SubmitHandler<userSignUp> = (data: userSignUp) => {
-    data.gender = selectedGender;
+    // data.gender = selectedGender;
     console.log("formdata", JSON.stringify(data));
   };
 
@@ -73,12 +73,12 @@ export const Signup = () => {
   }
 
   return (
-    <div className="slideRight h-[100%] flex flex-wrap  justify-center bg-default_primary_1 md:bg-default_primary_2">
+    <div className="slideRight h-[100%] flex flex-wrap  justify-center bg-default_primary_2">
       {/* <Navbar /> */}
 
       <div className="w-full flex justify-center items-center">
         {/* container */}
-        <div className=" overflow-hidden bg-default_primary_1 h-[38rem] w-[65rem] rounded-lg flex items-center justify-between ">
+        <div className=" overflow-hidden bg-default_primary_1 min-h-screen  md:h-[38rem] w-[65rem] rounded-lg flex items-center justify-between ">
           {/* image display section */}
           <div className="h-full hidden  w-3/5 md:flex ">
             <div className=" relative border rounded-lg  w-full h-[-webkit-fill-available] my-1.5 ml-1.5">
@@ -298,84 +298,7 @@ export const Signup = () => {
                     </label>
                   </div>
 
-                  <div className="mt-2 flex w-full gap-2 items-center justify-between">
-                    <div className="relative  w-1/3 rounded-lg">
-                      <div
-                        onClick={() => {
-                          setgenderDropDown(!genderDropDown);
-                        }}
-                        className={
-                          errors.gender
-                            ? " border-red-700 border-opacity-30 border cursor-pointer flex  items-center justify-between font-medium h-10 px-3 bg-inherit  rounded-lg  outline-none   transition duration-300"
-                            : " border-black border-opacity-30 border cursor-pointer flex  items-center justify-between font-medium h-10 px-3 bg-inherit  rounded-lg  outline-none   transition duration-300"
-                        }
-                      >
-                        <p className="">{genderDefaultText}</p>
-                        <span className="text-xl">
-                          <RxCaretSort />
-                        </span>
-                      </div>
-                      {genderDropDown && (
-                        <div className="absolute border top-11 left-0 w-full rounded-lg z-10 bg-default_primary_1">
-                          {/* male */}
-                          <div
-                            onClick={() => {
-                              handleGenderClick(Gender.Male);
-                            }}
-                            className=" cursor-pointer m-1 hover:bg-default_primary_2 text-xl  px-1.5 py-1 flex justify-start gap-1 items-center rounded"
-                          >
-                            <LiaMaleSolid />
-                            <p className="text-sm">Male</p>
-                          </div>
-                          {/* female */}
-                          <div
-                            onClick={() => {
-                              handleGenderClick(Gender.Female);
-                            }}
-                            className=" cursor-pointer m-1 hover:bg-default_primary_2 text-xl  px-1.5 py-1 flex justify-start gap-1 items-center rounded"
-                          >
-                            <LiaFemaleSolid />
-                            <p className="text-sm">Female</p>
-                          </div>
-                          {/* other */}
-                          <div
-                            onClick={() => {
-                              handleGenderClick(Gender.Other);
-                            }}
-                            className=" cursor-pointer m-1 hover:bg-default_primary_2 text-xl  px-1.5 py-1 flex justify-start gap-1 items-center rounded"
-                          >
-                            <BiMaleFemale /> <p className="text-sm">Other</p>
-                          </div>
-                        </div>
-                      )}
-                      {errors.gender && (
-                        <div className="text-xs font-normal text-red-700  mt-1 px-2 transition duration-300 input-text">
-                          {errors.gender.message}
-                        </div>
-                      )}
-                    </div>
-                    <div className="flex w-1/2 flex-wrap">
-                      <input
-                        placeholder="Date of Birth"
-                        type="date"
-                        id="dob"
-                        {...register("dateOfBirth", {
-                          setValueAs: (value: string) => parseDate(value),
-                        })}
-                        max={today}
-                        className={
-                          errors.dateOfBirth
-                            ? " border-red-700  placeholder:text-black  h-10 w-full px-4 bg-inherit border rounded-lg  border-opacity-50 outline-none   transition duration-300"
-                            : " placeholder:text-black  placeholder:text-opacity-50 font-medium h-10 w-full px-4 bg-inherit border rounded-lg border-black border-opacity-30 outline-none   transition duration-300"
-                        }
-                      />
-                      {errors.dateOfBirth && (
-                        <div className="text-xs font-normal text-red-700 mt-1 px-2 transition duration-300 input-text">
-                          {errors.dateOfBirth.message}
-                        </div>
-                      )}
-                    </div>
-                  </div>
+
 
                   {/* create account buttons */}
                   <div className="mt-3 flex flex-wrap gap-3 font-semibold">
