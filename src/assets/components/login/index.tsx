@@ -162,7 +162,9 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
         onClick={() => setShowModal(false)}
         className={
           showModal
+
             ? "reveal fixed h-full w-screen flex items-center justify-center cursor-not-allowed bg-[rgba(0,0,0,0.6)] top-0 left-0"
+
             : "hidden"
         }
       >
@@ -171,13 +173,14 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
           className="bg-white w-[20rem] md:w-[25rem] cursor-auto p-4 rounded-lg h-fit  left-0 items-center z-10 "
         >
           {/* modal head */}
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between gap-4 items-center">
             <div className="flex flex-wrap">
               <p className="text-xl font-semibold">Forgot Password</p>
               <p className="w-full text-xs md:text-sm">
                 Reset options would be sent to the Email
               </p>
             </div>
+
 
           </div>
 
