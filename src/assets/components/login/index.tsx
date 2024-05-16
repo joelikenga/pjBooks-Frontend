@@ -6,6 +6,7 @@ import { PiEyeClosedLight } from "react-icons/pi";
 import { VscEye } from "react-icons/vsc";
 import googleSvg from "../../svg/google_svg.svg";
 import { LiaTimesSolid } from "react-icons/lia";
+import Dashboard from "../dashboard/author";
 
 interface Props {
   loginToogleFunction: () => void;
