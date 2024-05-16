@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { Gender, } from "./enums";
+// import { Gender, } from "./enums";
 
 export const userSignUpSchema = z
   .object({
@@ -21,7 +21,7 @@ export const userSignUpSchema = z
       .refine((value) => value.indexOf("@") !== -1, {
         message: "Enter a valid email address",
       }),
-    gender:  z.enum([Gender.Male, Gender.Female, Gender.Other]),
+    // gender:  z.enum([Gender.Male, Gender.Female, Gender.Other]),
     password: z
       .string()
       .min(6, { message: "password length must not be greater than 6" })
@@ -39,7 +39,7 @@ export const userSignUpSchema = z
         (val) => `${val.slice(0, 3)}-${val.slice(3, 6)}-${val.slice(6)}`
       ),
       countryCode: z.string(),
-    dateOfBirth: z.date(),
+    // dateOfBirth: z.date(),
   })
   .refine((data) => data.password === data.confirmPassword, {
     message: "Passwords don't match",
