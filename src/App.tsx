@@ -1,14 +1,12 @@
-import React from "react";
-import { BrowserRouter } from "react-router-dom";
-import AppRoutes from "./routes";
+import { IndexPage } from "."
 
-const App: React.FC = () => {
+function App() {
+
   return (
-    <BrowserRouter>
-      <AppRoutes />
-    </BrowserRouter>
-  );
-};
+    <div className='h-full'>
+      <IndexPage />
+    </div>
+  )
+}
 
-export default App;
-
+export default App

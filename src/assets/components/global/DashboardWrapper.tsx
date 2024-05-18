@@ -1,5 +1,5 @@
 import React, { useState, ReactNode, useEffect } from "react";
-
+import { Link, useLocation } from "react-router-dom";
 import {
   FaHome,
   FaFolderOpen,
@@ -20,10 +20,10 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
-    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
-  // const location = useLocation();
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const location = useLocation();
 
-  // const isRouteActive = (path: string) => location.pathname === path;
+  const isRouteActive = (path: string) => location.pathname === path;
 
 
     useEffect(() => {
@@ -38,6 +38,16 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
     setShowNotification(!showNotification);
   };
 
+    const routeTitles: { [key: string]: string } = {
+      "/dashboard": "Dashboard",
+      "/all-books": "All Books",
+      "/upload-book": "Upload Book",
+      "/book-request": "Book Request",
+      "/logout": "Logout",
+    };
+  
+  const currentTitle = routeTitles[location.pathname] || "Dashboard";
+
   return (
     <div className="flex h-screen bg-gray-100">
       <aside
@@ -47,46 +57,53 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
       >
         <div className="p-4 text-[#0f0d0d]">
           <div className="flex justify-between items-center">
-            <a href="/" className="block mx-auto w-24 h-8">
+            <Link to="/" className="block mx-auto w-24 h-8">
               LOGO
-            </a>
+            </Link>
             <FaTimes
               onClick={() => setSidebarOpen(!sidebarOpen)}
               className="w-6 h-6 md:hidden block"
             />
           </div>
           <nav className="mt-5">
-            <a
-              href="/dashboard"
-              className="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-[#0f0d0d] hover:text-white
-              "
+            <Link
+              to="/dashboard"
+              className={`flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 ${
+                isRouteActive("/dashboard") ? "bg-[#0f0d0d] text-white" : ""
+              }`}
             >
               <FaHome className="mr-3" /> Dashboard
-            </a>
-            <a
-              href="/folders"
-              className="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-[#0f0d0d] hover:text-white"
+            </Link>
+            <Link
+              to="/all-books"
+              className={`flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200  ${
+                isRouteActive("/all-books") ? "bg-[#0f0d0d] text-white" : ""
+              }`}
             >
               <FaFolderOpen className="mr-3" /> All Books
-            </a>
-            <a
-              href="/shared"
-              className="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-[#0f0d0d] hover:text-white"
+            </Link>
+            <Link
+              to="/upload-book"
+              className={`flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 ${
+                isRouteActive("/upload-book") ? "bg-[#0f0d0d] text-white" : ""
+              }`}
             >
               <FaUsers className="mr-3" /> Upload Book
-            </a>
-            <a
-              href="/organisation"
-              className="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-[#0f0d0d] hover:text-white"
+            </Link>
+            <Link
+              to="/book-request"
+              className={`flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 ${
+                isRouteActive("/book-request") ? "bg-[#0f0d0d] text-white" : ""
+              }`}
             >
               <FaUsers className="mr-3" /> Book Request
-            </a>
-            <a
-              href="/logout"
-              className="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-[#0f0d0d] hover:text-white"
+            </Link>
+            <Link
+              to="/logout"
+              className="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200"
             >
               <FaSignOutAlt className="mr-3" /> Log out
-            </a>
+            </Link>
           </nav>
         </div>
       </aside>
@@ -105,8 +122,9 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               )}
             </button>
             <h1 className="text-xl font-semibold text-gray-800">LOGO </h1>
-            <h1 className="text-xl font-bold text-gray-800 sm:block hidden sm:pl-40 pl-0"> Dashboard Title </h1>
-            
+            <h1 className="text-xl font-bold text-gray-800 sm:block hidden sm:pl-40 pl-0">
+              {currentTitle}
+            </h1>
           </div>
 
           <div className="flex items-center space-x-8">
@@ -114,7 +132,6 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               className="text-[#0f0d0d]"
               onClick={handleShowNotificationModal}
             >
-              {/* <input type="search" name="search" id="search" className=" py-2.5 px-3 w-68" /> */}
             </button>
             <button className="text-[#0f0d0d]">
               <FaBell className="w-6 h-6" />
