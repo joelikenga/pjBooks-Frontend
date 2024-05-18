@@ -10,6 +10,7 @@ import {
 import { PiEyeClosedLight } from "react-icons/pi";
 import { VscEye } from "react-icons/vsc";
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 export const ResetPassword = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
@@ -152,12 +153,13 @@ export const ResetPassword = () => {
 
                 {/* create account buttons */}
                 <div className="mt-4 flex justify-between flex-wrap gap-3 font-semibold">
-                  <button
-                    type="submit"
-                    className=" w-fit text-black rounded-lg bg-[rgba(0,0,0,0.3)] border-black border-opacity-30 px-4  h-12 "
+                  <Link
+                    to={"/"}
+                    
+                    className=" w-fit flex items-center text-black rounded-lg bg-[rgba(0,0,0,0.3)] border-black border-opacity-30 px-4  h-12 "
                   >
-                    Cancel
-                  </button>
+                    <button type="button">Cancel</button>
+                  </Link>
 
                   <button
                     type="submit"
