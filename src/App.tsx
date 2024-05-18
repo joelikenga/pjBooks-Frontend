@@ -1,14 +1,14 @@
-import { IndexPage } from "."
-import Dashboard from "./assets/components/dashboard/author"
+import React from "react";
+import { BrowserRouter } from "react-router-dom";
+import AppRoutes from "./routes";
 
-function App() {
-
+const App: React.FC = () => {
   return (
-    <div className='h-full'>
-      {/* <IndexPage /> */}
-      <Dashboard />
-    </div>
-  )
-}
+    <BrowserRouter>
+      <AppRoutes />
+    </BrowserRouter>
+  );
+};
 
-export default App
+export default App;
+

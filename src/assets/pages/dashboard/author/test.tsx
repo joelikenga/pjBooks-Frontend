@@ -28,6 +28,16 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
     setShowNotification(!showNotification);
   };
 
+  const routeTitles: { [key: string]: string } = {
+    "/dashboard": "Dashboard",
+    "/folders": "Folders",
+    "/shared": "Shared with me",
+    "/organisation": "Organisation",
+    "/logout": "Logout",
+  };
+
+  const currentTitle = routeTitles[location.pathname] || "Dashboard";
+
   return (
     <div className="flex h-screen bg-gray-100">
       <aside
@@ -36,12 +46,20 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
         } md:relative md:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
         <div className="p-4 text-white">
-          <Link to="/" className="block mx-auto w-24 h-8 bg-gray-200">
-            <img
-              src="https://trustdoc-s3.s3.eu-west-1.amazonaws.com/TrustDoc_Logo.png"
-              alt="logo"
-            />
-          </Link>
+          <div className="flex justify-between items-center mb-4">
+            <Link to="/" className="block mx-auto w-24 h-8 bg-gray-200">
+              <img
+                src="https://trustdoc-s3.s3.eu-west-1.amazonaws.com/TrustDoc_Logo.png"
+                alt="logo"
+              />
+            </Link>
+            <button
+              className="md:hidden text-white"
+              onClick={() => setSidebarOpen(false)}
+            >
+              <FaTimes className="w-6 h-6" />
+            </button>
+          </div>
           <nav className="mt-5">
             <Link
               to="/dashboard"
@@ -98,7 +116,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               )}
             </button>
             <h1 className="text-xl font-semibold text-gray-800">
-              Dashboard Header
+              {currentTitle}
             </h1>
           </div>
           <div className="flex items-center space-x-4">

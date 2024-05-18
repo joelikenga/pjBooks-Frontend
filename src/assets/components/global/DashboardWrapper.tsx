@@ -1,5 +1,5 @@
 import React, { useState, ReactNode, useEffect } from "react";
-import { a, useLocation } from "react-router-dom";
+
 import {
   FaHome,
   FaFolderOpen,
@@ -41,7 +41,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
   return (
     <div className="flex h-screen bg-gray-100">
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#c7c6c4] transform ${
+        className={`fixed inset-y-0 left-0 -z-0 w-64 bg-[#eee] shadow-lg shadow-black transform ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:relative md:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
@@ -104,7 +104,9 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
                 <FaBars className="w-6 h-6" />
               )}
             </button>
-            <h1 className="text-xl font-semibold text-gray-800">LOGO</h1>
+            <h1 className="text-xl font-semibold text-gray-800">LOGO </h1>
+            <h1 className="text-xl font-bold text-gray-800 sm:block hidden sm:pl-40 pl-0"> Dashboard Title </h1>
+            
           </div>
 
           <div className="flex items-center space-x-8">
