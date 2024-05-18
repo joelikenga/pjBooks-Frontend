@@ -1,5 +1,6 @@
 import DashboardWrapper from "../../global/DashboardWrapper"
 import Card from "./card";
+import UploadBooks from "./uploadBooks";
 
 
 
@@ -15,7 +16,8 @@ const Dashboard = () => {
         <Card title="Total Books" value={totalBooks} />
         <Card title="Total Books Approved" value={approved} />
           <Card title="Total Readers" value={totalReaders} />
-          </div>
+        </div>
+        {/* <UploadBooks /> */}
       </DashboardWrapper>
     </>
   );
