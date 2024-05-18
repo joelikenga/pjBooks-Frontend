@@ -171,46 +171,50 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
           className="bg-white w-[20rem] md:w-[25rem] cursor-auto p-4 rounded-lg h-fit  left-0 items-center z-10 "
         >
           {/* modal head */}
-          <div className="flex justify-between items-center">
-            <div className="flex flex-wrap">
-              <p className="text-xl font-semibold">Forgot Password</p>
-              <p className="w-full text-xs md:text-sm">
-                Reset options would be sent to the Email
-              </p>
+
+          {
+            <div>
+              <div className="flex justify-between items-center">
+                <div className="flex flex-wrap">
+                  <p className="text-xl font-semibold">Forgot Password</p>
+                  <p className="w-full text-xs md:text-sm">
+                    Reset options would be sent to the Email
+                  </p>
+                </div>
+              </div>
+
+              {/* modal body  */}
+
+              <div className="mt-2 ">
+                <input
+                  placeholder="Email"
+                  autoFocus
+                  type="email"
+                  id="reset-email"
+                  className={
+                    " placeholder:text-black  placeholder:text-opacity-50 font-medium h-9 md:h-10 w-full px-4 bg-inherit border rounded-lg border-black border-opacity-30 outline-none transition duration-300"
+                  }
+                />
+
+                <div className="mt-4 flex justify-between flex-wrap gap-3 font-semibold">
+                  <button
+                    onClick={() => setShowModal(false)}
+                    type="submit"
+                    className=" w-3/12 text-sm md:text-base text-black rounded-lg bg-default_primary_2 border-black border-opacity-30 md:px-2 px-1.5 md:h-10 h-8"
+                  >
+                    Cancel
+                  </button>
+
+                  <button
+                    type="submit"
+                    className=" w-3/12 text-sm md:text-base text-white rounded-lg bg-default_secondary border-black border-opacity-30 md:px-2 px-1.5 md:h-10 h-8"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </div>
             </div>
-
-          </div>
-
-          {/* moal body */}
-
-          <div className="mt-2 ">
-            <input
-              placeholder="Email"
-              autoFocus
-              type="email"
-              id="reset-email"
-              className={
-                " placeholder:text-black  placeholder:text-opacity-50 font-medium h-9 md:h-10 w-full px-4 bg-inherit border rounded-lg border-black border-opacity-30 outline-none transition duration-300"
-              }
-            />
-
-            <div className="mt-4 flex justify-between flex-wrap gap-3 font-semibold">
-              <button
-                onClick={() => setShowModal(false)}
-                type="submit"
-                className=" w-3/12 text-sm md:text-base text-black rounded-lg bg-default_primary_2 border-black border-opacity-30 md:px-2 px-1.5 md:h-10 h-8"
-              >
-                Cancel
-              </button>
-
-              <button
-                type="submit"
-                className=" w-3/12 text-sm md:text-base text-white rounded-lg bg-default_secondary border-black border-opacity-30 md:px-2 px-1.5 md:h-10 h-8"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
+          }
         </div>
       </div>
     </div>
