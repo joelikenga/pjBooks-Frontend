@@ -6,6 +6,8 @@ import { PiEyeClosedLight } from "react-icons/pi";
 import { VscEye } from "react-icons/vsc";
 import googleSvg from "../../svg/google_svg.svg";
 import { LiaTimesSolid } from "react-icons/lia";
+import mailImage from "../../img/email.png";
+import { TbExternalLink } from "react-icons/tb";
 
 interface Props {
   loginToogleFunction: () => void;
@@ -17,6 +19,8 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
   const [isBlinking, setIsBlinking] = useState<boolean>(false);
 
   const [showModal, setShowModal] = useState<boolean>(false);
+
+  const [submit, setSubmit] = useState<boolean>(true);
 
   const handleClickInsideModal = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
@@ -159,7 +163,9 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
       {/* forgot password modal */}
 
       <div
-        onClick={() => setShowModal(false)}
+        onClick={() => {
+          setShowModal(false);
+        }}
         className={
           showModal
             ? "reveal fixed h-full w-screen flex items-center justify-center cursor-not-allowed bg-[rgba(0,0,0,0.6)] top-0 left-0"
@@ -172,49 +178,70 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
         >
           {/* modal head */}
 
-          {
-            <div>
-              <div className="flex justify-between items-center">
-                <div className="flex flex-wrap">
-                  <p className="text-xl font-semibold">Forgot Password</p>
-                  <p className="w-full text-xs md:text-sm">
-                    Reset options would be sent to the Email
-                  </p>
-                </div>
-              </div>
-
-              {/* modal body  */}
-
-              <div className="mt-2 ">
-                <input
-                  placeholder="Email"
-                  autoFocus
-                  type="email"
-                  id="reset-email"
-                  className={
-                    " placeholder:text-black  placeholder:text-opacity-50 font-medium h-9 md:h-10 w-full px-4 bg-inherit border rounded-lg border-black border-opacity-30 outline-none transition duration-300"
-                  }
-                />
-
-                <div className="mt-4 flex justify-between flex-wrap gap-3 font-semibold">
-                  <button
-                    onClick={() => setShowModal(false)}
-                    type="submit"
-                    className=" w-3/12 text-sm md:text-base text-black rounded-lg bg-default_primary_2 border-black border-opacity-30 md:px-2 px-1.5 md:h-10 h-8"
-                  >
-                    Cancel
-                  </button>
-
-                  <button
-                    type="submit"
-                    className=" w-3/12 text-sm md:text-base text-white rounded-lg bg-default_secondary border-black border-opacity-30 md:px-2 px-1.5 md:h-10 h-8"
-                  >
-                    Submit
-                  </button>
-                </div>
+          <div>
+            <div className="flex justify-between items-center">
+              <div className="flex flex-wrap">
+                <p className="text-xl font-semibold">Forgot Password</p>
+                <p className="w-full text-xs md:text-sm">
+                  Reset options would be sent to the Email
+                </p>
               </div>
             </div>
-          }
+
+            {/* modal body  */}
+
+            <div className="mt-2 ">
+              <input
+                placeholder="Email"
+                autoFocus
+                type="email"
+                id="reset-email"
+                className={
+                  " placeholder:text-black  placeholder:text-opacity-50 font-medium h-9 md:h-10 w-full px-4 bg-inherit border rounded-lg border-black border-opacity-30 outline-none transition duration-300"
+                }
+              />
+
+              <div className="mt-4 flex justify-between flex-wrap gap-3 font-semibold">
+                <button
+                  onClick={() => setShowModal(false)}
+                  type="submit"
+                  className=" w-3/12 text-sm md:text-base text-black rounded-lg bg-default_primary_2 border-black border-opacity-30 md:px-2 px-1.5 md:h-10 h-8"
+                >
+                  Cancel
+                </button>
+
+                <button
+                  type="submit"
+                  className=" w-3/12 text-sm md:text-base text-white rounded-lg bg-default_secondary border-black border-opacity-30 md:px-2 px-1.5 md:h-10 h-8"
+                >
+                  Submit
+                </button>
+              </div>
+            </div>
+          </div>
+
+          {/* after mail is sent */}
+
+          {/* <div className="flex justify-center w-full my-3 ">
+
+            //   <div className=" w-[80%] flex-wrap flex justify-center items-center">
+            //     <img src={mailImage} className="w-[5rem]" />
+             
+
+            //   <div className=" mt-4 mb-2 flex justify-center w-full">
+            //     <p className="text-lg font-semibold">Check your email</p>
+            //   </div>
+
+            //   <p className=" mb-5 text-center text-sm font-medium">We've sent a password recovery instruction to <i>pengfave@gmail.com</i></p>
+
+            //   <div className="border w-full flex gap-2 justify-center text-base items-center h-[2.5rem] rounded-lg font-semibold">
+            //     <p>Open Mail</p>
+            //     <TbExternalLink />
+            //   </div>
+
+            //   </div>
+
+             </div> */}
         </div>
       </div>
     </div>
