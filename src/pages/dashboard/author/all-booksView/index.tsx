@@ -1,6 +1,6 @@
 import React from "react";
 import DashboardWrapper from "../../../../components/global/DashboardWrapper";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash } fro../../components/global/DashboardWrapper
 
 const AllBooks: React.FC = () => {
   interface Book {

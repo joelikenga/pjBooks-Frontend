@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import DashboardWrapper from "../../../../components/global/DashboardWrapper";
+import DashboardWrapper from "../../components/global/DashboardWrapper";
 
 interface BookRequest {
   id: number;

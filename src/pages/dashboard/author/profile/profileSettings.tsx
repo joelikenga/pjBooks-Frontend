@@ -1,4 +1,4 @@
-import DashboardWrapper from "../../../../components/global/DashboardWrapper";
+import DashboardWrapper from "../../components/global/DashboardWrapper";
 import React, { useState } from "react";
 
 const ProfileSettings: React.FC = () => {
