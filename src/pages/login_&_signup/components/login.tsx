@@ -1,13 +1,13 @@
-import { userLoginSchema } from "../../Schemas/userLogin";
+import { userLoginSchema } from "../../../Schemas/userLogin";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { PiEyeClosedLight } from "react-icons/pi";
 import { VscEye } from "react-icons/vsc";
-import googleSvg from "../../svg/google_svg.svg";
-import { LiaTimesSolid } from "react-icons/lia";
-import mailImage from "../../img/email.png";
-import { TbExternalLink } from "react-icons/tb";
+import googleSvg from "../../../assets/svg/google_svg.svg";
+// import { LiaTimesSolid } from "react-icons/lia";
+// import mailImage from "../../img/email.png";
+// import { TbExternalLink } from "react-icons/tb";
 
 interface Props {
   loginToogleFunction: () => void;
@@ -20,7 +20,7 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
 
   const [showModal, setShowModal] = useState<boolean>(false);
 
-  const [submit, setSubmit] = useState<boolean>(true);
+  // const [submit, setSubmit] = useState<boolean>(true);
 
   const handleClickInsideModal = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();

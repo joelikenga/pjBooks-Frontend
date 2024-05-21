@@ -1,5 +1,5 @@
 import React from "react";
-import DashboardWrapper from "../../components/global/DashboardWrapper";
+import DashboardWrapper from "../../../../components/global/DashboardWrapper";
 import { Link } from "react-router-dom";
 
 const ProfilePage: React.FC = () => {

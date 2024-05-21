@@ -1,5 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Signup } from "./pages/signup";
+import {Userauth } from "./pages/login_&_signup";
 import { ResetPassword } from "./pages/resetPassword/components";
 import Dashboard from "./pages/dashboard/author";
 import UploadBooks from "./pages/dashboard/author/uploadView"
@@ -8,14 +8,19 @@ import ProfilePage from "./pages/dashboard/author/profile";
 import ProfileSettings from "./pages/dashboard/author/profile/profileSettings";
 import BookRequest from "./pages/dashboard/author/book request";
 import NotFound from "./pages/not-found";
+import { Homepage } from "./pages/homepage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Signup />,
+    element: <Homepage />,
     errorElement: <NotFound />,
   },
 
+  {
+    path: "login",
+    element: <Userauth />,
+  },
   {
     path: "resetPassword",
     element: <ResetPassword />,

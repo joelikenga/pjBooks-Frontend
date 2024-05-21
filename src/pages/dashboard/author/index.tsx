@@ -1,6 +1,6 @@
 import RecentBooksTable from "../../../components/dashboardComp/RecentBooksTable";
-import DashboardWrapper from "../components/dashboardComp/RecentBooksTable
-import Card from "./card";../components/global/DashboardWrapper
+import DashboardWrapper from "../../../components/global/DashboardWrapper";
+import Card from "./card";
 
 
 const Dashboard = () => {

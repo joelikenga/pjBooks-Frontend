@@ -1,4 +1,4 @@
-import DashboardWrapper from "../../components/global/DashboardWrapper";
+import DashboardWrapper from "../../../../components/global/DashboardWrapper";
 import { useState } from "react";
 
 const UploadBooks: React.FC = () => {
