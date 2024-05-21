@@ -37,7 +37,7 @@ const books: Book[] = [
 
 const RecentBooksTable: React.FC = () => {
   return (
-    <div className="overflow-x-hidden">
+    <div className="overflow-x-none">
       <table className="min-w-full bg-white">
         <thead>
           <tr>

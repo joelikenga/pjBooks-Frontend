@@ -48,7 +48,7 @@ const AllBooks: React.FC = () => {
         <div className="mb-4">
           <input
             type="search"
-            className="w-4/5 py-2 px-2.5 bg-gray-100 border border-black rounded-md"
+            className="w-4/5 py-2 px-2.5 border border-black rounded-md"
             placeholder="Search book ..."
           />
         </div>

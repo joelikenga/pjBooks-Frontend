@@ -54,7 +54,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
   return (
     <div className="flex h-screen bg-gray-100">
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#eee] shadow-lg shadow-black transform ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#eee] border-r-2 transform ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:relative md:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
@@ -175,7 +175,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
           </div>
         </header>
         <main
-          className="flex-1 overflow-y-auto mt-10 p-4"
+          className="flex-1 overflow-y-auto mt-10 p-4 bg-white"
           onMouseOver={() => {
             setShowNotification(false);
             setShowProfileMenu(false);
