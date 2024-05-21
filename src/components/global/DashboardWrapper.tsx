@@ -1,5 +1,5 @@
 import React, { useState, ReactNode, useEffect } from "react";
-import '../../img/logoBG.png'
+// import '../../img/logoBG.png';
 import { Link, useLocation } from "react-router-dom";
 import {
   FaHome,

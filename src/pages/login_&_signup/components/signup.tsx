@@ -1,9 +1,9 @@
 import { SubmitHandler, useForm } from "react-hook-form";
-import googleSvg from "../../svg/google_svg.svg";
-import mismatchSvg from "../../svg/passwordMismatch.svg";
-import warningSvg from "../../svg/warning sign.svg";
+import googleSvg from "../../../assets/svg/google_svg.svg";
+import mismatchSvg from "../../../assets/svg/passwordMismatch.svg";
+import warningSvg from "../../../assets/svg/warning sign.svg";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { userSignUp, userSignUpSchema } from "../../Schemas/userSignup";
+import { userSignUp, userSignUpSchema } from "../../../Schemas/userSignup";
 import { PiEyeClosedLight } from "react-icons/pi";
 // import { LiaFemaleSolid, LiaMaleSolid } from "react-icons/lia";
 // import { RxCaretSort } from "react-icons/rx";
@@ -13,7 +13,7 @@ import { useState, useEffect } from "react";
 // import { Navbar } from "../global/navbar";
 // import { BiMaleFemale } from "react-icons/bi";
 // import photo from "../../img/photo.jpg";
-import { Login } from "../login";
+import { Login } from "./login";
 
 export const Signup = () => {
   

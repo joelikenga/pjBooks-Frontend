@@ -1,21 +1,26 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Signup } from "./assets/pages/signup";
-import { ResetPassword } from "./assets/pages/resetPassword/components";
-import Dashboard from "./assets/pages/dashboard/author";
-import UploadBooks from "./assets/pages/dashboard/author/uploadView"
-import AllBooks from "./assets/pages/dashboard/author/all-booksView";
-import ProfilePage from "./assets/pages/dashboard/author/profile";
-import ProfileSettings from "./assets/pages/dashboard/author/profile/profileSettings";
-import BookRequest from "./assets/pages/dashboard/author/book request";
-import NotFound from "./assets/pages/not-found";
+import {Userauth } from "./pages/login_&_signup";
+import { ResetPassword } from "./pages/resetPassword/components";
+import Dashboard from "./pages/dashboard/author";
+import UploadBooks from "./pages/dashboard/author/uploadView"
+import AllBooks from "./pages/dashboard/author/all-booksView";
+import ProfilePage from "./pages/dashboard/author/profile";
+import ProfileSettings from "./pages/dashboard/author/profile/profileSettings";
+import BookRequest from "./pages/dashboard/author/book request";
+import NotFound from "./pages/not-found";
+import { Homepage } from "./pages/homepage";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Signup />,
+    element: <Homepage />,
     errorElement: <NotFound />,
   },
 
+  {
+    path: "login",
+    element: <Userauth />,
+  },
   {
     path: "resetPassword",
     element: <ResetPassword />,

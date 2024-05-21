@@ -1,6 +1,6 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 // import googleSvg from "../../../svg/google_svg.svg";
-import mismatchSvg from "../../../svg/passwordMismatch.svg";
+import mismatchSvg from "../../../assets/svg/passwordMismatch.svg";
 // import warningSvg from "../../../svg/warning sign.svg";
 import { zodResolver } from "@hookform/resolvers/zod";
 import {
