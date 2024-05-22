@@ -1,11 +1,11 @@
 import React, { useState, ReactNode, useEffect } from "react";
+// import '../../img/logoBG.png';
 import { Link, useLocation } from "react-router-dom";
 import {
   FaHome,
   FaFolderOpen,
   FaUsers,
   FaBell,
-  FaSearch,
   FaUserAlt,
   FaBars,
   FaSignOutAlt,
@@ -25,33 +25,36 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
 
   const isRouteActive = (path: string) => location.pathname === path;
 
+  useEffect(() => {
+    const handleResize = () => setScreenWidth(window.innerWidth);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [screenWidth]);
 
-    useEffect(() => {
-      const handleResize = () => setScreenWidth(window.innerWidth);
-      window.addEventListener("resize", handleResize);
-      console.log(screenWidth);
-      return () => window.removeEventListener("resize", handleResize);
-    }, [screenWidth]);
-
-
-  const handleShowNotificationModal = () => {
-    setShowNotification(!showNotification);
+  const toggleNotification = () => {
+    setShowNotification((prev) => !prev);
+    setShowProfileMenu(false);
   };
 
-    const routeTitles: { [key: string]: string } = {
-      "/dashboard": "Dashboard",
-      "/all-books": "All Books",
-      "/upload-book": "Upload Book",
-      "/book-request": "Book Request",
-      "/logout": "Logout",
-    };
-  
+  const toggleProfileMenu = () => {
+    setShowProfileMenu((prev) => !prev);
+    setShowNotification(false);
+  };
+
+  const routeTitles: { [key: string]: string } = {
+    "/dashboard": "Dashboard",
+    "/all-books": "All Books",
+    "/upload-book": "Upload Book",
+    "/book-request": "Book Request",
+    "/logout": "Logout",
+  };
+
   const currentTitle = routeTitles[location.pathname] || "Dashboard";
 
   return (
     <div className="flex h-screen bg-gray-100">
       <aside
-        className={`fixed inset-y-0 left-0 -z-0 w-64 bg-[#eee] shadow-lg shadow-black transform ${
+        className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#eee] shadow-lg shadow-black transform ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:relative md:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
@@ -107,7 +110,6 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
           </nav>
         </div>
       </aside>
-      {/*-------------------------------------------- Dashboard Header--------------------------------------------- */}
       <div className="flex-1 flex flex-col">
         <header className="fixed w-full top-0 left-0 z-40 bg-[#eee] shadow-md flex justify-between items-center p-4">
           <div className="flex items-center space-x-4">
@@ -122,30 +124,58 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               )}
             </button>
             <h1 className="text-xl font-semibold text-gray-800">LOGO </h1>
-            <h1 className="text-xl font-bold text-gray-800 sm:block hidden sm:pl-40 pl-0">
+            <h1 className="text-xl font-bold text-gray-800 sm:block hidden sm:pl-44 pl-0">
               {currentTitle}
             </h1>
           </div>
-
-          <div className="flex items-center space-x-8">
-            <button
-              className="text-[#0f0d0d]"
-              onClick={handleShowNotificationModal}
-            >
-            </button>
-            <button className="text-[#0f0d0d]">
+          <div className="relative flex items-center space-x-8">
+            <button className="text-[#0f0d0d]" onClick={toggleNotification}>
               <FaBell className="w-6 h-6" />
             </button>
-            <button
-              className="text-[#0f0d0d]"
-              onClick={() => setShowProfileMenu(!showProfileMenu)}
-            >
+            {showNotification && (
+              <div className="absolute right-0 mt-2 w-64 top-8 bg-white shadow-lg rounded-md z-50">
+                
+                <Link
+                  to="/notifications"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  View All Notifications
+                </Link>
+                <div className="px-4 py-2 text-sm text-gray-700">
+                  No new notifications
+                </div>
+              </div>
+            )}
+            <button className="text-[#0f0d0d] flex items-center gap-2" onClick={toggleProfileMenu}>
               <FaUserAlt className="w-6 h-6" />
+              <div className="sm:block hidden font-semibold">Welcome User</div>
             </button>
+            {showProfileMenu && (
+              <div className="absolute right-0 mt-2 w-32 top-8 bg-white shadow-lg rounded-md z-50">
+                <Link
+                  to="/profile"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  Profile
+                </Link>
+                <Link
+                  to="/settings"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  Settings
+                </Link>
+                <Link
+                  to="/logout"
+                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                >
+                  Logout
+                </Link>
+              </div>
+            )}
           </div>
         </header>
         <main
-          className="flex-1 overflow-y-auto mt-16 p-6"
+          className="flex-1 overflow-y-auto mt-10 p-4"
           onMouseOver={() => {
             setShowNotification(false);
             setShowProfileMenu(false);
