@@ -95,7 +95,7 @@ export const Hero = () => {
                 </div>
             </div>
           {/* cards container container */}
-          <div className=" w-[32rem] h-full md:h-[32rem] overflow-hidden md:rounded-full  flex flex-nowrap justify-between items-center ">
+          <div className=" w-[32rem] h-full md:h-[32rem] overflow-hidden md:rounded-lg flex flex-nowrap justify-between items-center ">
             {/* animate card 1 */}
 
             <div className="animate-up w-1/3 h-[3rem]  flex flex-wrap items-center gap-2">
