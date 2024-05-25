@@ -2,13 +2,35 @@ import { useState } from "react";
 import { BsArrowRight, BsSearch } from "react-icons/bs";
 import { LiaTimesSolid } from "react-icons/lia";
 export const Navbar = () => {
+  // states
   const [openSearch, SetOpenSearch] = useState<boolean>(false);
   const [openProfile, SetOpenProfile] = useState<boolean>(false);
+  // prpoagation
   const handleClickInsideModal = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
   };
+  // functions
+  const searchClick = () =>{
+    if (openProfile) {
+      SetOpenProfile(false);
+      SetOpenSearch(true)
+    } else {
+      SetOpenSearch(true)
+
+    }
+  }
+
+  const profileClick = () =>{
+    if (openSearch) {
+      SetOpenProfile(true);
+      SetOpenSearch(false)
+    }else {
+      SetOpenProfile(true);
+
+    }
+  }
   return (
-    <nav className="  gap-2 p-4 border-b border-default_primary_2 mb- flex justify-between items-center max-w-full w-full">
+    <nav className=" fixed top-[-1px] z-20 backdrop-blur-sm md:bg-white  gap-2 p-4 border-b border-default_primary_2 mb- flex justify-between items-center max-w-full w-full">
       <p className="font-bold md:text-xl">PJ Books</p>
 
       {/* search section */}
@@ -16,7 +38,7 @@ export const Navbar = () => {
       <div>
         <div
           className={"drop-shadow h-fit flex bg-white rounded p-1 items-center md:p-2 "}
-          onClick={() => SetOpenSearch(true)}
+          onClick={searchClick}
         >
           <button
             className={
@@ -40,8 +62,8 @@ export const Navbar = () => {
 
       {openSearch && (
         <div
-          onClick={() => SetOpenSearch(false)}
-          className=" reveal cursor-not-allowed z-10 overflow-y-hidden flex justify-evenly items- backdrop-blur-sm absolute bg-[rgba(0,0,0,0.8)] top-0 left-0 h-full w-full"
+          onClick={profileClick}
+          className=" reveal cursor-not-allowed z-40 overflow-y-hidden flex justify-evenly items- backdrop-blur-sm absolute bg-[rgba(0,0,0,0.8)] top-0 left-0 min-h-screen w-full"
         >
           <div
             onClick={handleClickInsideModal}
@@ -65,6 +87,7 @@ export const Navbar = () => {
                   <div
                     onClick={() => {
                       SetOpenSearch(false);
+                      SetOpenProfile(false)
                     }}
                     className=" cursor-pointer rounded text-base md:text-xl bg-default_secondary text-white p-2 mr-2"
                   >
