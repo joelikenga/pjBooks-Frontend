@@ -76,15 +76,33 @@
 
 .animate-up{
   animation-name: animate-up;
-  animation-duration: 4s;
+  animation-duration: 20s;
   animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
 }
 
 @keyframes animate-up {
   0% {
-    transform: translatey(100%);
+    transform: translatey(-600%);
   }
   100% {
-    transform: translatey(-1000%);
+    transform: translatey(-3000%);
+  }
+}
+
+.animate-down{
+  animation-name: animate-down;
+  animation-duration: 20s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate-reverse;
+
+}
+
+@keyframes animate-down {
+  0% {
+    transform: translatey(-3000%);
+  }
+  100% {
+    transform: translatey(-600%);
   }
 }

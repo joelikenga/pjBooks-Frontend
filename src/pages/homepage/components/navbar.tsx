@@ -41,7 +41,7 @@ export const Navbar = () => {
       {openSearch && (
         <div
           onClick={() => SetOpenSearch(false)}
-          className=" reveal cursor-not-allowed flex justify-evenly items- backdrop-blur-sm absolute bg-[rgba(0,0,0,0.8)] top-0 left-0 h-screen w-screen"
+          className=" reveal cursor-not-allowed z-10 overflow-y-hidden flex justify-evenly items- backdrop-blur-sm absolute bg-[rgba(0,0,0,0.8)] top-0 left-0 h-full w-full"
         >
           <div
             onClick={handleClickInsideModal}
@@ -95,7 +95,7 @@ export const Navbar = () => {
         </p>
       </div>
       {/* user side dropdown */}
-      {openProfile && <div onMouseLeave={()=>{SetOpenProfile(false)}} className="reveal absolute w-[20rem] h-fit border drop-shadow-md bg-white right-4 top-[5rem] rounded">
+      {openProfile && <div onMouseLeave={()=>{SetOpenProfile(false)}} className="reveal z-10 absolute w-[20rem] h-fit border drop-shadow-md bg-white right-4 top-[5rem] rounded">
         <div className="flex justify-start items-center p-4  gap-2 border-b cursor-pointer">
           <div className="text-2xl text-black bg-default_primary_2 rounded-full p-2.5 cursor-pointer">
             <p className="w-[2rem]  flex justify-center items-center font-semibold h-[2rem]">
