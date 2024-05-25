@@ -168,7 +168,7 @@ export const Login: React.FC<Props> = ({ loginToogleFunction }) => {
         }}
         className={
           showModal
-            ? "reveal fixed h-full w-screen flex items-center justify-center cursor-not-allowed bg-[rgba(0,0,0,0.6)] top-0 left-0"
+            ? "backdrop-blur-sm reveal fixed h-full w-screen flex items-center justify-center cursor-not-allowed bg-[rgba(0,0,0,0.6)] top-0 left-0"
             : "hidden"
         }
       >

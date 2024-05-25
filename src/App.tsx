@@ -3,7 +3,7 @@ import { IndexPage } from "."
 function App() {
 
   return (
-    <div className='h-full'>
+    <div className='max-w-full w-full'>
       <IndexPage />
     </div>
   )
