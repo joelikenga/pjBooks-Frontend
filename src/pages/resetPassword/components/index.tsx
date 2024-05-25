@@ -17,7 +17,7 @@ export const ResetPassword = () => {
 
   const [isBlinking, setIsBlinking] = useState<boolean>(false);
 
-  const [loginToogle, setloginToogle] = useState<boolean>(true);
+  // const [loginToogle, setloginToogle] = useState<boolean>(true);
 
   // eye blinking effect
   useEffect(() => {
@@ -46,9 +46,9 @@ export const ResetPassword = () => {
     console.log("formdata", JSON.stringify(data));
   };
 
-  const loginToogleFunction = () => {
-    setloginToogle(!loginToogle);
-  };
+  // const loginToogleFunction = () => {
+  //   setloginToogle(!loginToogle);
+  // };
 
   return (
     <div className="slideRight h-[100%] flex flex-wrap  justify-center bg-default_primary_2">
