@@ -1,7 +1,24 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+  
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
 
 .from-left {
   opacity: 1;
@@ -44,7 +61,7 @@
   opacity: 1;
   animation: reveal 500ms ease-out;
   transition: transform 0.5s,
-    display 0.5s opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+    /* display 0.5s opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1); */
 }
 
 @keyframes reveal {
@@ -57,3 +74,17 @@
 
 }
 
+.animate-up{
+  animation-name: animate-up;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animate-up {
+  0% {
+    transform: translatey(100%);
+  }
+  100% {
+    transform: translatey(-1000%);
+  }
+}
