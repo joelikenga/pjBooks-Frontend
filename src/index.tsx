@@ -58,7 +58,7 @@ const router = createBrowserRouter([
 
 export const IndexPage = () => {
   return (
-    <div className="h-screen w-screen">
+    <div className=" max-w-full w-full">
       <RouterProvider router={router} />
     </div>
   );
