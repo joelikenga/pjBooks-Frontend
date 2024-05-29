@@ -9,6 +9,7 @@ import ProfileSettings from "./pages/dashboard/author/profile/profileSettings";
 import BookRequest from "./pages/dashboard/author/book request";
 import NotFound from "./pages/not-found";
 import { Homepage } from "./pages/homepage";
+import BookDetail from "./pages/dashboard/author/all-booksView/BookDetails";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
   {
     path: "all-books",
     element: <AllBooks />,
+  },
+  {
+    path: "/books/:id",
+    element: <BookDetail  />,
   },
   {
     path: "profile",
