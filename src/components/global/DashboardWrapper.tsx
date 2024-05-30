@@ -1,12 +1,10 @@
 import React, { useState, ReactNode, useEffect } from "react";
-// import '../../img/logoBG.png';
 import { Link, useLocation } from "react-router-dom";
 import {
   FaHome,
   FaFolderOpen,
   FaUsers,
   FaBell,
-  FaUserAlt,
   FaBars,
   FaSignOutAlt,
   FaTimes,
@@ -46,15 +44,28 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
     "/all-books": "All Books",
     "/upload-book": "Upload Book",
     "/book-request": "Book Request",
-    "/logout": "Logout",
   };
 
+  
   const currentTitle = routeTitles[location.pathname] || "Dashboard";
 
+
+  const closeSidebarOnOutsideClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if ((e.target as Element).closest(".sidebar") === null) {
+      setSidebarOpen(false);
+    }
+  };
+
   return (
-    <div className="flex h-screen bg-gray-100">
+    <div className="flex h-screen bg-gray-100 relative">
+      {sidebarOpen && (
+        <div
+          className="fixed inset-0 z-40 bg-black opacity-50 md:hidden"
+          onClick={closeSidebarOnOutsideClick}
+        ></div>
+      )}
       <aside
-        className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#eee] shadow-lg shadow-black transform ${
+        className={`sidebar fixed inset-y-0 left-0 z-50 w-64 bg-[#eee] border-r-2 transform ${
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:relative md:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
@@ -101,12 +112,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
             >
               <FaUsers className="mr-3" /> Book Request
             </Link>
-            <Link
-              to="/logout"
-              className="flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200"
-            >
-              <FaSignOutAlt className="mr-3" /> Log out
-            </Link>
+           
           </nav>
         </div>
       </aside>
@@ -134,7 +140,6 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
             </button>
             {showNotification && (
               <div className="absolute right-0 mt-2 w-64 top-8 bg-white shadow-lg rounded-md z-50">
-                
                 <Link
                   to="/notifications"
                   className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
@@ -146,8 +151,17 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
                 </div>
               </div>
             )}
-            <button className="text-[#0f0d0d] flex items-center gap-2" onClick={toggleProfileMenu}>
-              <FaUserAlt className="w-6 h-6" />
+            <button
+              className="text-[#0f0d0d] flex items-center gap-2"
+              onClick={toggleProfileMenu}
+            >
+              <div className="w-10 h-10 bg-gray-200 rounded-full border-2 border-gray-300">
+                <img
+                  src="https://uxwing.com/wp-content/themes/uxwing/download/peoples-avatars/woman-user-color-icon.svg"
+                  alt="Profile picture"
+                  className=" rounded-full"
+                />
+              </div>
               <div className="sm:block hidden font-semibold">Welcome User</div>
             </button>
             {showProfileMenu && (
@@ -175,7 +189,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
           </div>
         </header>
         <main
-          className="flex-1 overflow-y-auto mt-10 p-4"
+          className="flex-1 overflow-y-auto mt-16 p-4 bg-white"
           onMouseOver={() => {
             setShowNotification(false);
             setShowProfileMenu(false);

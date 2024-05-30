@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaUser, FaCalendarAlt } from "react-icons/fa";
 import DashboardWrapper from "../../../../components/global/DashboardWrapper";
 
 interface BookRequest {
@@ -7,6 +8,7 @@ interface BookRequest {
   requestedBy: string;
   dateRequested: string;
   status: "Pending" | "Accepted" | "Rejected";
+  readersCount: number;
 }
 
 const initialRequests: BookRequest[] = [
@@ -16,6 +18,7 @@ const initialRequests: BookRequest[] = [
     requestedBy: "Tonia Japhet",
     dateRequested: "2024-05-23",
     status: "Pending",
+    readersCount: 12,
   },
   {
     id: 2,
@@ -23,6 +26,7 @@ const initialRequests: BookRequest[] = [
     requestedBy: "Joe Ikenga",
     dateRequested: "2024-06-02",
     status: "Pending",
+    readersCount: 8,
   },
   {
     id: 3,
@@ -30,6 +34,7 @@ const initialRequests: BookRequest[] = [
     requestedBy: "Joe Biden",
     dateRequested: "2024-06-19",
     status: "Pending",
+    readersCount: 15,
   },
   {
     id: 4,
@@ -37,8 +42,8 @@ const initialRequests: BookRequest[] = [
     requestedBy: "Iscariot",
     dateRequested: "2024-06-19",
     status: "Pending",
+    readersCount: 5,
   },
-
 ];
 
 const BookRequest: React.FC = () => {
@@ -62,11 +67,11 @@ const BookRequest: React.FC = () => {
 
   return (
     <DashboardWrapper>
-      <div className="flex flex-col items-center justify-start min-h-screen bg-gray-100 p-4">
+      <div className="flex flex-col items-center justify-start min-h-screen p-4">
         <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-5xl">
-          <h1 className="text-2xl font-semibold text-gray-800 mb-6">
+          {/* <h1 className="text-2xl font-semibold text-gray-800 mb-6">
             Book Requests
-          </h1>
+          </h1> */}
           <div className="space-y-4">
             {requests.map((request) => (
               <div
@@ -83,11 +88,16 @@ const BookRequest: React.FC = () => {
                     <h2 className="sm:text-xl text-lg font-semibold text-gray-800">
                       {request.title}
                     </h2>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 flex items-center justify-start">
+                      <FaUser className="inline-block mr-1" />
                       Requested by: {request.requestedBy}
                     </p>
-                    <p className="text-gray-600">
+                    <p className="text-gray-600 flex items-center justify-start">
+                      <FaCalendarAlt className="inline-block mr-1" />
                       Date Requested: {request.dateRequested}
+                    </p>
+                    <p className="text-gray-600">
+                      Readers Count: {request.readersCount}
                     </p>
                     <p
                       className={`text-sm mt-1 ${
