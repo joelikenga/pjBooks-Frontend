@@ -6,7 +6,7 @@ import {
   FaUsers,
   FaBell,
   FaBars,
-  FaSignOutAlt,
+  // FaSignOutAlt,
   FaTimes,
 } from "react-icons/fa";
 

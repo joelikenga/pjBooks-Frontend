@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { BsArrowRight, BsSearch } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
+import { FaSearch } from "react-icons/fa";
 import { LiaTimesSolid } from "react-icons/lia";
 export const Navbar = () => {
   // states
@@ -10,50 +11,52 @@ export const Navbar = () => {
     event.stopPropagation();
   };
   // functions
-  const searchClick = () =>{
+  const searchClick = () => {
     if (openProfile) {
       SetOpenProfile(false);
-      SetOpenSearch(true)
+      SetOpenSearch(true);
     } else {
-      SetOpenSearch(true)
-
+      SetOpenSearch(true);
     }
-  }
+  };
 
-  const profileClick = () =>{
+  const profileClick = () => {
     if (openSearch) {
       SetOpenProfile(true);
-      SetOpenSearch(false)
-    }else {
+      SetOpenSearch(false);
+    } else {
       SetOpenProfile(true);
-
     }
-  }
+  };
   return (
-    <nav className=" fixed top-[-1px] z-20 backdrop-blur-sm md:bg-white  gap-2 p-4 border-b border-default_primary_2 mb- flex justify-between items-center max-w-full w-full">
+    <nav className=" sticky top-0 z-20 backdrop-blur-2xl bg-[rgba(0,0,0,0.2)] md:bg-white  gap-2 p-4 border-b border-default_primary_2  flex justify-between items-center max-w-full w-full">
       <p className="font-bold md:text-xl">PJ Books</p>
 
       {/* search section */}
 
       <div>
         <div
-          className={"drop-shadow h-fit flex bg-white rounded p-1 items-center md:p-2 "}
+          className={
+            "hidden md:flex drop-shadow h-fit  bg-white rounded p-1 items-center md:p-2 "
+          }
           onClick={searchClick}
         >
           <button
             className={
-              " cursor-text flex items-center text-start h-[1.5rem] w-[42vw] ml-3   outline-0 font-medium text-black text-sm sm:h-fit sm:min-w-[36vw] md:w-fit md:text-md   lg:w-[44vw]"
+              " cursor-text flex items-center text-start h-[1.5rem] w-[4rem] ml-3   outline-0 font-medium text-black text-sm sm:h-fit sm:min-w-[36vw] md:w-fit md:text-md   lg:w-[44vw]"
             }
           >
-            <div className={"text-sm md:text-base"}>Quick search...</div>
+            <div className={" text-sm md:text-base text-[rgba(0,0,0,0.7)]"}>
+              Quick search...
+            </div>
           </button>
 
           <button
             className={
-              " text-xl py-0.5 px-2 mr-1 bg-default_secondary text-white rounded cursor-pointer sm:px-4 sm:text-2xl"
+              " text-sm p-2 mr-1 bg-default_secondary text-white rounded cursor-pointer sm:px-4 md:text-lg"
             }
           >
-            <BsArrowRight className={""} />
+            <FaSearch />
           </button>
         </div>
       </div>
@@ -87,7 +90,7 @@ export const Navbar = () => {
                   <div
                     onClick={() => {
                       SetOpenSearch(false);
-                      SetOpenProfile(false)
+                      SetOpenProfile(false);
                     }}
                     className=" cursor-pointer rounded text-base md:text-xl bg-default_secondary text-white p-2 mr-2"
                   >
@@ -110,70 +113,81 @@ export const Navbar = () => {
         </div>
       )}
 
-      {/* user profile */}
-
-      <div onClick={()=>{SetOpenProfile(!openProfile)}}  className="text-2xl text-white bg-black rounded-full p-2.5 cursor-pointer">
-        <p className="w-[1rem] md:w-[1.5rem]  h-[1rem] md:h-[1.5rem] text-sm flex justify-center items-center font-semibold">
-          J
-        </p>
+      <div className="flex justify-center items-center gap-2">
+        {/* monile search */}
+        <button
+        onClick={searchClick}
+          className={
+            " md:hidden text-sm py-2 px-3.5 mr-1 bg-default_secondary text-white rounded cursor-pointer sm:px-4 md:text-lg"
+          }
+        >
+          <FaSearch />
+        </button>
+        {/* user profile */}
+        <div
+          onClick={() => {
+            SetOpenProfile(!openProfile);
+          }}
+          className="text-2xl text-white bg-black rounded-full p-2.5 cursor-pointer"
+        >
+          <p className="w-[1rem] md:w-[1.5rem]  h-[1rem] md:h-[1.5rem] text-sm flex justify-center items-center font-semibold">
+            J
+          </p>
+        </div>
       </div>
       {/* user side dropdown */}
-      {openProfile && <div onMouseLeave={()=>{SetOpenProfile(false)}} className="reveal z-10 absolute w-[20rem] h-fit border drop-shadow-md bg-white right-4 top-[5rem] rounded">
-        <div className="flex justify-start items-center p-4  gap-2 border-b cursor-pointer">
-          <div className="text-2xl text-black bg-default_primary_2 rounded-full p-2.5 cursor-pointer">
-            <p className="w-[2rem]  flex justify-center items-center font-semibold h-[2rem]">
-              J
+      {openProfile && (
+        <div
+          onMouseLeave={() => {
+            SetOpenProfile(false);
+          }}
+          className="reveal z-10 absolute w-[20rem] h-fit border drop-shadow-md bg-white right-4 top-[5rem] rounded"
+        >
+          <div className="flex justify-start items-center p-4  gap-2 border-b cursor-pointer">
+            <div className="text-2xl text-black bg-default_primary_2 rounded-full p-2.5 cursor-pointer">
+              <p className="w-[2rem]  flex justify-center items-center font-semibold h-[2rem]">
+                J
+              </p>
+            </div>
+            <div className="w-full flex flex-wrap">
+              <p className="text-base font-semibold w-full">Joelikenga</p>
+              <p className="text-sm font-sm w-full">Joelikenga@gmail.com</p>
+            </div>
+          </div>
+
+          <div className="flex justify-start flex-wrap items-center px-4 py-2 text-sm font-medium  gap-2 border-b">
+            <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
+              My books
+            </p>
+
+            <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
+              Saved books
+            </p>
+            <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
+              Borrowed books
             </p>
           </div>
-          <div className="w-full flex flex-wrap">
-            <p className="text-base font-semibold w-full">Joelikenga</p>
-            <p className="text-sm font-sm w-full">Joelikenga@gmail.com</p>
+
+
+          <div className="flex justify-start flex-wrap items-center px-4 py-2 text-sm font-medium  gap-2 border-b">
+            <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
+              Public profile
+            </p>
+            <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
+              Edit profile
+            </p>
+          </div>
+
+          <div className="flex justify-start flex-wrap items-center px-4 py-2 text-sm font-medium  gap-2">
+            <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
+              Help
+            </p>
+            <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
+              Logout
+            </p>
           </div>
         </div>
-
-        <div className="flex justify-start flex-wrap items-center px-4 py-2 text-sm font-medium  gap-2 border-b">
-          <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
-            My books
-          </p>
-
-          <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
-            Saved books
-          </p>
-          <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
-            Borrowed books
-          </p>
-        </div>
-
-        <div className="flex justify-start flex-wrap items-center px-4 py-2 text-sm font-medium  gap-2 border-b">
-          <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
-            Security settings
-          </p>
-          <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
-            Saved books
-          </p>
-          <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
-            Borrowed books
-          </p>
-        </div>
-
-        <div className="flex justify-start flex-wrap items-center px-4 py-2 text-sm font-medium  gap-2 border-b">
-          <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
-            Public profile
-          </p>
-          <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
-            Edit profile
-          </p>
-        </div>
-
-        <div className="flex justify-start flex-wrap items-center px-4 py-2 text-sm font-medium  gap-2">
-          <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
-            Help
-          </p>
-          <p className="cursor-pointer hover:duration-75 hover:text-default_accent ease-linear w-full">
-            Logout
-          </p>
-        </div>
-      </div>}
+      )}
     </nav>
   );
 };
