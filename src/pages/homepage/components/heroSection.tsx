@@ -82,15 +82,33 @@ export const Hero = () => {
 
   return (
     <div className="max-w-full w-full  ">
-      <div className="w-full  md:mt-[4rem p-0 m-0 h-[20rem] md:h-[40rem] flex justify-between items-center">
+      <div className="w-full  md:mt-[4rem p-0 m-0 h-[20rem] md:h-[35rem] flex justify-between items-center">
         {/* text section */}
-        <div className="w-2/4 hidden md:flex">Dummy Text</div>
+        <div className="w-2/4 hidden md:flex items-center justify-evenly">
+          <div className="w-[70%] flex flex-wrap gap-8 ">
+            <p className="font-bold text-3xl">
+              Unlock a treasure trove of stories and knowledge. Explore our
+              extensive collection and find your next favorite book today.
+            </p>
+            <button className=" bg-default_secondary text-white px-6 py-3 rounded-lg text-lg font-semibold">
+              Explore
+            </button>
+          </div>
+        </div>
 
         {/* animated cards */}
-        <div className="relative w-full md:w-2/4  h-full flex items-center justify-center">
+        <div className="relative w-full md:w-2/4  md:overflow-hidden  h-full flex items-center justify-center">
           <div className="absolute z-10 h-full md:hidden w-full flex justify-center items-center bottom-14 left-0">
-            <div className=" p-4 w-[90%] h-[12rem] bg-white rounded-lg  drop-shadow-xl mt-[43rem]">
-              Dummy Text
+            <div className=" p-4 w-[90%] h-fit flex items-center flex-wrap bg-white rounded-lg gap-4 drop-shadow-xl mt-[43rem]">
+              <p className="font-bold text-md">
+                Unlock a treasure trove of stories and knowledge. Explore our
+                extensive collection and find your next favorite book today.
+              </p>
+              <div className="w-full flex justify-end items-center">
+                <button className=" bg-default_secondary text-white px-4 py-2 rounded-lg text-md font-semibold">
+                  Explore
+                </button>
+              </div>
             </div>
           </div>
           {/* cards container container */}
