@@ -10,6 +10,7 @@ import BookRequest from "./pages/dashboard/author/book request";
 import NotFound from "./pages/not-found";
 import { Homepage } from "./pages/homepage";
 import BookDetail from "./pages/dashboard/author/all-booksView/BookDetails";
+import { Library } from "./pages/library";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
   {
     path: "login",
     element: <Userauth />,
+  },
+  {
+    path: "library",
+    element: <Library />,
   },
   {
     path: "resetPassword",
