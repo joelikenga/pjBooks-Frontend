@@ -1,5 +1,4 @@
 import { useRef } from "react";
-import { BsPlus } from "react-icons/bs";
 import { PiCaretLeftLight, PiCaretRightLight } from "react-icons/pi";
 
 export const NewBooks = () => {

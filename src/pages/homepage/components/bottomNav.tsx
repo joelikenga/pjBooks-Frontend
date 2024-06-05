@@ -1,7 +1,7 @@
-import { BsCart3, BsFillGrid1X2Fill, BsJournalBookmarkFill } from "react-icons/bs"
+import { BsCart3, BsFillGrid1X2Fill } from "react-icons/bs"
 import { FaHome } from "react-icons/fa"
 import { PiBookmark } from "react-icons/pi"
-import { VscDashboard, VscLibrary } from "react-icons/vsc"
+import {  VscLibrary } from "react-icons/vsc"
 import { NavLink } from "react-router-dom"
 
 export const BottomNav = () => {
