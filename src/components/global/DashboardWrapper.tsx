@@ -90,7 +90,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
                 !isRouteActive("/upload-book") && 
                 !isRouteActive("/book-request"))
 
-                  ? "bg-default_secondary hover:bg-default_secondary text-white"
+                  ? "bg-default_secondary hover:!bg-default_secondary text-white"
                   : ""
               }`}
             >
@@ -100,7 +100,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               to="/all-books"
               className={`flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200  ${
                 isRouteActive("/all-books")
-                  ? "bg-default_secondary hover:bg-default_secondary text-white"
+                  ? "bg-default_secondary hover:!bg-default_secondary text-white"
                   : ""
               }`}
             >
@@ -110,7 +110,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               to="/upload-book"
               className={`flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 ${
                 isRouteActive("/upload-book")
-                  ? "bg-default_secondary hover:bg-default_secondary text-white"
+                  ? "bg-default_secondary hover:!bg-default_secondary text-white"
                   : ""
               }`}
             >
@@ -120,7 +120,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               to="/book-request"
               className={`flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 ${
                 isRouteActive("/book-request")
-                  ? "bg-default_secondary hover:bg-default_secondary text-white"
+                  ? "bg-default_secondary hover:!bg-default_secondary text-white"
                   : ""
               }`}
             >
