@@ -6,7 +6,6 @@ import {
   FaUsers,
   FaBell,
   FaBars,
-  FaSignOutAlt,
   FaTimes,
 } from "react-icons/fa";
 
@@ -69,7 +68,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
           sidebarOpen ? "translate-x-0" : "-translate-x-full"
         } md:relative md:translate-x-0 transition-transform duration-300 ease-in-out`}
       >
-        <div className="p-4 text-[#0f0d0d]">
+        <div className="p-4 text-default_secondary">
           <div className="flex justify-between items-center">
             <Link to="/" className="block mx-auto w-24 h-8">
               LOGO
@@ -79,11 +78,20 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               className="w-6 h-6 md:hidden block"
             />
           </div>
-          <nav className="mt-5">
+          <nav className="mt-5 space-y-4">
             <Link
               to="/dashboard"
               className={`flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 ${
-                isRouteActive("/dashboard") ? "bg-[#0f0d0d] text-white" : ""
+                (isRouteActive("/dashboard") &&
+                !isRouteActive("/all-books") &&
+                !isRouteActive("/upload-book") && 
+                !isRouteActive("/book-request")) ||
+                (!isRouteActive("/dashboard") &&!isRouteActive("/all-books") &&
+                !isRouteActive("/upload-book") && 
+                !isRouteActive("/book-request"))
+
+                  ? "bg-default_secondary hover:bg-default_secondary text-white"
+                  : ""
               }`}
             >
               <FaHome className="mr-3" /> Dashboard
@@ -91,7 +99,9 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
             <Link
               to="/all-books"
               className={`flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200  ${
-                isRouteActive("/all-books") ? "bg-[#0f0d0d] text-white" : ""
+                isRouteActive("/all-books")
+                  ? "bg-default_secondary hover:bg-default_secondary text-white"
+                  : ""
               }`}
             >
               <FaFolderOpen className="mr-3" /> All Books
@@ -99,7 +109,9 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
             <Link
               to="/upload-book"
               className={`flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 ${
-                isRouteActive("/upload-book") ? "bg-[#0f0d0d] text-white" : ""
+                isRouteActive("/upload-book")
+                  ? "bg-default_secondary hover:bg-default_secondary text-white"
+                  : ""
               }`}
             >
               <FaUsers className="mr-3" /> Upload Book
@@ -107,12 +119,13 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
             <Link
               to="/book-request"
               className={`flex items-center py-2.5 px-4 rounded transition duration-200 hover:bg-gray-200 ${
-                isRouteActive("/book-request") ? "bg-[#0f0d0d] text-white" : ""
+                isRouteActive("/book-request")
+                  ? "bg-default_secondary hover:bg-default_secondary text-white"
+                  : ""
               }`}
             >
               <FaUsers className="mr-3" /> Book Request
             </Link>
-           
           </nav>
         </div>
       </aside>
@@ -120,7 +133,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
         <header className="fixed w-full top-0 left-0 z-40 bg-[#eee] shadow-md flex justify-between items-center p-4">
           <div className="flex items-center space-x-4">
             <button
-              className="md:hidden text-[#0f0d0d]"
+              className="md:hidden text-default_secondary"
               onClick={() => setSidebarOpen(!sidebarOpen)}
             >
               {sidebarOpen ? (
@@ -135,7 +148,10 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
             </h1>
           </div>
           <div className="relative flex items-center space-x-8">
-            <button className="text-[#0f0d0d]" onClick={toggleNotification}>
+            <button
+              className="text-default_secondary"
+              onClick={toggleNotification}
+            >
               <FaBell className="w-6 h-6" />
             </button>
             {showNotification && (
@@ -152,7 +168,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               </div>
             )}
             <button
-              className="text-[#0f0d0d] flex items-center gap-2"
+              className="text-default_secondary flex items-center gap-2"
               onClick={toggleProfileMenu}
             >
               <div className="w-10 h-10 bg-gray-200 rounded-full border-2 border-gray-300">

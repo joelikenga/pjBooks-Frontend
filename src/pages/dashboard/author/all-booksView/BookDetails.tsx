@@ -37,7 +37,7 @@ const BookDetail: React.FC = () => {
             <img
               src={book.image}
               alt={book.title}
-              className="w-40 h-40 md:w-60 md:h-60 rounded-lg object-cover shadow-lg"
+              className="w-full h-full rounded-lg object-cover shadow-lg"
             />
           </div>
           <div className="md:w-2/3">

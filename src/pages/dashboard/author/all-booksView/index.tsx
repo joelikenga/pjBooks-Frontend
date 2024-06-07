@@ -55,11 +55,11 @@ const AllBooks: React.FC = () => {
 
   return (
     <DashboardWrapper>
-      <div className="p-3">
+      <div className="py-3">
         <div className="mb-4 flex justify-center">
           <input
             type="search"
-            className="w-full max-w-md py-2 px-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full max-w-md py-2 px-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-500"
             placeholder="Search books..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}

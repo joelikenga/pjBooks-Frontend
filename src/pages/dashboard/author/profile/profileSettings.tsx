@@ -18,8 +18,8 @@ const ProfileSettings: React.FC = () => {
 
   return (
     <DashboardWrapper>
-      <div className="flex flex-col items-center justify-start min-h-screen p-4">
-        <div className=" bg-white shadow-md rounded-lg p-6 w-full max-w-3xl">
+      <div className="flex flex-col items-center justify-start min-h-screen py-4">
+        <div className=" bg-white shadow-md rounded-lg p-6 w-full max-w-5xl">
           <h1 className="text-2xl font-semibold text-gray-800 mb-6">
             Edit Profile
           </h1>
