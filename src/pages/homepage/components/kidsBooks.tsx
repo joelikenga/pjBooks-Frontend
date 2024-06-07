@@ -41,7 +41,7 @@ export const KidsBooks = () => {
     // }, [searchText]);
 
     return (
-        <div className="snap-y snap-mandatory  p-4 w-full bg-[rgba(0,0,0,0.1) bg-default_primary_1 h-fit mt-[14rem] mb-[4rem] md:my-0 ">
+        <div className="snap-y snap-mandatory  p-4 w-full bg-[rgba(0,0,0,0.1) bg-default_primary_1 h-fit  md:my-0 ">
             {/* section name */}
             <div className="w-full flex justify-between py-4">
                 <div className="text-md md:text-xl font-medium flex items-baseline gap-2">
