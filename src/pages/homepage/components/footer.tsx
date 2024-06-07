@@ -10,7 +10,7 @@ export const Footer = () => {
       <div className="w-full flex justify-start items-center ">
         <p className="font-bold md:text-xl ">PJ Books</p>
       </div>
-      <div className="w-full mt-4 gap-2 h-fit bg-white flex justify-center md:justify-between items-center flex-wrap md:flex-nowrap">
+      <div className="w-full mt-4 gap-2 h-fit text-default_secondary  bg-white flex justify-center md:justify-between items-center flex-wrap md:flex-nowrap">
         {/* first section */}
         <div className="w-full p-2 md:w-1/4 flex justify-start items-start flex-wrap  ">
           <p className=" p-1 md:text-base font-semibold w-full">

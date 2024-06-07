@@ -1,14 +1,18 @@
-import { useRef } from "react";
+import { useRef} from "react";
 import { PiCaretLeftLight, PiCaretRightLight } from "react-icons/pi";
 
-export const NewBooks = () => {
+export const RecentBooks = () => {
+
+  //
+  // const  [searchText, setSearchText] = useState <string>("a");
+  // const  [Books, setBooks] = useState <[]>([]);
   const sliderRef = useRef<HTMLDivElement | null>(null);
   const slideWidth = 210;
 
   const slideLeft = () => {
     const scrollDistance = slideWidth;
     sliderRef.current?.scrollBy({
-      left: -scrollDistance,
+      left: -scrollDistance ,
       behavior: "smooth",
     });
   };
@@ -20,6 +24,21 @@ export const NewBooks = () => {
       behavior: "smooth",
     });
   };
+  //
+  // let API_KEY : string =  "AIzaSyAuAIjRb_nB4IQfwUPsYAFpWuBNztf2viw"
+  // let URL = "https://www.googleapis.com/books/v1/volumes?q=" + {searchText} + "&key=$" + {API_KEY}
+  //
+  // useEffect(() => {
+  //   const fetchBooks = async () => {
+  //     try {
+  //       const response = await fetch(URL);
+  //       const data = await response.json();
+  //       setBooks(data.items || [])
+  //     }catch (error){
+  //       console.error("error :", error)
+  //     }
+  //   }
+  // }, [searchText]);
 
   return (
     <div className="snap-y snap-mandatory  p-4 w-full bg-[rgba(0,0,0,0.1) bg-default_primary_1 h-fit mt-[14rem] mb-[4rem] md:my-0 ">
@@ -27,12 +46,12 @@ export const NewBooks = () => {
       <div className="w-full flex justify-between py-4">
         <div className="text-md md:text-xl font-medium flex items-baseline gap-2">
           <p className="  border-x-default_secondary px-2 border-x-4">
-            New books
+            Recent books
           </p>
           <p className="text-sm">See all</p>
         </div>
 
-        {/* slider butttons */}
+        {/* slider buttons */}
         <div className="flex justify-between gap-3">
           <div
             onClick={() => slideLeft()}
@@ -49,18 +68,23 @@ export const NewBooks = () => {
           </div>
         </div>
       </div>
-      <div
+
+        <div
         ref={sliderRef}
-        className="flex flex-wrap overflow-hidden snap-x snap-mandatory  justify-normal items-center gap-4 h-[28rem] p-2 rounded bg-default_primary_2"
+        className=".transpaent-scrollbar flex flex-nowrap overflow-hidden overscroll-x-contain   justify-normal items-center gap-4 h-fit p-2 rounded bg-default_primary_2"
       >
         {/* book card */}
+          { [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15].map((n) =>(
+
         <div
+            key={n}
           className={
-            " snap-x snap-mandatory h-[25.5rem] bg-white  min-w-[1rem] m-2 rounded bg-my_light relative font-medium z-0 capitalize"
+            " snap-x snap-mandatory h-[25.5rem] bg-white  min-w-[15rem] m-2 rounded bg-my_light relative font-medium z-0 capitalize"
           }
         >
             <div className="absolute top-3 right-3 p-1.5 text-sm bg-default_secondary rounded text-white">New</div>
           <img
+              alt={""}
             className={"h-fit w-60  object-cover p-2 rounded"}
             src={
               "https://images.bwbcovers.com/125/Juniper-s-Christmas-9781250321947.jpg"
@@ -77,14 +101,14 @@ export const NewBooks = () => {
               <div>
                 <button
                   className={
-                    "z-20 py-2 px-4  font-medium rounded-md bg-default_secondary text-white "
+                    "z-20 py-1 px-3 text-xl font-medium rounded-md bg-default_secondary text-white "
                   }
                 >Rent
                 </button>
               </div>
             </div>
           </div>
-        </div>
+        </div>))}
       </div>
     </div>
   );

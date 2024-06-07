@@ -11,24 +11,23 @@ export const BottomNav = () => {
                 <NavLink to={"/"} className={ ({ isActive }) => isActive ? "bg-default_primary_1 md:bg-[rgba(0,0,0,0.1)] text-default_secondary text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5" : "text-[rgba(0,0,0,0.8)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5"}>
                 <div className="w-full flex justify-center text-2xl"><FaHome /></div>
                 <div className={" w-full text-xs"}>Home</div>
-                {/* <div className={"w-full text-xs"}>Home</div> */}
                 </NavLink>
 
-                <NavLink to={"/library"} className={ ({ isActive }) => isActive ? "bg-default_primary_1 md:bg-[rgba(0,0,0,0.1)] text-[rgba(0,0,0,0.9)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5" : "text-[rgba(0,0,0,0.8)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5"}>
+                <NavLink to={"/library"} className={ ({ isActive }) => isActive ? "bg-default_primary_1 md:bg-[rgba(0,0,0,0.1)] text-default_secondary  text-[rgba(0,0,0,0.9)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5" : "text-[rgba(0,0,0,0.8)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5"}>
                 <div className="w-full flex justify-center text-2xl"><VscLibrary /></div>
                 <div className="w-full text-xs">Library</div>
                 </NavLink>
 
-                <NavLink to={"/cart"} className={ "w-[2.8rem] h-[2.8rem] mx-1  rotate-45 bg-default_secondary text-[rgba(0,0,0,0.9)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap "}>
+                <NavLink to={"/cart"} className={ "w-[2.8rem] h-[2.8rem] mx-1  rotate-45 bg-default_secondary text-[rgba(0,0,0,0.9)] text-default_secondary  text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap "}>
                 <div className="w-full flex justify-center text-2xl -rotate-45 text-white"><BsCart3 /></div>
                 </NavLink>
 
-                <NavLink to={"q"} className={ ({ isActive }) => isActive ? "bg-default_primary_1 md:bg-[rgba(0,0,0,0.1)] text-[rgba(0,0,0,0.9)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5" : "text-[rgba(0,0,0,0.8)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5"}>
+                <NavLink to={"q"} className={ ({ isActive }) => isActive ? "bg-default_primary_1 md:bg-[rgba(0,0,0,0.1)] text-[rgba(0,0,0,0.9)] text-default_secondary  text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5" : "text-[rgba(0,0,0,0.8)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5"}>
                 <div className="w-full flex justify-center text-2xl"><PiBookmark /></div>
                 <div className="w-full text-xs">Saved</div>
                 </NavLink>
 
-                <NavLink to={"/dashboard"} className={ ({ isActive }) => isActive ? "bg-default_primary_1 md:bg-[rgba(0,0,0,0.1)] text-[rgba(0,0,0,0.9)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5" : "text-[rgba(0,0,0,0.8)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5"}>
+                <NavLink to={"/dashboard"} className={ ({ isActive }) => isActive ? "bg-default_primary_1 md:bg-[rgba(0,0,0,0.1)] text-[rgba(0,0,0,0.9)] text-default_secondary  text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5" : "text-[rgba(0,0,0,0.8)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5"}>
                 <div className="w-full flex justify-center text-2xl">< BsFillGrid1X2Fill/></div>
                 <div className="w-full text-xs">Dashboard</div>
                 </NavLink>
