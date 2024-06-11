@@ -1,13 +1,12 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import DashboardWrapper from "../../../../components/global/DashboardWrapper";
-import { FaEdit, FaTrash } from "react-icons/fa";
+import { FaEdit, FaTrash, FaThumbsUp, FaDownload, FaBookOpen } from "react-icons/fa";
 
 const BookDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  // Sample data for demonstration. Replace with real data fetch logic.
   const book = {
     id,
     title: "Things Fall Apart",
@@ -17,43 +16,84 @@ const BookDetail: React.FC = () => {
                   It is seen as the archetypal modern African novel in English, one of the first to receive 
                   global critical acclaim. The novel follows the life of Okonkwo, an Igbo leader and local 
                   wrestling champion in the fictional Nigerian village of Umuofia.`,
-    image: "https://via.placeholder.com/150",
+    image: "https://templates.mediamodifier.com/5db698f47c3dc9731647a4e9/fiction-novel-book-cover-template.jpg",
     size: "1.2MB",
+    genre: "Fiction",
+    dateUploaded: "2024-06-01",
+    likes: 230,
+    downloads: 540,
+    readers: 120,
+    status: "Public",
   };
 
-  if (!id) return <p>Loading...</p>; 
+  if (!id) return <p>Loading...</p>;
 
   return (
     <DashboardWrapper>
-      <div className="p-4 md:p-6">
+      <div className="p-2 md:p-2">
         <button
           onClick={() => navigate("/all-books")}
           className="text-gray-600 hover:underline mb-4"
         >
           &larr; Back to All Books
         </button>
-        <div className="bg-white shadow-md rounded-lg p-6 md:flex md:space-x-6">
+        <div className="bg-white border rounded-lg p-2 md:flex md:space-x-6">
           <div className="md:w-1/3 flex justify-center mb-6 md:mb-0">
             <img
               src={book.image}
               alt={book.title}
-              className="w-full h-full rounded-lg object-cover shadow-lg"
+              className="w-full h-full rounded-lg object-cover border"
             />
           </div>
           <div className="md:w-2/3">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               {book.title}
             </h2>
-            <p className="text-gray-600 mb-4">{book.description}</p>
-            <p className="text-gray-800 font-semibold mb-4">
-              Size: {book.size}
+            <hr />
+            <p className="text-gray-600 my-4 p-3 border rounded-md">{book.description}</p>
+            
+            <div className="p-3 rounded-md border my-2">
+            <p className="text-gray-800 mb-2">
+              <span className="font-semibold">Genre: </span> {book.genre}
             </p>
-            <div className="flex space-x-4 mb-6">
-              <button className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
-                <FaEdit className="w-5 h-5" /> Edit
+            </div>
+
+            <div className="p-3 rounded-md border my-2">
+            <p className="text-gray-800 mb-2">
+             <span className="font-semibold">Date Uploaded: </span> {book.dateUploaded}
+            </p>
+            </div>
+            <div className="p-3 rounded-md border my-2">
+            <p className="text-gray-800 mb-2">
+              <span className="font-semibold">Size: </span> {book.size}
+            </p>
+            </div>
+            <div className="p-3 rounded-md border my-2">
+            <p className="text-gray-800 mb-2">
+            <span className="font-semibold">Likes: </span>  <FaThumbsUp className="inline-block text-gray-600 mr-1" /> {book.likes}
+            </p>
+            </div>
+            <div className="p-3 rounded-md border my-2">
+            <p className="text-gray-800 mb-2">
+            <span className="font-semibold">Downloads: </span> <FaDownload className="inline-block text-green-600 mr-1" /> {book.downloads}
+            </p>
+            </div>
+            <div className="p-3 rounded-md border my-2">
+            <p className="text-gray-800 mb-2">
+            <span className="font-semibold">Readers: </span> <FaBookOpen className="inline-block text-yellow-600 mr-1" /> {book.readers}
+            </p>
+            </div>
+            <div className="p-3 rounded-md border my-2">
+            <p className="text-gray-800 mb-2">
+              <span className="font-semibold">Status: </span> {book.status}
+              </p>
+              </div>
+            <div className="flex space-x-4 mt-4">
+              <button className="flex items-center gap-2 px-6 py-2 bg-slate-700 text-white rounded-[50px] shadow hover:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-black">
+                 Edit
               </button>
-              <button className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-md shadow hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500">
-                <FaTrash className="w-5 h-5" /> Delete
+              <button className="flex items-center gap-2 px-6 py-2 bg-red-500 text-white rounded-[50px] shadow hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-black">
+                 Delete
               </button>
             </div>
           </div>

@@ -11,7 +11,7 @@ const Dashboard = () => {
     <>
       <DashboardWrapper>
         <div className="py-3">
-          <div className="flex sm:flex-row flex-col justify-center items-center gap-4 py-3  mb-8 ">
+          <div className="flex sm:flex-row flex-col justify-start items-center gap-4 py-3  mb-8 ">
             <Card title="Total Books" value={totalBooks} />
             <Card title="Total Books Approved" value={approved} />
             <Card title="Total Readers" value={totalReaders} />
