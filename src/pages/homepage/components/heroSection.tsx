@@ -82,9 +82,9 @@ export const Hero = () => {
 
   return (
     <div className="max-w-full w-full  ">
-      <div className="w-full  md:mt-[4rem p-0 m-0 h-[20rem] md:h-[35rem] flex justify-between items-center">
+      <div className="w-full   px-6 m-0 h-[20rem] md:h-[35rem] flex justify-between items-center">
         {/* text section */}
-        <div className="w-2/4 hidden md:flex items-center justify-evenly">
+        <div className="w-2/4 hidden md:flex items-center justify-start ">
           <div className="w-[70%] flex flex-wrap gap-8 ">
             <p className="font-bold text-3xl">
               Unlock a treasure trove of stories and knowledge. Explore our
@@ -97,7 +97,7 @@ export const Hero = () => {
         </div>
 
         {/* animated cards */}
-        <div className="relative w-full md:w-2/4  md:overflow-hidden  h-full flex items-center justify-center">
+        <div className="relative w-full md:w-2/4  md:overflow-hidden  h-full flex items-center justify-end">
           <div className="absolute z-10 h-full md:hidden w-full flex justify-center items-center bottom-14 left-0">
             <div className=" p-4 w-[90%] h-fit flex items-center flex-wrap bg-white rounded-lg gap-4 drop-shadow-xl mt-[43rem]">
               <p className="font-bold text-md">
