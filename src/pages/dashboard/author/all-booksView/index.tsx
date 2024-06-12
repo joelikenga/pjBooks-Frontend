@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import DashboardWrapper from "../../../../components/global/DashboardWrapper";
+import { FaSearch } from "react-icons/fa";
 
 const AllBooks: React.FC = () => {
   interface Book {
@@ -16,29 +17,71 @@ const AllBooks: React.FC = () => {
       id: 1,
       title: "Things Fall Apart",
       description: "This is the description for Book One.",
-      image: "https://via.placeholder.com/150",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
       size: "1.2MB",
     },
     {
       id: 2,
       title: "Dynamic Programming",
       description: "This is the description for Book Two.",
-      image: "https://via.placeholder.com/200",
+      image: "https://media.istockphoto.com/id/1329614638/vector/brochure-design-cover-modern-layout-annual-report-poster-flyer-in-a4.jpg?s=612x612&w=0&k=20&c=AqyW5nykTdPUptmlBO4ge-zMiPTDJuHAIiHqNktzfto=",
       size: "21.5MB",
     },
     {
       id: 3,
       title: "Council of Elders",
       description: "This is the description for Book Two. lorem23",
-      image: "https://via.placeholder.com/150",
+      image: "https://templates.mediamodifier.com/5db698f47c3dc9731647a4e9/fiction-novel-book-cover-template.jpg",
       size: "7.5MB",
     },
     {
       id: 4,
       title: "PJ Book of Dance",
       description: "This is the description for Book Two.",
-      image: "https://via.placeholder.com/50",
+      image: "https://templates.mediamodifier.com/5db698f47c3dc9731647a4e9/fiction-novel-book-cover-template.jpg",
       size: "1.5MB",
+    },
+    {
+      id: 5,
+      title: "Advanced Algorithms",
+      description: "This is the description for Book Three.",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
+      size: "3.4MB",
+    },
+    {
+      id: 6,
+      title: "Modern JavaScript",
+      description: "This is the description for Book Four.",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
+      size: "5.8MB",
+    },
+    {
+      id: 7,
+      title: "React in Action",
+      description: "This is the description for Book Five.",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
+      size: "2.7MB",
+    },
+    {
+      id: 8,
+      title: "Node.js Design Patterns",
+      description: "This is the description for Book Six.",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
+      size: "4.3MB",
+    },
+    {
+      id: 9,
+      title: "Introduction to Python",
+      description: "This is the description for Book Seven.",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
+      size: "6.1MB",
+    },
+    {
+      id: 10,
+      title: "Machine Learning Basics",
+      description: "This is the description for Book Eight.",
+      image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
+      size: "8.2MB",
     },
   ];
 
@@ -55,43 +98,47 @@ const AllBooks: React.FC = () => {
 
   return (
     <DashboardWrapper>
-      <div className="p-3">
-        <div className="mb-4 flex justify-center">
-          <input
-            type="search"
-            className="w-full max-w-md py-2 px-4 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
-            placeholder="Search books..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-          />
+      <div className="py-3">
+        <div className="mb-4 flex justify-start">
+          <div className="relative w-full max-w-md">
+            <input
+              type="search"
+              className="w-full py-2 pl-10 pr-4 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              placeholder="Search books..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+            <FaSearch className="absolute top-3 left-3 text-gray-500" />
+          </div>
         </div>
-        <div className="bg-white shadow overflow-hidden sm:rounded-lg">
-          <ul className="divide-y divide-gray-200">
-            {filteredBooks.map((book) => (
-              <li
+        <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+          {filteredBooks.length < 1 ? (
+            <div className="text-center col-span-full p-6 font-semibold italic">
+              No book found
+            </div>
+          ) : (
+            filteredBooks.map((book) => (
+              <div
                 key={book.id}
-                className="p-4 flex items-center justify-between hover:bg-gray-50 cursor-pointer"
+                className="border rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200 cursor-pointer hover:scale-105"
                 onClick={() => handleBookClick(book)}
               >
-                <div className="flex items-center space-x-4">
-                  <img
-                    src={book.image}
-                    alt={book.title}
-                    className="w-16 h-16 rounded object-cover"
-                  />
-                  <div>
-                    <h3 className="text-lg font-semibold text-gray-900">
-                      {book.title}
-                    </h3>
-                    <p className="text-sm text-gray-600">{book.description}</p>
-                    <p className="text-sm font-semibold text-gray-800">
-                      Size: {book.size}
-                    </p>
-                  </div>
+                <img
+                  src={book.image}
+                  alt={book.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className="p-4">
+                  <h3 className="text-base font-semibold text-gray-900">
+                    {book.title}
+                  </h3>
+                  <p className="text-sm font-semibold text-gray-800">
+                    Size: {book.size}
+                  </p>
                 </div>
-              </li>
-            ))}
-          </ul>
+              </div>
+            ))
+          )}
         </div>
       </div>
     </DashboardWrapper>
