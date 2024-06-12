@@ -10,16 +10,16 @@ const Dashboard = () => {
   return (
     <>
       <DashboardWrapper>
-        <div className="p-3">
-          <div className="flex sm:flex-row flex-col justify-center items-center gap-4 p-3  mb-8 ">
+        <div className="py-3">
+          <div className="flex sm:flex-row flex-col justify-start items-center gap-4 py-3  mb-8 ">
             <Card title="Total Books" value={totalBooks} />
             <Card title="Total Books Approved" value={approved} />
             <Card title="Total Readers" value={totalReaders} />
           </div>
-          <hr />
+          <hr color="black"/>
 
           <div className="mt-8">
-            <h2 className="text-2xl font-semibold mb-4">
+            <h2 className="text-2xl font-semibold mb-2 text-default_secondary py-3">
               Recent Uploaded Books
             </h2>
             <RecentBooksTable />

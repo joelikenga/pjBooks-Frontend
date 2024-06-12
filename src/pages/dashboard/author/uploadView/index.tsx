@@ -42,8 +42,8 @@ const UploadBooks: React.FC = () => {
     <>
       <DashboardWrapper>
         <div className="flex flex-col items-center justify-start py-4">
-          <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-4xl">
-            <h1 className="text-2xl font-semibold text-gray-800 mb-6">
+          <div className="bg-white border rounded-lg p-6 w-full max-w-4xl">
+            <h1 className="text-2xl font-semibold text-default_secondary mb-6">
               Upload Book
             </h1>
             <form onSubmit={handleSubmit} className="space-y-6">
@@ -57,7 +57,7 @@ const UploadBooks: React.FC = () => {
                 <input
                   id="title"
                   type="text"
-                  className="mt-1 px-3 py-2 w-full bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="mt-1 px-3 py-2 w-full bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:ring-default_secondary focus:border-default_secondary sm:text-sm"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
@@ -72,7 +72,7 @@ const UploadBooks: React.FC = () => {
                 </label>
                 <select
                   id="category"
-                  className="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="mt-1 block w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-default_secondary focus:border-default_secondary sm:text-sm"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                   required
@@ -96,7 +96,7 @@ const UploadBooks: React.FC = () => {
                 </label>
                 <textarea
                   id="description"
-                  className="mt-1 block h-40 w-full bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  className="mt-1 block h-40 w-full bg-gray-100 border border-gray-300 rounded-md shadow-sm focus:ring-default_secondary focus:border-default_secondary sm:text-sm"
                   value={description}
                   onChange={(e) => setDescription(e.target.value)}
                   required
@@ -155,7 +155,7 @@ const UploadBooks: React.FC = () => {
               <div className="mt-6 w-full">
                 <button
                   type="submit"
-                  className="w-full px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                  className="w-full px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-default_secondary hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-default_secondary"
                 >
                   Upload
                 </button>

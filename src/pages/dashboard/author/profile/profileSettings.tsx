@@ -18,14 +18,26 @@ const ProfileSettings: React.FC = () => {
 
   return (
     <DashboardWrapper>
-      <div className="flex flex-col items-center justify-start min-h-screen p-4">
-        <div className=" bg-white shadow-md rounded-lg p-6 w-full max-w-3xl">
-          <h1 className="text-2xl font-semibold text-gray-800 mb-6">
+      <div className="flex flex-col items-center justify-start min-h-screen py-4">
+        <div className=" bg-white border rounded-lg p-6 w-full">
+          <h1 className="text-2xl font-semibold text-gray-800 mb-2">
             Edit Profile
           </h1>
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <hr className="mb-6" />
+          <div className="flex flex-col items-center justify-center w-full h-64 rounded-lg bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100">
+            <img
+                className="rounded-full h-60 w-60"
+                src="https://avatars.githubusercontent.com/u/47216075?v=4"
+                alt="Author Profile"
+              />
+          </div>
+
+
+
+
+          <form onSubmit={handleSubmit} className="space-y-6 mt-6">
             <div>
-              <label className="block text-gray-700">Name</label>
+              <label className="block text-default_secondary font-semibold">Name</label>
               <input
                 type="text"
                 value={name}
@@ -35,17 +47,17 @@ const ProfileSettings: React.FC = () => {
               />
             </div>
             <div>
-              <label className="block text-gray-700">Email</label>
+              <label className="block text-default_secondary font-semibold">Email</label>
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full mt-1 p-2 border rounded-lg"
-                required
+                className="w-full mt-1 p-2 bg-stale-200 cursor-not-allowed border rounded-lg"
+                disabled
               />
             </div>
             <div>
-              <label className="block text-gray-700">Location</label>
+              <label className="block text-default_secondary font-semibold">Location</label>
               <input
                 type="text"
                 value={location}
@@ -55,7 +67,7 @@ const ProfileSettings: React.FC = () => {
               />
             </div>
             <div>
-              <label className="block text-gray-700">Genres</label>
+              <label className="block text-default_secondary font-semibold">Genres</label>
               <input
                 type="text"
                 value={genres}
@@ -65,7 +77,7 @@ const ProfileSettings: React.FC = () => {
               />
             </div>
             <div>
-              <label className="block text-gray-700">Bio</label>
+              <label className="block text-default_secondary font-semibold">Bio</label>
               <textarea
                 value={bio}
                 onChange={(e) => setBio(e.target.value)}
