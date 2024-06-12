@@ -140,7 +140,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               <FaArchive className="mr-3" /> Book Request
             </Link>
           </nav>
-          <div className="absolute md:bottom-4 bottom-4 px-2 py-4 left-0 rounded-lg bg-white shadow-md mx-2 text-sm text-default_secondary">
+          <div className="absolute md:bottom-4 bottom-4 px-2 py-4 left-0 rounded-lg bg-[#fff] border shadow-md shadow-default_secondary mx-2 text-sm text-default_secondary">
             <div className="mb-3 font-semibold text-default_accent">✨ Quote of the Day!</div>
             {quoteOfTheDay}
           </div>
