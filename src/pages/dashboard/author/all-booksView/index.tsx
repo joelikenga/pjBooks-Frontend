@@ -7,7 +7,7 @@ const AllBooks: React.FC = () => {
   interface Book {
     id: number;
     title: string;
-    description: string;
+    genre: string;
     image: string;
     size: string;
   }
@@ -16,70 +16,70 @@ const AllBooks: React.FC = () => {
     {
       id: 1,
       title: "Things Fall Apart",
-      description: "This is the description for Book One.",
+      genre: "Non-Fiction",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
       size: "1.2MB",
     },
     {
       id: 2,
       title: "Dynamic Programming",
-      description: "This is the description for Book Two.",
+      genre: "Programming.",
       image: "https://media.istockphoto.com/id/1329614638/vector/brochure-design-cover-modern-layout-annual-report-poster-flyer-in-a4.jpg?s=612x612&w=0&k=20&c=AqyW5nykTdPUptmlBO4ge-zMiPTDJuHAIiHqNktzfto=",
       size: "21.5MB",
     },
     {
       id: 3,
       title: "Council of Elders",
-      description: "This is the description for Book Two. lorem23",
+      genre: "Novel",
       image: "https://templates.mediamodifier.com/5db698f47c3dc9731647a4e9/fiction-novel-book-cover-template.jpg",
       size: "7.5MB",
     },
     {
       id: 4,
       title: "PJ Book of Dance",
-      description: "This is the description for Book Two.",
+      genre: "Fiction.",
       image: "https://templates.mediamodifier.com/5db698f47c3dc9731647a4e9/fiction-novel-book-cover-template.jpg",
       size: "1.5MB",
     },
     {
       id: 5,
       title: "Advanced Algorithms",
-      description: "This is the description for Book Three.",
+      genre: "Fiction.",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
       size: "3.4MB",
     },
     {
       id: 6,
       title: "Modern JavaScript",
-      description: "This is the description for Book Four.",
+      genre: "Non-Fiction.",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
       size: "5.8MB",
     },
     {
       id: 7,
       title: "React in Action",
-      description: "This is the description for Book Five.",
+      genre: "Programming",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
       size: "2.7MB",
     },
     {
       id: 8,
       title: "Node.js Design Patterns",
-      description: "This is the description for Book Six.",
+      genre: "Programming",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
       size: "4.3MB",
     },
     {
       id: 9,
       title: "Introduction to Python",
-      description: "This is the description for Book Seven.",
+      genre: "Fiction",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
       size: "6.1MB",
     },
     {
       id: 10,
       title: "Machine Learning Basics",
-      description: "This is the description for Book Eight.",
+      genre: "Fiction",
       image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx4ONp_TLFBtxBvGsPl3Ny-r3l-EYkYjB6pQ&s",
       size: "8.2MB",
     },
@@ -111,6 +111,7 @@ const AllBooks: React.FC = () => {
             <FaSearch className="absolute top-3 left-3 text-gray-500" />
           </div>
         </div>
+        {filteredBooks ? <div className="text-default_secondary font-semibold my-3">Books ({filteredBooks.length})</div> : ''}
         <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
           {filteredBooks.length < 1 ? (
             <div className="text-center col-span-full p-6 font-semibold italic">
@@ -134,6 +135,9 @@ const AllBooks: React.FC = () => {
                   </h3>
                   <p className="text-sm font-semibold text-gray-800">
                     Size: {book.size}
+                  </p>
+                  <p className="text-sm font-normal text-gray-800">
+                    Size: {book.genre}
                   </p>
                 </div>
               </div>

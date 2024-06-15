@@ -17,15 +17,35 @@ interface DashboardWrapperProps {
   children: ReactNode;
 }
 
+interface Notification {
+  id: number;
+  message: string;
+}
+
 const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
   const [screenWidth, setScreenWidth] = useState(window.innerWidth);
   const [dateTime, setDateTime] = useState(new Date());
+
+  const [notifications, setNotifications] = useState<Notification[]>([]);
   const location = useLocation();
 
   const isRouteActive = (path: string) => location.pathname === path;
+
+    const greetings = () => {
+    const currentHour = new Date().getHours();
+    if (currentHour >= 5 && currentHour < 12) {
+      return 'Good morning';
+    } else if (currentHour >= 12 && currentHour < 18) {
+      return 'Good day';
+    } else if (currentHour >= 18 && currentHour < 22) {
+      return 'Good Evening';
+    } else {
+      return 'Good Night';
+    }
+  };
 
   useEffect(() => {
     const handleResize = () => setScreenWidth(window.innerWidth);
@@ -52,22 +72,30 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
     setSidebarOpen(false);
   };
 
-  // const routeTitles: { [key: string]: string } = {
-  //   "/dashboard": "Dashboard",
-  //   "/all-books": "All Books",
-  //   "/upload-book": "Upload Book",
-  //   "/book-request": "Book Request",
-  //   "/edit-profile": "Edit Profile",
-  //   "/profile": "Profile",
-  // };
-
-  const closeSidebarOnOutsideClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const closeSidebarOnOutsideClick = (e: React.MouseEvent<HTMLDivElement>) => {
     if ((e.target as Element).closest(".sidebar") === null) {
       setSidebarOpen(false);
     }
   };
 
+  useEffect(() => {
+    const fetchNotifications = () => {
+      const fetchedNotifications: Notification[] = [
+        { id: 1, message: "Joel Requested to read Things Fall Apart" },
+        { id: 11, message: "React in 10days deleted" },
+        { id: 2, message: "Dance Book Uploaded" },
+        { id: 3, message: "Profile Updated Successfully" },
+      ];
+      setNotifications(fetchedNotifications);
+    };
+
+    fetchNotifications();
+  }, []);
+
+  const newNotificationsCount = notifications.length;
+
   const quoteOfTheDay = "The only limit to our realization of tomorrow is our doubts of today. - Franklin D. Roosevelt";
+  const user = "Ogbaje Leo"
 
   return (
     <div className="flex h-screen bg-gray-100 relative">
@@ -140,7 +168,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               <FaArchive className="mr-3" /> Book Request
             </Link>
           </nav>
-          <div className="absolute md:bottom-4 bottom-4 px-2 py-4 left-0 rounded-lg bg-white shadow-md mx-2 text-sm text-default_secondary">
+          <div className="absolute md:bottom-4 bottom-4 px-2 py-4 left-0 rounded-lg bg-[#fff] border shadow-md shadow-default_secondary mx-2 text-sm text-default_secondary">
             <div className="mb-3 font-semibold text-default_accent">✨ Quote of the Day!</div>
             {quoteOfTheDay}
           </div>
@@ -160,29 +188,45 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               )}
             </button>
             <h1 className="text-xl font-bold text-default_secondary">PJ Books </h1>
-            <h1 className="text-xl font-bold text-gray-800 lg:block hidden sm:pl-36 pl-0">
+            <h1 className="text-2xl font-semibold text-gray-800 lg:block hidden sm:pl-36 pl-0">
               {/* {currentTitle} */}
+              {greetings()}, {user}! 👋
             </h1>
           </div>
           <div className="relative flex items-center space-x-8">
-            <div className="flex items-center space-x-2">
+            <div className="flex items-center space-x-2 relative">
               <span className="text-base text-gray-900 md:block hidden"> {dateTime.toLocaleTimeString()}</span>
-              <FaBell className="w-6 h-6 text-default_secondary" onClick={toggleNotification} />
+              <div className="relative">
+                <FaBell className="w-6 h-6 text-default_secondary cursor-pointer" onClick={toggleNotification} />
+                {newNotificationsCount > 0 && (
+                  <div className="absolute -top-1 -right-1 bg-red-500 text-white rounded-full w-4 h-4 flex items-center justify-center text-xs">
+                    {newNotificationsCount}
+                  </div>
+                )}
+              </div>
             </div>
             {showNotification && (
-              <div className="absolute right-0 mt-2 w-64 top-8 bg-white shadow-lg rounded-md z-50">
+              <div className="absolute right-0 mt-2 w-72 top-8 bg-white shadow-lg rounded-md z-50">
+                {notifications.length > 0 ? (
+                  notifications.map((notification) => (
+                    <div key={notification.id} className="px-4 py-2 text-sm text-gray-700 border-b cursor-pointer hover:bg-slate-100">
+                      {notification.message}
+                    </div>
+                  ))
+                ) : (
+                  <div className="px-4 py-2 text-sm text-gray-700">
+                    No new notifications yet
+                  </div>
+                )}
                 <Link
                   to="/notifications"
-                  className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                  className="block mx-auto rounded-lg px-4 py-1.5  text-sm text-white w-fit  my-2 text-center bg-default_secondary"
                 >
-                  View All Notifications
+                  <span>View All</span>
                 </Link>
-                <div className="px-4 py-2 text-sm text-gray-700">
-                  No new notifications
-                </div>
               </div>
             )}
-              <div
+            <div
               onClick={toggleProfileMenu}
                className="w-10 h-10 bg-gray-200 rounded-full border-2 border-gray-300 relative cursor-pointer">
                 <img

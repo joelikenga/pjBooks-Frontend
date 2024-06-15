@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import DashboardWrapper from "../../../../components/global/DashboardWrapper";
-import {  FaThumbsUp, FaDownload, FaBookOpen } from "react-icons/fa";
 
 const BookDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -70,17 +69,17 @@ const BookDetail: React.FC = () => {
             </div>
             <div className="p-3 rounded-md border my-2">
             <p className="text-gray-800 mb-2">
-            <span className="font-semibold">Likes: </span>  <FaThumbsUp className="inline-block text-gray-600 mr-1" /> {book.likes}
+            <span className="font-semibold">Likes: </span>   {book.likes}
             </p>
             </div>
             <div className="p-3 rounded-md border my-2">
             <p className="text-gray-800 mb-2">
-            <span className="font-semibold">Downloads: </span> <FaDownload className="inline-block text-green-600 mr-1" /> {book.downloads}
+            <span className="font-semibold">Downloads: </span> {book.downloads}
             </p>
             </div>
             <div className="p-3 rounded-md border my-2">
             <p className="text-gray-800 mb-2">
-            <span className="font-semibold">Readers: </span> <FaBookOpen className="inline-block text-yellow-600 mr-1" /> {book.readers}
+            <span className="font-semibold">Readers: </span> {book.readers}
             </p>
             </div>
             <div className="p-3 rounded-md border my-2">
