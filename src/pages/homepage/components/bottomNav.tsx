@@ -6,7 +6,7 @@ import { NavLink } from "react-router-dom"
 
 export const BottomNav = () => {
     return(
-        <div className="fixed  bottom-1 md:bottom-6  w-full h-[4rem] z-50 flex justify-center items-center">
+        <div className="fixed md:hidden  bottom-1 md:bottom-6  w-full h-[4rem] z-50 flex justify-center items-center">
             <div className="w-[99%] items-center max-w-[24rem] backdrop-blur-3xl h-full gap-1 p-1 bg-[rgba(0,0,0,0.3)] font-medium md:bg-white drop-shadow-md border rounded-xl flex justify-between">
                 <NavLink to={"/"} className={ ({ isActive }) => isActive ? "bg-default_primary_1 md:bg-[rgba(0,0,0,0.1)] text-default_secondary text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5" : "text-[rgba(0,0,0,0.8)] text-center p-2 content-center rounded-lg flex justify-center items-center flex-wrap w-1/5"}>
                 <div className="w-full flex justify-center text-2xl"><FaHome /></div>
