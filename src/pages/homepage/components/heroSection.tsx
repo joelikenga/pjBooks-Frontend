@@ -93,7 +93,7 @@ export const Hero = () => {
                                 extensive collection and find your next favorite book today.
                             </p>
                             <Link to={"/library"}
-                                className=" btn-61 bg-default_secondary text-white px-6 py-3 rounded-lg text-lg font-semibold">
+                                className=" bg-default_secondary text-white px-6 py-3 rounded-lg text-lg font-semibold">
                                 Explore
                             </Link>
                         </div>
@@ -104,7 +104,7 @@ export const Hero = () => {
                         <div
                             className="absolute z-10 h-full md:hidden w-full flex justify-center items-center bottom-14 left-0">
                             <div
-                                className=" p-4 w-[90%] h-fit flex items-center flex-wrap bg-white rounded-lg gap-4 drop-shadow-xl mt-[43rem]">
+                                className=" p-4 w-full h-fit flex items-center flex-wrap bg-white rounded-lg gap-4 drop-shadow-xl mt-[43rem]">
                                 <p className="font-bold text-md">
                                     Unlock a treasure trove of stories and knowledge. Explore our
                                     extensive collection and find your next favorite book today.
