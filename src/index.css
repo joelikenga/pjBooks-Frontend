@@ -2,29 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
-::-webkit-scrollbar {
+body::-webkit-scrollbar {
   width: 6px;
 }
 
-::-webkit-scrollbar-track {
+body::-webkit-scrollbar-track {
   background: rgba(0, 0, 0, 0.1);
   
 }
 
-::-webkit-scrollbar-thumb {
+body::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 3px;
 }
-
-::-webkit-scrollbar-thumb:hover {
+/*slider scrollbar*/
+.slider::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+.slider::-webkit-scrollbar {
+  width: 0px;
+}
+
+.slider::-webkit-scrollbar-track {
+  background: transparent;
+
+}
+
+.slider::-webkit-scrollbar-thumb {
+  background: transparent;
+  border-radius: 3px;
+}
+
+.slider::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
 
 .from-left {
   opacity: 1;
   animation: slideLeft 500ms ease-out;
-  transition: transform 0.5s,
-    display 0.5s opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.5s;
 }
 
 @keyframes slideLeft {
@@ -41,8 +59,7 @@
 .from-right {
   opacity: 1;
   animation: slideRight 500ms ease-out;
-  transition: transform 0.5s,
-    display 0.5s opacity 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: transform 0.5s;
 }
 
 @keyframes slideRight {
@@ -106,16 +123,77 @@
     transform: translatey(-600%);
   }
 }
-/*invinsible scroll bar*/
-.transpaent-scrollbar::-webkit-scrollbar {
-  width: 6px; /* Thin scrollbar for Chrome, Safari, and Opera */
+
+.btn-click{
+  animation-name: btn-click;
+  animation-duration: 0.8s;
 }
 
-.transpaent-scrollbar::-webkit-scrollbar-thumb {
-  background-color: transparent;
-  border-radius: 10px;
+@keyframes btn-click {
+  0% {
+    scale: 1.5;
+  }
+  100% {
+    scale: 1;
+  }
 }
 
-.transpaent-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
+/*link underline*/
+
+.a4::before {
+  content: "";
+  background-color: #FF8C32;
+  position: absolute;
+  left: 100%;
+  bottom: -3px;
+  height: 3px;
+  width: 0rem;
+  transition: all 0.3s ease;
+}
+
+.a4::after {
+  content: "";
+  background-color: #FF8C32;
+  position: absolute;
+  right: 100%;
+  bottom: -3px;
+  height: 3px;
+  width: 0rem;
+  transition: all 0.3s ease;
+}
+
+.a4:hover::before {
+  left: 0%;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+.a4:hover::after {
+  right: 0%;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+/**/
+.heart {
+  width: 100px;
+  height: 100px;
+  transform: translate(-50%, -50%);
+  background: url(https://abs.twimg.com/a/1446542199/img/t1/web_heart_animation.png) no-repeat;
+  background-position: 0 0;
+  cursor: pointer;
+}
+
+.heart.is-active {
+  transition: background 1s steps(28);
+  animation: fave-like-btn-svg 1s steps(28);
+  background-position: -2800px 0;
+}
+
+@keyframes fave-like-btn-svg {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: -2800px 0;
+  }
 }
