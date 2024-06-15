@@ -29,7 +29,7 @@ export const Navbar = () => {
     }
   };
   return (
-    <nav className=" sticky top-0 z-20 backdrop-blur-2xl bg-[rgba(0,0,0,0.2)] md:bg-white  gap-2 p-4 border-b border-default_primary_2  flex justify-between items-center max-w-full w-full">
+    <nav className=" sticky top-0 z-20 backdrop-blur-2xl bg-[rgba(0,0,0,0.2)] md:bg-white  gap-2 px-6 py-4 border-b border-default_primary_2  flex justify-between items-center max-w-full w-full">
       <p className="font-bold md:text-xl">PJ Books</p>
 
       {/* search section */}
@@ -137,6 +137,11 @@ export const Navbar = () => {
       </div>
       {/* user side dropdown */}
       {openProfile && (
+          <div className="absolute w-full h-screen left-0 top-0 bg-[transparent]"
+               onClick={() => {
+                 SetOpenProfile(false);
+               }}
+          >
         <div
           onMouseLeave={() => {
             SetOpenProfile(false);
@@ -187,6 +192,7 @@ export const Navbar = () => {
             </p>
           </div>
         </div>
+          </div>
       )}
     </nav>
   );

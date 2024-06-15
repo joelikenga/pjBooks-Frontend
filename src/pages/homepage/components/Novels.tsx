@@ -41,14 +41,14 @@ export const Novels = () => {
     // }, [searchText]);
 
     return (
-        <div className="snap-y snap-mandatory  p-4 w-full bg-[rgba(0,0,0,0.1) bg-default_primary_1 h-fit  md:my-0 ">
+        <div className="snap-y snap-mandatory px-6  py-4 w-full bg-[rgba(0,0,0,0.1) bg-default_primary_1 h-fit  md:my-0 ">
             {/* section name */}
             <div className="w-full flex justify-between py-4">
-                <div className="text-md md:text-xl font-medium flex items-baseline gap-2">
-                    <p className="  border-x-default_secondary px-2 border-x-4">
+                <div className="text-md md:text-2xl font-semibold flex items-baseline gap-2">
+                    <p className="  px-2 ">
                         Novels
                     </p>
-                    <p className="text-sm">See all</p>
+                    <p className="text-sm">View all</p>
                 </div>
 
                 {/* slider buttons */}
@@ -57,14 +57,14 @@ export const Novels = () => {
                         onClick={() => slideLeft()}
                         className="bg-default_secondary cursor-pointer text-white text-xl md:text-3xl flex justify-center rounded-full items-center h-[2rem] md:w-[2.5rem]  w-[2rem] md:h-[2.5rem] "
                     >
-                        <PiCaretLeftLight />
+                        <PiCaretLeftLight/>
                     </div>
 
                     <div
                         onClick={() => slideRight()}
                         className="bg-default_secondary cursor-pointer text-white text-xl md:text-3xl flex justify-center rounded-full items-center h-[2rem] md:w-[2.5rem]  w-[2rem] md:h-[2.5rem] "
                     >
-                        <PiCaretRightLight />
+                        <PiCaretRightLight/>
                     </div>
                 </div>
             </div>
