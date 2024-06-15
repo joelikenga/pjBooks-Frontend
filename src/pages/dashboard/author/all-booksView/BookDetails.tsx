@@ -1,7 +1,6 @@
 import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import DashboardWrapper from "../../../../components/global/DashboardWrapper";
-import { FaThumbsUp, FaDownload, FaBookOpen } from "react-icons/fa";
 
 const BookDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
