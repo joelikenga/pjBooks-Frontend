@@ -76,7 +76,7 @@ export const Footer = () => {
           <div className=" p-1 md:text-base font-semibold w-full flex items-center gap-1"><FaPhoneSquareAlt/>
             <p>Contact</p></div>
           <a href="#" className="font-medium hover:underline p-1 md:text-base w-full">+234898989898</a>
-          <a href="mailto@mail.com" className="font-medium hover:underline p-1 md:text-base w-full">Mail@mail.com</a>
+          <a href="#" className="font-medium hover:underline p-1 md:text-base w-full">Mail@mail.com</a>
           <a href="#" className="font-medium hover:underline p-1 md:text-base w-full">200 Salamis Road 99450</a>
         </div>
       </div>
