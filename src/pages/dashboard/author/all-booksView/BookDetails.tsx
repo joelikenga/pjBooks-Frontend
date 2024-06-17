@@ -31,20 +31,20 @@ const BookDetail: React.FC = () => {
     <DashboardWrapper>
       <div className="p-2 md:p-2">
         <button
-          onClick={() => navigate("/all-books")}
+          onClick={() => navigate("/author-dashboard/all-books")}
           className="text-gray-600 hover:underline mb-4"
         >
           &larr; Back to All Books
         </button>
         <div className="bg-white border rounded-lg p-2 md:flex md:space-x-6">
-          <div className="md:w-1/3 flex justify-center mb-6 md:mb-0">
+          <div className="md:w-1/2 flex justify-center mb-6 md:mb-0">
             <img
               src={book.image}
               alt={book.title}
-              className="w-full h-full rounded-lg object-cover border"
+              className="w-full h-full rounded-lg object-fill border"
             />
           </div>
-          <div className="md:w-2/3">
+          <div className="md:w-1/2">
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               {book.title}
             </h2>
