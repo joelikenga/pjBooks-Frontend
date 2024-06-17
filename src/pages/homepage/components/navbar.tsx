@@ -3,6 +3,7 @@ import {BsCart3, BsSearch} from "react-icons/bs";
 import {FaSearch} from "react-icons/fa";
 import {LiaTimesSolid} from "react-icons/lia";
 import {NavLink} from "react-router-dom";
+import {BiSearch} from "react-icons/bi";
 
 export const Navbar = () => {
     // states
@@ -22,18 +23,18 @@ export const Navbar = () => {
         }
     };
 
-    const profileClick = () => {
-        if (openSearch) {
-            SetOpenProfile(true);
-            SetOpenSearch(false);
-        } else {
-            SetOpenProfile(true);
-        }
-    };
+    // const profileClick = () => {
+    //     if (openSearch) {
+    //         SetOpenProfile(true);
+    //         SetOpenSearch(false);
+    //     } else {
+    //         SetOpenProfile(true);
+    //     }
+    // };
     return (
         <nav
             className=" sticky top-0 z-20 backdrop-blur-2xl bg-[rgba(0,0,0,0.2)] md:bg-white   px-6 py-4 border-b border-default_primary_2  max-w-full w-full">
-            <div className={"w-full flex justify-between items-center  gap-2"}>
+            <div className={"mx-auto max-w-7xl w-full flex justify-between items-center  gap-2"}>
                 <p className="font-bold md:text-xl">PJ Books</p>
 
                 {/*navigations*/}
@@ -41,7 +42,7 @@ export const Navbar = () => {
                     <NavLink className={ ({isActive}) => isActive ?"border-b-2 border-b-default_accent":"a4 relative"} to={"/"}>Home</NavLink>
                     <NavLink className={ ({isActive}) => isActive ?"border-b-2 border-b-default_accent":"a4 relative"} to={"/library"}>Library</NavLink>
                     <NavLink className={ ({isActive}) => isActive ?"border-b-2 border-b-default_accent":"a4 relative"} to={"/saved"}>Saved</NavLink>
-                    <NavLink className={ ({isActive}) => isActive ?"border-b-2 border-b-default_accent":"a4 relative"} to={"/dashboard"}>Dashboard</NavLink>
+                    {/*<NavLink className={ ({isActive}) => isActive ?"border-b-2 border-b-default_accent":"a4 relative"} to={"/dashboard"}>Dashboard</NavLink>*/}
                 </div>
 
                 <div className="flex justify-center items-center gap-2">
@@ -49,7 +50,7 @@ export const Navbar = () => {
                     <button
                         onClick={searchClick}
                         className={
-                            " md:hidden text-sm py-2 px-3.5 mr-1 bg-default_secondary text-white rounded cursor-pointer sm:px-4 md:text-lg"
+                            " md:hidden text-sm py-2 px-3.5 mr-1 bg-default_secondary text-white rounded-lg cursor-pointer sm:px-4 md:text-lg"
                         }
                     >
                         <FaSearch/>
@@ -75,10 +76,10 @@ export const Navbar = () => {
                             >
                                 <button
                                     className={
-                                        " text-sm  md:flex justify-center items-center hidden h-8 mr-1 bg-default_secondary text-white rounded-md cursor-pointer sm:px-4 md:text-lg"
+                                        " text-sm  md:flex justify-center items-center hidden bg-default_secondary text-white rounded-md cursor-pointer p-2 md:text-lg"
                                     }
                                 >
-                                    <FaSearch/>
+                                    <BiSearch/>
                                 </button>
                             </div>
                         </div>
@@ -88,7 +89,7 @@ export const Navbar = () => {
 
                         {openSearch && (
                             <div
-                                onClick={profileClick}
+                                onClick={()=>SetOpenSearch(false)}
                                 className=" reveal cursor-not-allowed z-40 overflow-y-hidden flex justify-evenly items- backdrop-blur-sm absolute bg-[rgba(0,0,0,0.8)] top-0 left-0 min-h-screen w-full"
                             >
                                 <div
