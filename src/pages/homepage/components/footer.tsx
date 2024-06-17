@@ -1,6 +1,7 @@
-import { BsGridFill, BsTwitterX } from "react-icons/bs";
+import {BsGridFill, BsTwitterX} from "react-icons/bs";
 import { FaFacebookF, FaLinkedinIn, FaPhoneSquareAlt, FaQuestionCircle } from "react-icons/fa";
 import { PiInstagramLogoBold } from "react-icons/pi";
+import {GrSnapchat} from "react-icons/gr";
 
 export const Footer = () => {
   return (
@@ -17,20 +18,34 @@ export const Footer = () => {
             Follow us on social media
           </p>
           <div className="flex flex-nowrap justify-around mt-2 w-full items-center text-lg">
-            <div className="w-1/4 ">
-              <a href="#" className=" h-[2rem] text-white w-[2rem] items-center justify-center rounded-full flex bg-[#4267B2]"><FaFacebookF className="" /></a>
+            <div className="w-1/5 ">
+              <a href="#"
+                 className=" h-[2rem] text-white w-[2rem] items-center justify-center rounded-full flex bg-[#4267B2]"><FaFacebookF
+                  className=""/></a>
             </div>
 
-            <div className="w-1/4">
-              <a href="#" className=" h-[2rem] text-white w-[2rem] items-center justify-center rounded-lg flex bg-instagram-gradient"><PiInstagramLogoBold className="" /></a>
+            <div className="w-1/5">
+              <a href="#"
+                 className=" h-[2rem] text-white w-[2rem] items-center justify-center rounded-lg flex bg-instagram-gradient"><PiInstagramLogoBold
+                  className=""/></a>
             </div>
 
-            <div className="w-1/4">
-              <a href="#" className=" h-[2rem] text-white w-[2rem] items-center justify-center rounded-full flex bg-black"><BsTwitterX className="" /></a>
+            <div className="w-1/5">
+              <a href="#"
+                 className=" h-[2rem] text-white w-[2rem] items-center justify-center rounded-full flex bg-black"><BsTwitterX
+                  className=""/></a>
             </div>
 
-            <div className="w-1/4">
-              <a href="#" className=" h-[2rem] text-white w-[2rem] items-center justify-center rounded-sm flex bg-[#0e76a8]"><FaLinkedinIn className="" /></a>
+            <div className="w-1/5">
+              <a href="#"
+                 className=" h-[2rem] text-white w-[2rem] items-center justify-center rounded-sm flex bg-[#0e76a8]"><FaLinkedinIn
+                  className=""/></a>
+            </div>
+
+            <div className="w-1/5">
+              <a href="#"
+                 className=" h-[2rem] text-white w-[2rem] items-center justify-center rounded-sm flex bg-yellow-300"><GrSnapchat
+                  className=""/></a>
             </div>
           </div>
         </div>
@@ -61,7 +76,7 @@ export const Footer = () => {
           <div className=" p-1 md:text-base font-semibold w-full flex items-center gap-1"><FaPhoneSquareAlt/>
             <p>Contact</p></div>
           <a href="#" className="font-medium hover:underline p-1 md:text-base w-full">+234898989898</a>
-          <a href="mailto@mail.com" className="font-medium hover:underline p-1 md:text-base w-full">Mail@mail.com</a>
+          <a href="#" className="font-medium hover:underline p-1 md:text-base w-full">Mail@mail.com</a>
           <a href="#" className="font-medium hover:underline p-1 md:text-base w-full">200 Salamis Road 99450</a>
         </div>
       </div>
