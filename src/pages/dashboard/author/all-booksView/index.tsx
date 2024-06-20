@@ -93,7 +93,7 @@ const AllBooks: React.FC = () => {
   );
 
   const handleBookClick = (book: Book) => {
-    navigate(`/books/${book.id}`, { state: { book } });
+    navigate(`/author-dashboard/books/${book.id}`, { state: { book } });
   };
 
   return (
@@ -112,7 +112,7 @@ const AllBooks: React.FC = () => {
           </div>
         </div>
         {filteredBooks ? <div className="text-default_secondary font-semibold my-3">Books ({filteredBooks.length})</div> : ''}
-        <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6">
+        <div className="grid gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6">
           {filteredBooks.length < 1 ? (
             <div className="text-center col-span-full p-6 font-semibold italic">
               No book found
@@ -127,7 +127,7 @@ const AllBooks: React.FC = () => {
                 <img
                   src={book.image}
                   alt={book.title}
-                  className="w-full h-48 object-cover"
+                  className="w-full h-48 object-fill"
                 />
                 <div className="p-4">
                   <h3 className="text-base font-semibold text-gray-900">

@@ -24,7 +24,7 @@ const ProfilePage: React.FC = () => {
               
               <div className="mt-6 flex justify-end">
               <button className="rounded-full flex items-center gap-2 font-medium focus:outline-none focus:ring focus:ring-offset-2 disabled:cursor-not-allowed text-slate-600 bg-white/20 hover:bg-slate-100/80 dark:text-slate-200 dark:bg-black/20 dark:hover:bg-slate-900 border border-slate-200 dark:border-slate-800 focus:bg-slate-100/80 focus:ring-blue-600 dark:focus:ring-blue-500 dark:focus:ring-offset-slate-950 dark:focus:bg-slate-900 disabled:text-slate-300 disabled:bg-white/20 dark:disabled:text-slate-800 dark:disabled:bg-black/20 text-sm py-1 px-[14px] sm:py-2 sm:px-6 !gap-1 undefined undefined">
-                <Link to="/edit-profile">Edit Profile</Link>
+                <Link to="/author-dashboard/edit-profile">Edit Profile</Link>
               </button>
             </div>
             </div>

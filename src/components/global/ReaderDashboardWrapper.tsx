@@ -2,19 +2,19 @@ import React, { useState, ReactNode, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import {
   FaHome,
-  FaFolderOpen,
   FaBell,
   FaBars,
   FaTimes,
-  FaArchive,
+  FaHistory,
+  FaBookmark,
+  FaBook,
 } from "react-icons/fa";
 import { CiSettings } from "react-icons/ci";
-import { ImFolderUpload } from "react-icons/im";
 import { BsPerson } from "react-icons/bs";
 import { BiLogOut } from "react-icons/bi";
 import axios from "axios";
 
-interface DashboardWrapperProps {
+interface ReaderDashboardWrapperProps {
   children: ReactNode;
 }
 
@@ -24,7 +24,7 @@ interface Notification {
   read: boolean; // Track if notification is read or not
 }
 
-const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
+const ReaderDashboardWrapper: React.FC<ReaderDashboardWrapperProps> = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
   const [showProfileMenu, setShowProfileMenu] = useState(false);
@@ -127,7 +127,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
     setNotifications(updatedNotifications);
   };
 
-  const user = "Ogbaje Leo";
+  const user = "Joel ";
 
   return (
     <div className="flex h-screen bg-gray-100 relative">
@@ -154,16 +154,9 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
           </div>
           <nav className="mt-8 space-y-4">
             <Link
-              to="/author-dashboard"
+              to="/reader-dashboard"
               className={`flex items-center py-2.5 px-4 rounded-[50px] transition duration-200 hover:bg-gray-200 ${
-                (isRouteActive("/author-dashboard") &&
-                  !isRouteActive("/author-dashboard/all-books") &&
-                  !isRouteActive("/author-dashboard/upload-book") &&
-                  !isRouteActive("/author-dashboard/book-request")) ||
-                (!isRouteActive("/author-dashboard") &&
-                  !isRouteActive("/author-dashboard/all-books") &&
-                  !isRouteActive("/author-dashboard/upload-book") &&
-                  !isRouteActive("/author-dashboard/book-request"))
+                isRouteActive("/reader-dashboard")
                   ? "bg-default_secondary hover:!bg-default_secondary text-white"
                   : ""
               }`}
@@ -171,42 +164,41 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
               <FaHome className="mr-3" /> Dashboard
             </Link>
             <Link
-              to="/author-dashboard/all-books"
-              className={`flex items-center py-2.5 px-4 rounded-[50px] transition duration-200 hover:bg-gray-200  ${
-                isRouteActive("/author-dashboard/all-books")
+              to="/reader-dashboard/library"
+              className={`flex items-center py-2.5 px-4 rounded-[50px] transition duration-200 hover:bg-gray-200 ${
+                isRouteActive("/reader-dashboard/library")
                   ? "bg-default_secondary hover:!bg-default_secondary text-white"
                   : ""
               }`}
             >
-              <FaFolderOpen className="mr-3" /> All Books
+              <FaBook className="mr-3" /> Library
             </Link>
             <Link
-              to="/author-dashboard/upload-book"
+              to="/reader-dashboard/bookmarks"
               className={`flex items-center py-2.5 px-4 rounded-[50px] transition duration-200 hover:bg-gray-200 ${
-                isRouteActive("/author-dashboard/upload-book")
+                isRouteActive("/reader-dashboard/bookmarks")
                   ? "bg-default_secondary hover:!bg-default_secondary text-white"
                   : ""
               }`}
             >
-              <ImFolderUpload className="mr-3" /> Upload Book
+              <FaBookmark className="mr-3" /> Bookmarks
             </Link>
             <Link
-              to="/author-dashboard/book-request"
+              to="/reader-dashboard/reading-history"
               className={`flex items-center py-2.5 px-4 rounded-[50px] transition duration-200 hover:bg-gray-200 ${
-                isRouteActive("/author-dashboard/book-request")
+                isRouteActive("/reader-dashboard/reading-history")
                   ? "bg-default_secondary hover:!bg-default_secondary text-white"
                   : ""
               }`}
             >
-              <FaArchive className="mr-3" /> Book Request
+              <FaHistory className="mr-3" /> Reading History
             </Link>
           </nav>
           <div className="absolute md:bottom-4 bottom-4 px-2 py-4 left-0 rounded-lg bg-[#fff] border min-h-32 shadow-md mx-2 text-sm text-default_secondary">
             <div className="mb-3 font-semibold text-default_accent">
               ✨ Quote of the Day!
             </div>
-            "
-            {dailyQuote ? dailyQuote : "Winners do not quit. only loosers quit"}
+            "{dailyQuote ? dailyQuote : "Winners do not quit. only losers quit"}
             " -{author ? author.replace(", type.fit", "") : "PJ-Books"}
           </div>
         </div>
@@ -256,7 +248,7 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
                   notifications.map((notification) => (
                     <div
                       key={notification.id}
-                      className={`px-4 py-2 text-sm text-gray-700 border-b cursor-pointer hover:bg-slate-100 ${notification.read ? "text-gray-400" : ""}`}
+                      className={`px-4 py-2 text-sm text-gray-700 border-b cursor-pointer hover:bg-slate-100 ${notification.read ? "text-gray-300" : ""}`}
                       onClick={() => {
                         markNotificationAsRead(notification.id);
                         toggleNotification();
@@ -343,4 +335,4 @@ const DashboardWrapper: React.FC<DashboardWrapperProps> = ({ children }) => {
   );
 };
 
-export default DashboardWrapper;
+export default ReaderDashboardWrapper;

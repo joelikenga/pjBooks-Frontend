@@ -18,10 +18,11 @@ const Dashboard = () => {
           </div>
           <hr color="black"/>
 
-          <div className="mt-8">
+          <div className="mt-3">
             <h2 className="text-2xl font-semibold mb-2 text-default_secondary py-3">
               Recent Uploaded Books
             </h2>
+          <hr color="black"/>
             <RecentBooksTable />
           </div>
         </div>
