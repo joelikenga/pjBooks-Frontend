@@ -83,11 +83,11 @@ export const Hero = () => {
     const shuffledImages_3 = [...images].sort(() => Math.random() - 1.5);
 
     return (
-            <div className="max-w-full w-full ">
-                <div className="w-full px-auto  md:px-6 m-0 h-[20rem] md:h-[35rem] flex justify-between items-center">
+            <div className="max-w-full w-full bg-default_primary_1 ">
+                <div className="mx-auto max-w-7xl w-full px-auto  md:px-6 xl:px-0  m-0 h-[20rem] md:h-[35rem] flex justify-between items-center">
                     {/* text section */}
                     <div className="w-2/4 hidden md:flex items-center justify-start ">
-                        <div className="w-[70%] flex flex-wrap gap-8 ">
+                        <div className="w-full flex flex-wrap gap-8 ">
                             <p className="font-bold text-3xl">
                                 Unlock a treasure trove of stories and knowledge. Explore our
                                 extensive collection and find your next favorite book today.
@@ -101,10 +101,12 @@ export const Hero = () => {
 
                     {/* animated cards */}
                     <div className="relative w-full md:w-2/4  md:overflow-hidden  h-full flex items-center justify-end">
+
+                        {/*mobile text section*/}
                         <div
                             className="absolute z-10 h-full md:hidden w-full flex justify-center items-center bottom-14 left-0">
                             <div
-                                className=" p-4 w-full h-fit flex items-center flex-wrap bg-white rounded-lg gap-4 drop-shadow-xl mt-[43rem]">
+                                className=" p-4 w-[90%] h-fit flex items-center flex-wrap bg-white rounded-lg gap-4 drop-shadow-xl mt-[43rem]">
                                 <p className="font-bold text-md">
                                     Unlock a treasure trove of stories and knowledge. Explore our
                                     extensive collection and find your next favorite book today.

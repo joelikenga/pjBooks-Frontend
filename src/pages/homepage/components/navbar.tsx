@@ -1,8 +1,9 @@
 import {useState} from "react";
 import {BsCart3, BsSearch} from "react-icons/bs";
 import {FaSearch} from "react-icons/fa";
-import {LiaTimesSolid} from "react-icons/lia";
+// import {LiaTimesSolid} from "react-icons/lia";
 import {NavLink} from "react-router-dom";
+import {BiSearch} from "react-icons/bi";
 
 export const Navbar = () => {
     // states
@@ -22,26 +23,29 @@ export const Navbar = () => {
         }
     };
 
-    const profileClick = () => {
-        if (openSearch) {
-            SetOpenProfile(true);
-            SetOpenSearch(false);
-        } else {
-            SetOpenProfile(true);
-        }
-    };
+    // const profileClick = () => {
+    //     if (openSearch) {
+    //         SetOpenProfile(true);
+    //         SetOpenSearch(false);
+    //     } else {
+    //         SetOpenProfile(true);
+    //     }
+    // };
     return (
         <nav
             className=" sticky top-0 z-20 backdrop-blur-2xl bg-[rgba(0,0,0,0.2)] md:bg-white   px-6 py-4 border-b border-default_primary_2  max-w-full w-full">
-            <div className={"w-full flex justify-between items-center  gap-2"}>
+            <div className={"mx-auto max-w-7xl w-full flex justify-between items-center  gap-2"}>
                 <p className="font-bold md:text-xl">PJ Books</p>
 
                 {/*navigations*/}
                 <div className={"hidden md:flex items-center gap-8 font-semibold justify-evenly"}>
-                    <NavLink className={ ({isActive}) => isActive ?"border-b-2 border-b-default_accent":"a4 relative"} to={"/"}>Home</NavLink>
-                    <NavLink className={ ({isActive}) => isActive ?"border-b-2 border-b-default_accent":"a4 relative"} to={"/library"}>Library</NavLink>
-                    <NavLink className={ ({isActive}) => isActive ?"border-b-2 border-b-default_accent":"a4 relative"} to={"/saved"}>Saved</NavLink>
-                    <NavLink className={ ({isActive}) => isActive ?"border-b-2 border-b-default_accent":"a4 relative"} to={"/dashboard"}>Dashboard</NavLink>
+                    <NavLink className={({isActive}) => isActive ? "border-b-2 border-b-default_accent" : "a4 relative"}
+                             to={"/"}>Home</NavLink>
+                    <NavLink className={({isActive}) => isActive ? "border-b-2 border-b-default_accent" : "a4 relative"}
+                             to={"/library"}>Library</NavLink>
+                    <NavLink className={({isActive}) => isActive ? "border-b-2 border-b-default_accent" : "a4 relative"}
+                             to={"/saved"}>Saved</NavLink>
+                    {/*<NavLink className={ ({isActive}) => isActive ?"border-b-2 border-b-default_accent":"a4 relative"} to={"/dashboard"}>Dashboard</NavLink>*/}
                 </div>
 
                 <div className="flex justify-center items-center gap-2">
@@ -49,7 +53,7 @@ export const Navbar = () => {
                     <button
                         onClick={searchClick}
                         className={
-                            " md:hidden text-sm py-2 px-3.5 mr-1 bg-default_secondary text-white rounded cursor-pointer sm:px-4 md:text-lg"
+                            " md:hidden text-sm py-2 px-3.5 mr-1 bg-default_secondary text-white rounded-lg cursor-pointer sm:px-4 md:text-lg"
                         }
                     >
                         <FaSearch/>
@@ -75,10 +79,10 @@ export const Navbar = () => {
                             >
                                 <button
                                     className={
-                                        " text-sm  md:flex justify-center items-center hidden h-8 mr-1 bg-default_secondary text-white rounded-md cursor-pointer sm:px-4 md:text-lg"
+                                        " text-sm  md:flex justify-center items-center hidden  bg-default_secondary text-white border rounded-xl px-2.5 py-1.5 cursor-pointer md:text-xl"
                                     }
                                 >
-                                    <FaSearch/>
+                                    <BiSearch/>
                                 </button>
                             </div>
                         </div>
@@ -88,8 +92,8 @@ export const Navbar = () => {
 
                         {openSearch && (
                             <div
-                                onClick={profileClick}
-                                className=" reveal cursor-not-allowed z-40 overflow-y-hidden flex justify-evenly items- backdrop-blur-sm absolute bg-[rgba(0,0,0,0.8)] top-0 left-0 min-h-screen w-full"
+                                onClick={() => SetOpenSearch(false)}
+                                className=" reveal cursor-not-allowed z-40 overflow-y-hidden flex justify-evenly  absolute bg-[rgba(0,0,0,0.9)] top-0 left-0 min-h-screen w-full"
                             >
                                 <div
                                     onClick={handleClickInsideModal}
@@ -98,9 +102,9 @@ export const Navbar = () => {
                                     {/* search input */}
                                     <div className=" rounded-sm border-b">
                                         <div className="mx-2 my-2">
-                                            <div className="flex justify-between items-center">
+                                            <div className="flex justify-between items-center px-2">
                                                 <div
-                                                    className="bg-default_primary_ p-1 rounded flex gap-2 justify-start items-center w-[92%]">
+                                                    className=" p-1 rounded flex gap-2 justify-start items-center w-[92%]">
                                                     <div className=" rounded  text-base md:text-2xl  p-1">
                                                         <BsSearch className=""/>
                                                     </div>
@@ -111,14 +115,21 @@ export const Navbar = () => {
                                                         autoFocus
                                                     />
                                                 </div>
+                                                {/*srarch close button*/}
                                                 <div
                                                     onClick={() => {
                                                         SetOpenSearch(false);
                                                         SetOpenProfile(false);
                                                     }}
-                                                    className=" cursor-pointer rounded text-base md:text-xl bg-default_secondary text-white p-2 mr-2"
+                                                    className=" cursor-pointer rounded-lg text-base md:text-lg bg-default_secondary text-white p-1.5"
                                                 >
-                                                    <LiaTimesSolid/>
+                                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                                                         fill="currentColor" className="size-5">
+                                                        <path fill-rule="evenodd"
+                                                              d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+                                                              clip-rule="evenodd"/>
+                                                    </svg>
+
                                                 </div>
                                             </div>
                                         </div>
@@ -129,18 +140,23 @@ export const Navbar = () => {
                                     <div className="w-full h-full  overflow-y-scroll">
                                         {/* card */}
 
-                                        <div className="">
+                                        <div className="mx-4">
                                             <div
-                                                className="mt-3  mx-2 bg-white h-[15rem] content-start p-1 gap-2 flex justify-between w-[50%] drop-shadow-md rounded border">
-                                            {/*    search card image*/}
-                                                <div className={"w-1/2 rounded-md overflow-hidden"}>
-                                                    <img className={"object-center bg-center"} src={"https://images.bwbcovers.com/125/Juniper-s-Christmas-9781250321947.jpg"} alt={""}/>
+                                                className="mt-1  px-2 bg-white h-[6rem] content-start p-1  flex items-center gap-4 justify-start w-full border-b">
+                                                {/*    search card image*/}
+                                                <div className={"max-w-[4rem]  h-[6rem] overflow-hidden"}>
+                                                    <img className={"object-center bg-center h-[5.5rem]"}
+                                                         src={"https://images.bwbcovers.com/125/Juniper-s-Christmas-9781250321947.jpg"}
+                                                         alt={""}/>
                                                 </div>
 
-                                                <div className={"w-1/2 rounded-md overflow-hidden"}>
+                                                {/*    book title*/}
+                                                <div className={"w-full flex flex-wrap gap-2"}>
+                                                    <p className={"w-full font-semibold text-xl"}>Junipers Christmas</p>
+                                                    <p className={"w-full font-medium text-lg"}>Junipers Christmas</p>
+                                                </div>
 
-                                                </div>
-                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -189,7 +205,6 @@ export const Navbar = () => {
                                     <p className="text-sm font-sm w-full">Joelikenga@gmail.com</p>
                                 </div>
                             </div>
-
 
 
                             <div

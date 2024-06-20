@@ -11,6 +11,8 @@ import NotFound from "./pages/not-found";
 import { Homepage } from "./pages/homepage";
 import BookDetail from "./pages/dashboard/author/all-booksView/BookDetails";
 import { Library } from "./pages/library";
+import ReaderDashboard from "./pages/dashboard/reader";
+import ReaderLibrary from "./pages/dashboard/reader/ReaderLibrary";
 
 const router = createBrowserRouter([
   {
@@ -31,34 +33,66 @@ const router = createBrowserRouter([
     path: "resetPassword",
     element: <ResetPassword />,
   },
+  // Author Dashboard Routes
+  // Dashboard for Authors:
   {
-    path: "dashboard",
+    path: "author-dashboard",
     element: <Dashboard />,
   },
   {
-    path: "upload-book",
+    path: "author-dashboard/upload-book",
     element: <UploadBooks />,
   },
   {
-    path: "all-books",
+    path: "author-dashboard/all-books",
     element: <AllBooks />,
   },
   {
-    path: "/books/:id",
-    element: <BookDetail  />,
+    path: "author-dashboard/books/:id",
+    element: <BookDetail />,
   },
   {
-    path: "profile",
+    path: "author-dashboard/book-request",
+    element: <BookRequest />,
+  },
+  {
+    path: "author-dashboard/profile",
     element: <ProfilePage />,
   },
   {
-    path: "edit-profile",
+    path: "author-dashboard/edit-profile",
     element: <ProfileSettings />,
   },
+  // Reader Dashboard Routes
+  // Dashboard for Readers:
   {
-    path: "book-request",
-    element: <BookRequest />,
+    path: "reader-dashboard",
+    element: <ReaderDashboard />,
   },
+  {
+    path: "reader-dashboard/library",
+    element: <ReaderLibrary />,
+  },
+  // {
+  //   path: "/reader-dashboard/book/:id",
+  //   element: <BookInfo />,
+  // },
+  // {
+  //   path: "/reader-dashboard/bookmarks",
+  //   element: <BookMark />,
+  // },
+  // {
+  //   path: "reader-dashboard/reading-history",
+  //   element: <ReadingHistory />,
+  // },
+  // {
+  //   path: "reader-dashboard/profile",
+  //   element: <ReaderProfilePage />,
+  // },
+  // {
+  //   path: "reader-dashboard/edit-profile",
+  //   element: <ReaderProfileSettings />,
+  // },
 ]);
 
 export const IndexPage = () => {
@@ -68,3 +102,15 @@ export const IndexPage = () => {
     </div>
   );
 };
+
+
+// Reader Dashboard Routes
+// Dashboard for Readers:
+// Base path: /reader-dashboard
+// Example routes:
+// /reader-dashboard/library
+// /reader-dashboard/book/:id
+// /reader-dashboard/profile
+// /reader-dashboard/edit-profile
+// /reader-dashboard/bookmarks
+// /reader-dashboard/reading-history

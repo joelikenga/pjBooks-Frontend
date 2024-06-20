@@ -1,4 +1,4 @@
-import { IndexPage } from "."
+import {IndexPage}  from "."
 
 function App() {
 
