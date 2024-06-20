@@ -13,7 +13,7 @@ export const Footer = () => {
                     <p className="font-bold md:text-xl ">PJ Books</p>
                 </div>
                 <div
-                    className="w-full mt-4 gap-2 h-fit text-default_secondary  flex justify-center md:justify-between items-Start flex-wrap md:flex-nowrap">
+                    className="w-full mt-4 gap-2 h-fit  flex justify-center md:justify-between items-Start flex-wrap md:flex-nowrap">
                     {/* first section */}
                     <div className="w-full py-2 md:w-[18rem] flex content-start justify-start items-start flex-wrap  ">
                         <p className=" md:text-base font-semibold w-full">
