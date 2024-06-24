@@ -174,7 +174,7 @@ export const NewBooks = () => {
                                 )}
                                 {/* card Image */}
                                 <div
-                                    className={"h-[13.5rem]  relative mx-1 mt-1 mb-0 rounded overflow-hidden"}>
+                                    className={"h-[14.5rem]  relative mx-1 mt-1 mb-0 rounded overflow-hidden"}>
                                     {likeAnimations[book.id] && (
                                         <div
                                             className={"heart absolute top-[50%] left-[50%] is-active h-[3rem] w-[3rem]"}></div>
@@ -187,9 +187,9 @@ export const NewBooks = () => {
                                     />
                                 </div>
                                 {/* Details section */}
-                                <div className={"h-[4rem] items-center  flex flex-wrap mx-2  my-1"}>
+                                <div className={"h-fit items-center  flex flex-wrap mx-2  my-1"}>
                                     {/* Title and like button */}
-                                    <div className={"w-full border-b items-center gap-1 flex justify-between"}>
+                                    <div className={"w-full items-center gap-1 flex justify-between"}>
                                         <div
                                             className={"flex items-center flex-wrap gap-1 text-sm font-semibold w-full truncate"}>
                                             <p className={"w-full truncate"}>{book.title}</p>
@@ -212,7 +212,7 @@ export const NewBooks = () => {
                                         </div>
                                     </div>
                                     {/* Card footer Details */}
-                                    <div className={" pt-1.5 flex justify-between items-baseline w-full"}>
+                                    <div className={" border-t pt-2 flex h-full justify-between items-center w-full"}>
                                         <div className={"flex items-center gap-2 text-[gray] justify-evenly"}>
                                             <div className={"flex items-center gap-0.5"}>
                                                 <FiEye/>
@@ -224,9 +224,9 @@ export const NewBooks = () => {
                                             </div>
                                         </div>
                                         <div
-                                            className={"rounded cursor-default gap-0.5 py-1 text-[gray] font-medium text-xs"}>
+                                            className={"rounded cursor-default gap-0.5 text-[gray] font-medium text-xs"}>
                                             {book.status === "private" ?
-                                                (<div className={"flex items-center h-3 pt-2  justify-between"}>
+                                                (<div className={"flex items-center h-3   gap-0.5 justify-between"}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
                                                          fill="currentColor" className="size-4">
                                                         <path fillRule="evenodd"
@@ -236,7 +236,7 @@ export const NewBooks = () => {
 
                                                     <p className={""}>{book.status}</p>
                                                 </div>) :
-                                                <div className={"flex items-center h-3 pt-2 gap-0.5 justify-between"}>
+                                                <div className={"flex items-center h-3  gap-0.5 justify-between"}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
                                                          fill="currentColor" className="size-4">
                                                         <path fillRule="evenodd"
