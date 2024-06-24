@@ -6,6 +6,8 @@ import {SubjectsSection} from "../library/components/subjectsSection.tsx";
 import {NewBooks} from "../library/components/NewBooks.tsx";
 import {Navbar} from "../library/components/navbar.tsx";
 import {PopularBooks} from "../library/components/popularBooks.tsx";
+import {KidsBooks} from "../library/components/KidsBooks.tsx";
+import {LoveRomanceBooks} from "../library/components/love&RomanceBooks.tsx";
 
 export const Library = () => {
     const [openCategory, setOpenCategory] = useState<boolean>(false);
@@ -228,6 +230,8 @@ export const Library = () => {
                         <SubjectsSection />
                         <NewBooks />
                         <PopularBooks />
+                        <KidsBooks />
+                        <LoveRomanceBooks />
 
                     </div>
 

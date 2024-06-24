@@ -103,7 +103,7 @@ export const Textbooks = () => {
     const [likeAnimations, setLikeAnimations] = useState<Record<number, boolean>>({});
     const [hoveredBookId, setHoveredBookId] = useState<boolean | number>(false);
     const sliderRef = useRef<HTMLDivElement | null>(null);
-    const slideWidth = 210;
+    const slideWidth: number = 300;
 
     const handleLike = (bookId: number) => {
         setBooks((prevBooks) =>
@@ -137,20 +137,34 @@ export const Textbooks = () => {
         event.stopPropagation();
     };
 
+    const smoothScroll = (distance: number, duration: number) => {
+        const slider = sliderRef.current;
+        if (!slider) return;
+
+        const start = slider.scrollLeft;
+        const startTime = performance.now();
+
+        const scroll = (currentTime: number) => {
+            const timeElapsed = currentTime - startTime;
+            const progress = Math.min(timeElapsed / duration, 1);
+            const ease = (t: number) => t * (2 - t); // ease-out effect
+
+            slider.scrollLeft = start + distance * ease(progress);
+
+            if (progress < 1) {
+                requestAnimationFrame(scroll);
+            }
+        };
+
+        requestAnimationFrame(scroll);
+    };
+
     const slideLeft = () => {
-        const scrollDistance = slideWidth;
-        sliderRef.current?.scrollBy({
-            left: -scrollDistance,
-            behavior: "smooth",
-        });
+        smoothScroll(-slideWidth, 500); // 500ms duration
     };
 
     const slideRight = () => {
-        const scrollDistance = slideWidth;
-        sliderRef.current?.scrollBy({
-            left: scrollDistance,
-            behavior: "smooth",
-        });
+        smoothScroll(slideWidth, 500); // 500ms duration
     };
 
     return (
