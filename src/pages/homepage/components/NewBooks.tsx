@@ -159,7 +159,7 @@ export const NewBooks = () => {
                 {/* section name */}
                 <div className="w-full flex justify-between py-4">
                     <div className="text-md md:text-2xl font-semibold flex items-baseline gap-2">
-                        <p className="px-2">Recent Books</p>
+                        <p className="px-2">New Books</p>
                         <p className="text-sm">View all</p>
                     </div>
 
@@ -167,14 +167,14 @@ export const NewBooks = () => {
                     <div className="flex justify-between gap-3 mx-2 md:mx-0">
                         <div
                             onClick={() => slideLeft()}
-                            className="bg-default_secondary cursor-pointer text-white text-xl md:text-3xl flex justify-center rounded-full items-center h-[2rem] md:w-[2.5rem] w-[2rem] md:h-[2.5rem]"
+                            className="hover:bg-default_secondary border border-default_secondary text-default_secondary  cursor-pointer duration-200 hover:text-white text-xl md:text-3xl flex justify-center rounded-lg items-center h-[1.5rem] md:w-[2rem] w-[1.5rem] md:h-[2rem]"
                         >
                             <RxCaretLeft/>
                         </div>
 
                         <div
                             onClick={() => slideRight()}
-                            className="bg-default_secondary cursor-pointer text-white text-xl md:text-3xl flex justify-center rounded-full items-center h-[2rem] md:w-[2.5rem] w-[2rem] md:h-[2.5rem]"
+                            className="hover:bg-default_secondary border border-default_secondary text-default_secondary  cursor-pointer duration-200 hover:text-white text-xl md:text-3xl flex justify-center rounded-lg items-center h-[1.5rem] md:w-[2rem] w-[1.5rem] md:h-[2rem]"
                         >
                             <RxCaretRight/>
                         </div>
@@ -186,13 +186,13 @@ export const NewBooks = () => {
                         className="slider flex flex-nowrap overflow-x-scroll gap-3 justify-normal items-center h-fit rounded-lg"
                     >
                         {/* book card */}
-                        {books.map((book) => (
+                        {books.slice(0,12).map((book) => (
                             <div
                                 key={book.id}
                                 onMouseEnter={() => setHoveredBookId(book.id)}
                                 onMouseLeave={() => setHoveredBookId(false)}
                                 className={
-                                    "overflow-hidden snap-x snap-mandatory h-fit bg-white min-w-[15rem] w-fit rounded-2xl relative font-medium z-0 capitalize"
+                                    "overflow-hidden snap-x snap-mandatory h-[19.5rem] bg-white min-w-[12rem] rounded-md relative font-medium z-0 capitalize"
                                 }
                             >
                                 {/* price Description */}
@@ -209,7 +209,7 @@ export const NewBooks = () => {
                                 )}
                                 {/* card Image */}
                                 <div
-                                    className={"h-[17rem] w-[13rem] relative mx-4 mt-4 mb-0 rounded-lg overflow-hidden"}>
+                                    className={"h-[14.5rem]  relative mx-1 mt-1 mb-0 rounded overflow-hidden"}>
                                     {likeAnimations[book.id] && (
                                         <div
                                             className={"heart absolute top-[50%] left-[50%] is-active h-[3rem] w-[3rem]"}></div>
@@ -217,18 +217,18 @@ export const NewBooks = () => {
 
                                     <img
                                         alt={""}
-                                        className={"w-[16rem] h-full object-cove bg-cover"}
+                                        className={"w-full h-full object-cover object-top bg-cover"}
                                         src={book.img}
                                     />
                                 </div>
                                 {/* Details section */}
-                                <div className={"h-[6rem] items-center flex flex-wrap mx-4 mb-1"}>
+                                <div className={"h-fit items-center  flex flex-wrap mx-2  my-1"}>
                                     {/* Title and like button */}
-                                    <div className={"w-full items-center gap-2 flex justify-between"}>
+                                    <div className={"w-full items-center gap-1 flex justify-between"}>
                                         <div
-                                            className={"flex items-center flex-wrap text-sm font-semibold w-full truncate"}>
+                                            className={"flex items-center flex-wrap gap-1 text-sm font-semibold w-full truncate"}>
                                             <p className={"w-full truncate"}>{book.title}</p>
-                                            <p className={"w-full font-medium truncate"}>{book.author}</p>
+                                            <p className={"w-full text-xs font-medium truncate"}>{book.author}</p>
                                         </div>
                                         <div
                                             onClick={() => {
@@ -247,7 +247,7 @@ export const NewBooks = () => {
                                         </div>
                                     </div>
                                     {/* Card footer Details */}
-                                    <div className={"border-t pt-2 flex justify-between w-full"}>
+                                    <div className={" border-t pt-2 flex h-full justify-between items-center w-full"}>
                                         <div className={"flex items-center gap-2 text-[gray] justify-evenly"}>
                                             <div className={"flex items-center gap-0.5"}>
                                                 <FiEye/>
@@ -259,9 +259,9 @@ export const NewBooks = () => {
                                             </div>
                                         </div>
                                         <div
-                                            className={"rounded-lg cursor-default px-1 py-0.5 border border-default_secondary font-medium text-xs"}>
+                                            className={"rounded cursor-default gap-0.5 text-[gray] font-medium text-xs"}>
                                             {book.status === "private" ?
-                                                (<div className={"flex items-center gap-1 justify-center"}>
+                                                (<div className={"flex items-center h-3   gap-0.5 justify-between"}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
                                                          fill="currentColor" className="size-4">
                                                         <path fillRule="evenodd"
@@ -271,7 +271,7 @@ export const NewBooks = () => {
 
                                                     <p className={""}>{book.status}</p>
                                                 </div>) :
-                                                <div className={"flex items-center gap-1 justify-center"}>
+                                                <div className={"flex items-center h-3  gap-0.5 justify-between"}>
                                                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
                                                          fill="currentColor" className="size-4">
                                                         <path fillRule="evenodd"

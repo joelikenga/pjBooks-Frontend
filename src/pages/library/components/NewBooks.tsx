@@ -135,15 +135,15 @@ export const NewBooks = () => {
     };
 
     return (
-        <div className="snap-y snap-mandatory py-4  w-full h-fit mt-6 ">
+        <div className="snap-y snap-mandatory pt-3  w-full h-fit mt-6 ">
             <div className={"mx-auto max-w-7xl"}>
                 {/* section name */}
-                <div className="w-full flex justify-between py-4">
+                <div className="w-full flex items-baseline justify-between py-4">
                     <div className="text-md md:text-2xl font-semibold flex items-baseline gap-2">
                         <p className="px-2">New Books</p>
                     </div>
 
-                    <p className="text-sm">View all</p>
+                    <p className="text-sm font-semibold">View all</p>
 
                 </div>
                 <div className={"p-2 bg-default_primary_1 h-fit rounded-lg"}>
@@ -164,10 +164,10 @@ export const NewBooks = () => {
                                 {hoveredBookId === book.id && (
                                     <div
                                         onClick={handleClickInsideModal}
-                                        className="from-left absolute shadow-md z-[2] top-5 right-5 p-1 h-[2.5rem] text-sm bg-white rounded-md text-default_secondary gap-1 flex justify-between items-center w-[6rem]"
+                                        className="from-left absolute shadow-md z-[2] top-2 right-2 p-1 h-[2.5rem] text-sm bg-white rounded-md text-default_secondary gap-1 flex justify-between items-center w-[6rem]"
                                     >
-                                        <p className={"w-[2.5rem]"}>${book.price}</p>
-                                        <p className={"w-[2.5rem] cursor-pointer bg-default_secondary flex justify-center items-center text-xl text-white p-1.5 rounded"}>
+                                        <p className={"w-[2rem]"}>${book.price}</p>
+                                        <p className={"w-[2rem] cursor-pointer bg-default_secondary flex justify-center items-center text-xl text-white p-1.5 rounded"}>
                                             <BsCart3/>
                                         </p>
                                     </div>

@@ -4,6 +4,8 @@ import {NavLink} from "react-router-dom";
 import {PreviousReading} from "../library/components/previousReading.tsx";
 import {SubjectsSection} from "../library/components/subjectsSection.tsx";
 import {NewBooks} from "../library/components/NewBooks.tsx";
+import {Navbar} from "../library/components/navbar.tsx";
+import {PopularBooks} from "../library/components/popularBooks.tsx";
 
 export const Library = () => {
     const [openCategory, setOpenCategory] = useState<boolean>(false);
@@ -76,7 +78,8 @@ export const Library = () => {
 
     return (
         <div className="w-full max-w-full">
-            <div className="flex content-start h-screen w-full mx-auto max-w-7xl relative">
+            <Navbar />
+            <div className="flex  h-screen w-full mx-auto max-w-7xl relative">
                 {/* Main library body */}
                 <div className="md:w-full pr-2 lg:w-8/12 overflow-y-auto slider">
                     {/*-------------------------------------------------------------------------------------------------------------------------------------------------*/}
@@ -224,6 +227,7 @@ export const Library = () => {
                         <PreviousReading/>
                         <SubjectsSection />
                         <NewBooks />
+                        <PopularBooks />
 
                     </div>
 
