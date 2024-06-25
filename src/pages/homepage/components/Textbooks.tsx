@@ -106,7 +106,7 @@ export const Textbooks = () => {
     const slideWidth: number = 300;
 
     const handleLike = (bookId: number) => {
-        setBooks((prevBooks) =>
+        setBooks((prevBooks : Book[]) =>
             prevBooks.map((book) =>
                 book.id === bookId
                     ? {

@@ -8,6 +8,7 @@ import {Navbar} from "../library/components/navbar.tsx";
 import {PopularBooks} from "../library/components/popularBooks.tsx";
 import {KidsBooks} from "../library/components/KidsBooks.tsx";
 import {LoveRomanceBooks} from "../library/components/love&RomanceBooks.tsx";
+import {AuthorsCard} from "../library/components/AuthorsCard.tsx";
 
 export const Library = () => {
     const [openCategory, setOpenCategory] = useState<boolean>(false);
@@ -83,9 +84,10 @@ export const Library = () => {
             <Navbar />
             <div className="flex  h-screen w-full mx-auto max-w-7xl relative">
                 {/* Main library body */}
-                <div className="md:w-full pr-2 lg:w-8/12 overflow-y-auto slider">
+                <div className="md:w-full pr-2 lg:w-8/12 overflow-y-auto slider relative">
                     {/*-------------------------------------------------------------------------------------------------------------------------------------------------*/}
-                    <div className="w-full items-center flex justify-start pl-1 md:pl-8 lg:pl-0 bg-white my-4 gap-8">
+                    {/*search and category*/}
+                    <div className=" sticky top-0 z-[2] py-4  w-full items-center flex justify-start pl-1 md:pl-8 lg:pl-0 bg-white  gap-8">
                         {/* Category section */}
                         <div
                             onClick={() => setOpenCategory(!openCategory)}
@@ -112,103 +114,6 @@ export const Library = () => {
                                 </svg>
                             )}
                         </div>
-                        {openCategory &&
-                            <div onClick={() => setOpenCategory(false)}
-                                 className="absolute w-full z-[2] h-screen bg-[transparent]] top-0 left-0">
-                                <div
-
-                                    onClick={handleClickInsideModal}
-                                    className="from-top w-[16rem]  bg-white h-[25rem] border-2 mt-[4rem] drop-shadow-md flex flex-col justify-between rounded-lg">
-                                    {/* Scroll up */}
-                                    {!atTop && <div
-                                        onMouseEnter={() => handleMouseEnter("up")}
-                                        onMouseLeave={handleMouseLeave}
-                                        onScroll={() => checkScrollPosition()}
-                                        className={"flex items-center cursor-n-resize justify-center w-full h-8 border-b border-b-[rgba(0,0,0,0.05)] "}
-
-                                    >
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                             className="size-5">
-                                            <path fillRule="evenodd"
-                                                  d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z"
-                                                  clipRule="evenodd"/>
-                                        </svg>
-
-                                    </div>}
-                                    <div
-                                        ref={scrollRef}
-                                        onScroll={handleManualScroll}
-                                        className="h-full px-5 py-3 slider overflow-y-auto">
-                                        <NavLink to={""}
-                                                 className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                            Fiction
-                                        </NavLink><NavLink to={""}
-                                                           className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink><NavLink to={""}
-                                                       className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
-                                        Fiction
-                                    </NavLink>
-                                    </div>
-                                    {/* Scroll down */}
-                                    {!atBottom && <div
-                                        onMouseEnter={() => handleMouseEnter("down")}
-                                        onMouseLeave={handleMouseLeave}
-                                        onScroll={() => checkScrollPosition()}
-
-                                        className={"flex items-center cursor-s-resize justify-center w-full  h-8 border-t border-t-[rgba(0,0,0,0.05)] "}
-
-                                    >
-                                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                                             className="size-5">
-                                            <path fillRule="evenodd"
-                                                  d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
-                                                  clipRule="evenodd"/>
-                                        </svg>
-
-                                    </div>}
-                                </div>
-                            </div>
-                        }
 
                         {/* Search section */}
                         <div
@@ -236,7 +141,109 @@ export const Library = () => {
                     </div>
 
                 </div>
-                <div className={"hidden lg:block w-4/12"}></div>
+                <div className={"hidden lg:block w-4/12  pl-2 md:pr-8 lg:pr-0 overflow-y-auto"}>
+                    <AuthorsCard />
+                </div>
+
+
+            {/*    categories drop down*/}
+                {openCategory &&
+                    <div onClick={() => setOpenCategory(false)}
+                         className="absolute w-full z-[3] h-screen bg-[transparent]]  top-0 left-0">
+                        <div
+
+                            onClick={handleClickInsideModal}
+                            className="from-top w-[16rem]  bg-white h-[25rem] border-2 mt-[4rem] drop-shadow-md flex flex-col justify-between rounded-lg">
+                            {/* Scroll up */}
+                            {!atTop && <div
+                                onMouseEnter={() => handleMouseEnter("up")}
+                                onMouseLeave={handleMouseLeave}
+                                onScroll={() => checkScrollPosition()}
+                                className={"flex items-center cursor-n-resize justify-center w-full h-8 border-b border-b-[rgba(0,0,0,0.05)] "}
+
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                     className="size-5">
+                                    <path fillRule="evenodd"
+                                          d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z"
+                                          clipRule="evenodd"/>
+                                </svg>
+
+                            </div>}
+                            <div
+                                ref={scrollRef}
+                                onScroll={handleManualScroll}
+                                className="h-full px-5 py-3 slider overflow-y-auto">
+                                <NavLink to={""}
+                                         className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                    Fiction
+                                </NavLink><NavLink to={""}
+                                                   className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink><NavLink to={""}
+                                               className="pl-3 flex font-medium py-1 w-full border-l-2 border-l-default_primary_2 hover:border-default_secondary">
+                                Fiction
+                            </NavLink>
+                            </div>
+                            {/* Scroll down */}
+                            {!atBottom && <div
+                                onMouseEnter={() => handleMouseEnter("down")}
+                                onMouseLeave={handleMouseLeave}
+                                onScroll={() => checkScrollPosition()}
+
+                                className={"flex items-center cursor-s-resize justify-center w-full  h-8 border-t border-t-[rgba(0,0,0,0.05)] "}
+
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
+                                     className="size-5">
+                                    <path fillRule="evenodd"
+                                          d="M5.22 8.22a.75.75 0 0 1 1.06 0L10 11.94l3.72-3.72a.75.75 0 1 1 1.06 1.06l-4.25 4.25a.75.75 0 0 1-1.06 0L5.22 9.28a.75.75 0 0 1 0-1.06Z"
+                                          clipRule="evenodd"/>
+                                </svg>
+
+                            </div>}
+                        </div>
+                    </div>
+                }
             </div>
 
             <BottomNav/>
