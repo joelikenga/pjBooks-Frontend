@@ -80,9 +80,9 @@ export const Library = () => {
     }, []);
 
     return (
-        <div className="w-full max-w-full">
+        <div className="w-full max-w-full h-screen ">
             <Navbar />
-            <div className="flex  h-screen w-full mx-auto max-w-7xl relative">
+            <div className="flex pt-[4rem] h-full w-full mx-auto max-w-7xl relative ">
                 {/* Main library body */}
                 <div className="md:w-full pr-2 lg:w-8/12 overflow-y-auto slider relative">
                     {/*-------------------------------------------------------------------------------------------------------------------------------------------------*/}
@@ -153,7 +153,7 @@ export const Library = () => {
                         <div
 
                             onClick={handleClickInsideModal}
-                            className="from-top w-[16rem]  bg-white h-[25rem] border-2 mt-[4rem] drop-shadow-md flex flex-col justify-between rounded-lg">
+                            className="from-top w-[16rem]  bg-white h-[25rem] border-2 mt-[8rem] drop-shadow-md flex flex-col justify-between rounded-lg">
                             {/* Scroll up */}
                             {!atTop && <div
                                 onMouseEnter={() => handleMouseEnter("up")}

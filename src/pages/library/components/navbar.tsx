@@ -11,7 +11,7 @@ export const Navbar = () => {
 
     return (
         <nav
-            className="z-20 backdrop-blur-2xl bg-[rgba(0,0,0,0.2)] md:bg-white h-[4rem]  px-6 py-4 border-b border-default_primary_2  max-w-full w-full">
+            className="z-20 absolute top-0 backdrop-blur-2xl bg-[rgba(0,0,0,0.2)] md:bg-white h-[4rem]  px-6 py-4 border-b border-default_primary_2  max-w-full w-full">
             <div className={"mx-auto max-w-7xl w-full flex justify-between items-center  h-full gap-2"}>
                 <p className="font-bold md:text-xl">PJ Books</p>
 
