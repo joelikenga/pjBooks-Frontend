@@ -1,11 +1,10 @@
-import {useRef, useState} from "react";
-import {RxCaretLeft, RxCaretRight} from "react-icons/rx";
+import { useState} from "react";
 import {BsCart3} from "react-icons/bs";
 import {AiFillHeart} from "react-icons/ai";
 import {FiEye} from "react-icons/fi";
 import {BiHeart} from "react-icons/bi";
 
-export const Novels = () => {
+export const PopularBooks = () => {
 
     interface Book {
         id: number;
@@ -26,7 +25,7 @@ export const Novels = () => {
             author: "Eoin Colfer",
             img: "https://images.unsplash.com/photo-1604430456280-43f652c497aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFuZHNjYXBlJTIwcGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D",
             likes: 200,
-            isLiked: true,
+            isLiked: false,
             read: 230,
             status: "public",
             price: 200,
@@ -37,7 +36,7 @@ export const Novels = () => {
             author: "Eoin Colfer",
             img: "https://images.unsplash.com/photo-1591951425328-48c1fe7179cd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGJvb2tzfGVufDB8fDB8fHww",
             likes: 200,
-            isLiked: false, // Assuming this was missing and should be false
+            isLiked: false,
             read: 230,
             status: "private",
             price: 900,
@@ -102,8 +101,6 @@ export const Novels = () => {
     const [books, setBooks] = useState(initialBooks);
     const [likeAnimations, setLikeAnimations] = useState<Record<number, boolean>>({});
     const [hoveredBookId, setHoveredBookId] = useState<boolean | number>(false);
-    const sliderRef = useRef<HTMLDivElement | null>(null);
-    const slideWidth: number = 300;
 
     const handleLike = (bookId: number) => {
         setBooks((prevBooks) =>
@@ -137,76 +134,30 @@ export const Novels = () => {
         event.stopPropagation();
     };
 
-    const smoothScroll = (distance: number, duration: number) => {
-        const slider = sliderRef.current;
-        if (!slider) return;
-
-        const start = slider.scrollLeft;
-        const startTime = performance.now();
-
-        const scroll = (currentTime: number) => {
-            const timeElapsed = currentTime - startTime;
-            const progress = Math.min(timeElapsed / duration, 1);
-            const ease = (t: number) => t * (2 - t); // ease-out effect
-
-            slider.scrollLeft = start + distance * ease(progress);
-
-            if (progress < 1) {
-                requestAnimationFrame(scroll);
-            }
-        };
-
-        requestAnimationFrame(scroll);
-    };
-
-    const slideLeft = () => {
-        smoothScroll(-slideWidth, 500); // 500ms duration
-    };
-
-    const slideRight = () => {
-        smoothScroll(slideWidth, 500); // 500ms duration
-    };
     return (
-        <div className="snap-y snap-mandatory py-4 md:px-6 w-full h-fit md:my-0">
+        <div className="snap-y snap-mandatory  w-full h-fit mt-3 ">
             <div className={"mx-auto max-w-7xl"}>
                 {/* section name */}
-                <div className="w-full flex justify-between py-4">
+                <div className="w-full flex items-baseline justify-between py-4">
                     <div className="text-md md:text-2xl font-semibold flex items-baseline gap-2">
-                        <p className="px-2">Novels</p>
-                        <p className="text-sm">View all</p>
+                        <p className="px-2">Popular Books</p>
                     </div>
 
+                    <p className="text-sm font-semibold">View all</p>
 
-                    {/* slider buttons */}
-                    <div className="flex justify-between gap-3 mx-2 md:mx-0">
-                        <div
-                            onClick={() => slideLeft()}
-                            className="hover:bg-default_secondary border border-default_secondary text-default_secondary  cursor-pointer duration-200 hover:text-white text-xl md:text-3xl flex justify-center rounded-lg items-center h-[1.5rem] md:w-[2rem] w-[1.5rem] md:h-[2rem]"
-                        >
-                            <RxCaretLeft/>
-                        </div>
-
-                        <div
-                            onClick={() => slideRight()}
-                            className="hover:bg-default_secondary border border-default_secondary text-default_secondary  cursor-pointer duration-200 hover:text-white text-xl md:text-3xl flex justify-center rounded-lg items-center h-[1.5rem] md:w-[2rem] w-[1.5rem] md:h-[2rem]"
-                        >
-                            <RxCaretRight/>
-                        </div>
-                    </div>
                 </div>
-                <div className={"p-3 bg-default_primary_1 rounded-lg"}>
+                <div className={"p-2 bg-default_primary_1 h-fit rounded-lg"}>
                     <div
-                        ref={sliderRef}
-                        className="slider flex flex-nowrap overflow-x-scroll gap-3 justify-normal items-center h-fit rounded-lg"
+                        className="slider flex flex-nowrap gap-2 justify-normal items-center h-[19rem] rounded-md"
                     >
                         {/* book card */}
-                        {books.slice(0,12).map((book) => (
+                        {books.slice(0,4).map((book) => (
                             <div
                                 key={book.id}
                                 onMouseEnter={() => setHoveredBookId(book.id)}
                                 onMouseLeave={() => setHoveredBookId(false)}
                                 className={
-                                    "overflow-hidden snap-x snap-mandatory h-[19.5rem] bg-white min-w-[12rem] rounded-md relative font-medium z-0 capitalize"
+                                    "overflow-hidden snap-x snap-mandatory h-[19.5rem] bg-white w-1/4 rounded-md relative font-medium z-0 capitalize"
                                 }
                             >
                                 {/* price Description */}

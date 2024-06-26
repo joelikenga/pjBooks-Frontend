@@ -5,7 +5,7 @@ import {AiFillHeart} from "react-icons/ai";
 import {FiEye} from "react-icons/fi";
 import {BiHeart} from "react-icons/bi";
 
-export const Novels = () => {
+export const NewBooks = () => {
 
     interface Book {
         id: number;
@@ -26,7 +26,7 @@ export const Novels = () => {
             author: "Eoin Colfer",
             img: "https://images.unsplash.com/photo-1604430456280-43f652c497aa?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bGFuZHNjYXBlJTIwcGhvdG9ncmFwaHl8ZW58MHx8MHx8fDA%3D",
             likes: 200,
-            isLiked: true,
+            isLiked: false,
             read: 230,
             status: "public",
             price: 200,
@@ -37,7 +37,7 @@ export const Novels = () => {
             author: "Eoin Colfer",
             img: "https://images.unsplash.com/photo-1591951425328-48c1fe7179cd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGJvb2tzfGVufDB8fDB8fHww",
             likes: 200,
-            isLiked: false, // Assuming this was missing and should be false
+            isLiked: false,
             read: 230,
             status: "private",
             price: 900,
@@ -103,7 +103,7 @@ export const Novels = () => {
     const [likeAnimations, setLikeAnimations] = useState<Record<number, boolean>>({});
     const [hoveredBookId, setHoveredBookId] = useState<boolean | number>(false);
     const sliderRef = useRef<HTMLDivElement | null>(null);
-    const slideWidth: number = 300;
+    const slideWidth : number = 300;
 
     const handleLike = (bookId: number) => {
         setBooks((prevBooks) =>
@@ -166,16 +166,16 @@ export const Novels = () => {
     const slideRight = () => {
         smoothScroll(slideWidth, 500); // 500ms duration
     };
+
     return (
-        <div className="snap-y snap-mandatory py-4 md:px-6 w-full h-fit md:my-0">
+        <div className="snap-y snap-mandatory py-4 md:px-6 w-full h-fit mt-[15rem] md:my-0">
             <div className={"mx-auto max-w-7xl"}>
                 {/* section name */}
                 <div className="w-full flex justify-between py-4">
                     <div className="text-md md:text-2xl font-semibold flex items-baseline gap-2">
-                        <p className="px-2">Novels</p>
+                        <p className="px-2">New Books</p>
                         <p className="text-sm">View all</p>
                     </div>
-
 
                     {/* slider buttons */}
                     <div className="flex justify-between gap-3 mx-2 md:mx-0">

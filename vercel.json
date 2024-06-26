@@ -3,12 +3,12 @@
       { "source": "/", "destination": "/" },
       { "source": "/login", "destination": "/" },
       { "source": "/resetPassword", "destination": "/" },
-      { "source": "/dashboard", "destination": "/" },
-      { "source": "/upload-book", "destination": "/" },
-      { "source": "/all-books", "destination": "/" },
+      { "source": "/author-dashboard", "destination": "/" },
+      { "source": "/author-dashboard/upload-book", "destination": "/" },
+      { "source": "/author-dashboard/all-books", "destination": "/" },
       { "source": "/profile", "destination": "/" },
       { "source": "/edit-profile", "destination": "/" },
-      { "source": "/book-request", "destination": "/" }
+      { "source": "/author-dashboard/book-request", "destination": "/" }
     ]
   }
   
