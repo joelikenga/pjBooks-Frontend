@@ -2,6 +2,7 @@
     "rewrites": [
       { "source": "/", "destination": "/" },
       { "source": "/login", "destination": "/" },
+      { "source": "/library", "destination": "/" },
       { "source": "/resetPassword", "destination": "/" },
       { "source": "/author-dashboard", "destination": "/" },
       { "source": "/author-dashboard/upload-book", "destination": "/" },

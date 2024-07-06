@@ -1,4 +1,4 @@
-import { BottomNav } from "./components/bottomNav"
+// import { BottomNav } from "./components/bottomNav"
 import { Footer } from "./components/footer"
 import { Hero } from "./components/heroSection"
 import { Navbar } from "./components/navbar"
@@ -17,7 +17,7 @@ export const Homepage = () =>{
             <KidsBooks />
             <Textbooks />
             <Footer />
-            <BottomNav />
+            {/* <BottomNav /> */}
         </div>
     )
 }
