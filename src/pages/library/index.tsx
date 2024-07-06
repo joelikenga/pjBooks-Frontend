@@ -1,4 +1,4 @@
-import {BottomNav} from "../homepage/components/bottomNav";
+// import {BottomNav} from "../homepage/components/bottomNav";
 import {useEffect, useRef, useState} from "react";
 import {NavLink} from "react-router-dom";
 import {PreviousReading} from "../library/components/previousReading.tsx";
@@ -126,21 +126,17 @@ export const Library = () => {
     const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const value = e.target.value;
         setSearchWords(value);
-        console.log(`Input value: "${value}"`);
-
         if (value.trim() === "") {
             setIs_word(false);
-            console.log('is_word set to false');
         } else {
             setIs_word(true);
-            console.log('is_word set to true');
         }
     };
 
     // filter
     const filteredBooks = initialBooks.filter(value =>
         value.title.toLowerCase().includes(searchWords.toLowerCase()) ||
-        value.title.toLowerCase().includes(searchWords.toLowerCase())
+        value.author.toLowerCase().includes(searchWords.toLowerCase())
     );
 
     const handleClickInsideModal = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -158,7 +154,7 @@ export const Library = () => {
         isHovering.current = true;
         intervalRef.current = setInterval(() => {
             categoryScroll(direction);
-        }, 16); // roughly 60 times per second
+        }, 16);
     };
 
     const handleMouseLeave = () => {
@@ -215,9 +211,7 @@ export const Library = () => {
             )
         );
 
-        const isCurrentlyLiked = books.find((book) => book.id === bookId)?.isLiked;
-
-        if (!isCurrentlyLiked) {
+        if (!books.find((book) => book.id === bookId)?.isLiked) {
             setLikeAnimations((prevState) => ({
                 ...prevState,
                 [bookId]: true,
@@ -231,6 +225,7 @@ export const Library = () => {
             }, 1000);
         }
     };
+
     return (
         <div className="w-full max-w-full h-screen ">
             <Navbar/>
@@ -282,6 +277,7 @@ export const Library = () => {
                                    placeholder="Search for Books..."/>
                         </div>
                     </div>
+
                     {/*    ----------------------------------------------------------------------------------------------------------------------------------------*/}
 
 
@@ -296,7 +292,7 @@ export const Library = () => {
                                         onMouseEnter={() => setHoveredBookId(book.id)}
                                         onMouseLeave={() => setHoveredBookId(false)}
                                         className={
-                                            "h-[19.5rem] bg-white -w-1/4 col-span-1 rounded-md relative font-medium z-0 capitalize"
+                                            "h-[19.5rem] bg-white max-w-1/4 col-span-1 rounded-md relative font-medium z-0 capitalize"
                                         }
                                     >
                                         {/* price Description */}
@@ -514,7 +510,7 @@ export const Library = () => {
                 }
             </div>
 
-            <BottomNav/>
+            {/* <BottomNav/> */}
         </div>
     );
 };

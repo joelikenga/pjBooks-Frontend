@@ -5,7 +5,7 @@ import {GrSnapchat} from "react-icons/gr";
 
 export const Footer = () => {
     return (
-        <div className={"w-full bg-default_primary_2 mt-2"}>
+        <div className={"w-full  bg-black text-white mt-2"}>
             <div className=" px-6 pt-[2rem]  pb-[5rem] md:pb-4 w-full mx-auto max-w-7xl h-fit">
                 {/* logo */}
 
