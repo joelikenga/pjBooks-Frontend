@@ -180,7 +180,7 @@ export const Novels = () => {
             <div className="w-full flex justify-between py-4">
               <div className="text-md md:text-2xl font-semibold flex items-baseline gap-2">
                 <p className="px-2">Novels</p>
-                <Link to={"#"} className="text-sm hover:underline">View all</Link>
+                <Link to={"#"} className="text-sm text-[rgba(0,0,0,0.5)] hover:underline">View all</Link>
               </div>
     
               {/* slider buttons */}
