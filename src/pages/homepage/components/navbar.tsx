@@ -139,6 +139,7 @@ export const Navbar = () => {
         </div>
 
         {/* ----------------------search modal popup------------------------------- */}
+
         <AnimatePresence>
           {openSearch && (
             <motion.div
@@ -147,7 +148,7 @@ export const Navbar = () => {
               animate="animate"
               exit="exit"
               onClick={() => SetOpenSearch(false)}
-              className="  backdrop-blur-xl cursor-not-allowed z-[2] overflow-y-hidden flex justify-evenly  absolute bg-[rgba(0,0,0,0.6)] top-0 left-0 min-h-screen w-full"
+              className="  backdrop-blur-xl cursor-not-allowed z-[2] overflow-y-hidden flex justify-evenly  fixed bg-[rgba(0,0,0,0.6)] top-0 left-0 min-h-full w-full"
             >
               <motion.div
                 variants={showSearchVariant}
@@ -241,6 +242,9 @@ export const Navbar = () => {
               }}
             >
               <motion.div
+              initial="initial"
+              animate="animate"
+              exit="exit"
                 variants={dropDownVariant}
                 // onMouseLeave={() => {
                 //   SetOpenProfile(false);
@@ -295,7 +299,7 @@ export const Navbar = () => {
                 transition: { duration: 0.8, delay: 0.3 },
               }}
               onClick={() => SetOpenSidenav(false)}
-              className="md:hidden backdrop-blur-lg absolute z-[2] bg-[rgba(0,0,0,.5)] flex justify-end h-screen w-full top-0 left-0"
+              className="md:hidden backdrop-blur-lg fixed z-[2] bg-[rgba(0,0,0,.5)] flex justify-end h-full w-full top-0 left-0"
             >
               <motion.div
                 onClick={handleClickInsideModal}
