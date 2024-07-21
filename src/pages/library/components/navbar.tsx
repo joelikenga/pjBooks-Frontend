@@ -68,10 +68,11 @@ export const Navbar = () => {
   };
 
   return (
-    <nav className=" sticky top-0 z-20 bg-white h-[3.5rem] md:h-[4rem] px-4 md:px-6 py-4 border-b border-default_primary_2  max-w-full w-full">
+    <nav className="relative">
+    <div className=" fixed md:sticky  top-0 z-20 bg-white h-[3.5rem] md:h-[4rem] px-4 md:px-6 py-4 border-b border-default_primary_2  max-w-full w-full">
       <div
         className={
-          "mx-auto max-w-7xl w-full flex justify-between items-center  h-full gap-2"
+          "mx-auto max-w-7xl w-full flex justify-between items-center   h-full gap-2"
         }
       >
         <p className="font-bold md:text-xl">PJ Books</p>
@@ -176,7 +177,7 @@ export const Navbar = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="  backdrop-blur-xl cursor-not-allowed z-[2] overflow-y-hidden content-start md:hidden flex flex-col  items-center justify-between absolute bg-[rgba(0,0,0,0.6)] top-0 left-0  w-full h-screen"
+              className="  backdrop-blur-xl cursor-not-allowed z-30 overflow-y-hidden content-start md:hidden flex flex-col  items-center justify-between fixed bg-[rgba(0,0,0,0.6)] top-0 left-0  w-full h-full"
             >
               {/* search input */}
 
@@ -365,7 +366,7 @@ export const Navbar = () => {
                 transition: { duration: 0.8, delay: 0.3 },
               }}
               onClick={() => SetOpenSidenav(false)}
-              className="md:hidden backdrop-blur-lg absolute z-[2] bg-[rgba(0,0,0,.5)] flex justify-end h-screen w-full top-0 left-0"
+              className="md:hidden backdrop-blur-lg fixed z-30 bg-[rgba(0,0,0,.5)] flex justify-end h-full w-full top-0 left-0"
             >
               <motion.div
                 onClick={handleClickInsideModal}
@@ -550,6 +551,7 @@ export const Navbar = () => {
           )}
         </AnimatePresence>
       </div>
+    </div>
     </nav>
   );
 };
