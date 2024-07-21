@@ -203,5 +203,7 @@ export const buttonBounceVariant = {
   },
   whileTap: {
     scale: 0.7,
+    duration: 0.2,
+
   },
 };

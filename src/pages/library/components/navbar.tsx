@@ -169,7 +169,7 @@ export const Navbar = () => {
           </div>
         </div>
 
-        {/* ----------------------search modal popup------------------------------- */}
+        {/* ----------------------search popup------------------------------- */}
         <AnimatePresence>
           {openSearch && (
             <motion.div
@@ -281,7 +281,7 @@ export const Navbar = () => {
                   animate="animate"
                   whileTap={"whileTap"}
                   onClick={() => SetOpenSearch(false)}
-                  className="h-[3rem] w-[3rem] p-3 my-2 bg-white text-black rounded-full border flex justify-center items-center"
+                  className="h-[3.5rem] w-[3.5rem] p-2 mt-2 mb-6 bg-white text-black rounded-full border flex justify-center items-center"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
