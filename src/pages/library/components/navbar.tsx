@@ -176,13 +176,12 @@ export const Navbar = () => {
               initial="initial"
               animate="animate"
               exit="exit"
-              className="  backdrop-blur-xl cursor-not-allowed z-[2] overflow-y-hidden content-start md:hidden flex flex-col  items-center justify-between absolute bg-[rgba(0,0,0,0.6)] top-0 left-0 h-screen w-full"
+              className="  backdrop-blur-xl cursor-not-allowed z-[2] overflow-y-hidden content-start md:hidden flex flex-col  items-center justify-between absolute bg-[rgba(0,0,0,0.6)] top-0 left-0  w-full h-screen"
             >
               {/* search input */}
 
               <motion.div
                 onFocus={handleFocus}
-                // onBlur={handleBlur}
                 variants={
                   inputFocus ? showSearchVariant2 : showSearchVariant2_fix
                 }
@@ -358,12 +357,11 @@ export const Navbar = () => {
         <AnimatePresence>
           {openSidenav && (
             <motion.div
-              initial={{ opacity: 0, x: 500 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4 }}
+              initial={{ opacity: 0,}}
+              animate={{ opacity: 1,}}
+              transition={{ duration: 0.3 }}
               exit={{
                 opacity: 0,
-                x: 500,
                 transition: { duration: 0.8, delay: 0.3 },
               }}
               onClick={() => SetOpenSidenav(false)}
@@ -371,11 +369,11 @@ export const Navbar = () => {
             >
               <motion.div
                 onClick={handleClickInsideModal}
-                initial={{ opacity: 0, x: 200 }}
+                initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 200, transition: { duration: 0.2 } }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="h-full bg-white w-[15rem] justify-between flex flex-col p-3"
+                exit={{ opacity: 0, x: 100, transition: { duration: 0.2 } }}
+                transition={{ duration: 0.3, delay: 0.4 }}
+                className="h-screen bg-white w-[15rem] justify-between flex flex-col p-3"
               >
                 {/* --------------------------top section -------------------------------*/}
                 <div>
@@ -384,7 +382,7 @@ export const Navbar = () => {
                     {/* logo */}
                     <p className="font-bold md:text-xl">PJ Books</p>
                     {/* close icon */}
-                    <div
+                    {/* <div
                       className="cursor-pointer "
                       onClick={() => SetOpenSidenav(false)}
                     >
@@ -400,7 +398,7 @@ export const Navbar = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* ------------navs section------------- */}

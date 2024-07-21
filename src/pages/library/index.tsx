@@ -321,7 +321,7 @@ export const Library = () => {
           </div>
 
           {/* ----------mobile Category--------- */}
-          <div className=" flex max-w-full border-b-2 sticky top-0 z-[2] py- h-12 w-full items-center md:hidden  justify-between pl-1 md:pl-8 lg:pl-0 bg-white">
+          <div className=" flex max-w-full border-b sticky top-0 z-[2] py- h-12 w-full items-center md:hidden  justify-between pl-1 md:pl-8 lg:pl-0 bg-white">
             
             <div className=" border-r pr-0.5  h-full w-fit text-center font-semibold flex items-center">
               <p>Categories</p>
@@ -329,7 +329,7 @@ export const Library = () => {
 
             <div className="w-[100%] overflow-hidden flex items-center justify-between">
               {/* arrow left */}
-              <div onClick={() => categoryClick("left")} className="border cursor-pointer border-l-0 flex items-center justify-center z-[2] rounded-e-full h-[2.5rem] w-[1.5rem] drop-shadow-md">
+              <div onClick={() => categoryClick("left")} className="border-r cursor-pointer border-l-0 flex items-center justify-center z-[2]  h-[3rem] w-[1.5rem] drop-shadow-md">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -344,7 +344,7 @@ export const Library = () => {
                 </svg>
               </div>
               {/* categories */}
-              <div ref={scrollRef} className="overflow-x-scroll flex  max-w-[14rem w-full gap-2.5 mx-1.5">
+              <div ref={scrollRef} className="slider overflow-x-scroll flex  max-w-[14rem w-full gap-2.5 mx-1.5">
               <div className="bg-default_secondary py-1 px-2.5 text-white font-medium rounded-md">
                   Novel
                 </div>
@@ -359,7 +359,7 @@ export const Library = () => {
                 </div>
               </div>
               {/* arrow right */}
-              <div onClick={() => categoryClick("right")} className="border flex items-center justify-center z-[2] rounded-s-full h-[2.5rem] w-[1.5rem] drop-shadow-md">
+              <div onClick={() => categoryClick("right")} className="border-l flex items-center justify-center z-[2]  h-[3rem] w-[1.5rem] drop-shadow-md">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
