@@ -3,7 +3,11 @@ import { BsCart3, BsSearch } from "react-icons/bs";
 import { Link, NavLink } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
-import { dropDownVariant, showSearchVariant, showVariant } from "../../../utils/variants";
+import {
+  dropDownVariant,
+  showSearchVariant,
+  showVariant,
+} from "../../../utils/variants";
 
 export const Navbar = () => {
   // states
@@ -138,18 +142,18 @@ export const Navbar = () => {
         <AnimatePresence>
           {openSearch && (
             <motion.div
-            variants={showVariant}
-            initial="initial"
-            animate="animate"
-            exit="exit"
+              variants={showVariant}
+              initial="initial"
+              animate="animate"
+              exit="exit"
               onClick={() => SetOpenSearch(false)}
               className="  backdrop-blur-xl cursor-not-allowed z-[2] overflow-y-hidden flex justify-evenly  absolute bg-[rgba(0,0,0,0.6)] top-0 left-0 min-h-screen w-full"
             >
               <motion.div
-              variants={showSearchVariant}
-              initial="initial"
-              animate="animate"
-              exit="exit"
+                variants={showSearchVariant}
+                initial="initial"
+                animate="animate"
+                exit="exit"
                 onClick={handleClickInsideModal}
                 className=" mx-auto mt-4 md:mt-8 mb-4  min-h-0  max-h-[26rem] md:max-h-[30rem] w-[85%] md:w-[35rem] lg:w-[40rem] cursor-default bg-white rounded-lg py-2 overflow-hidden"
               >
@@ -283,12 +287,11 @@ export const Navbar = () => {
         <AnimatePresence>
           {openSidenav && (
             <motion.div
-              initial={{ opacity: 0, x: 500 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4 }}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.3 }}
               exit={{
                 opacity: 0,
-                x: 500,
                 transition: { duration: 0.8, delay: 0.3 },
               }}
               onClick={() => SetOpenSidenav(false)}
@@ -296,11 +299,11 @@ export const Navbar = () => {
             >
               <motion.div
                 onClick={handleClickInsideModal}
-                initial={{ opacity: 0, x: 200 }}
+                initial={{ opacity: 0, x: 100 }}
                 animate={{ opacity: 1, x: 0 }}
-                exit={{ opacity: 0, x: 200, transition: { duration: 0.2 } }}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                className="h-full bg-white w-[15rem] justify-between flex flex-col p-3"
+                exit={{ opacity: 0, x: 100, transition: { duration: 0.2 } }}
+                transition={{ duration: 0.3, delay: 0.4 }}
+                className="h-screen bg-white w-[15rem] justify-between flex flex-col p-3"
               >
                 {/* --------------------------top section -------------------------------*/}
                 <div>
@@ -309,7 +312,7 @@ export const Navbar = () => {
                     {/* logo */}
                     <p className="font-bold md:text-xl">PJ Books</p>
                     {/* close icon */}
-                    <div
+                    {/* <div
                       className="cursor-pointer "
                       onClick={() => SetOpenSidenav(false)}
                     >
@@ -325,7 +328,7 @@ export const Navbar = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                    </div>
+                    </div> */}
                   </div>
 
                   {/* ------------navs section------------- */}
