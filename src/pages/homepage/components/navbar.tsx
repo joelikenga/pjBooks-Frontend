@@ -3,13 +3,14 @@ import { BsCart3, BsSearch } from "react-icons/bs";
 import { Link, NavLink } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
+import { dropDownVariant, showSearchVariant, showVariant } from "../../../utils/variants";
 
 export const Navbar = () => {
   // states
   const [openSearch, SetOpenSearch] = useState<boolean>(false);
   const [openProfile, SetOpenProfile] = useState<boolean>(false);
-  const [openSidenav, SetOpenSidenav] = useState<boolean>(true);
-  const [openSettings, SetOpenSettings] = useState<boolean>(false); //for mobile
+  const [openSidenav, SetOpenSidenav] = useState<boolean>(false); //for mobile sidenav
+  const [openSettings, SetOpenSettings] = useState<boolean>(false); //for mobile settings
   // propagation
   const handleClickInsideModal = (event: React.MouseEvent<HTMLDivElement>) => {
     event.stopPropagation();
@@ -134,90 +135,98 @@ export const Navbar = () => {
         </div>
 
         {/* ----------------------search modal popup------------------------------- */}
-
-        {openSearch && (
-          <div
-            onClick={() => SetOpenSearch(false)}
-            className=" reveal cursor-not-allowed z-[2] overflow-y-hidden flex justify-evenly  absolute bg-[rgba(0,0,0,0.9)] top-0 left-0 min-h-screen w-full"
-          >
-            <div
-              onClick={handleClickInsideModal}
-              className=" mx-auto mt-4 md:mt-8 mb-4  min-h-0  max-h-[26rem] md:max-h-[30rem] w-[85%] md:w-[35rem] lg:w-[40rem] cursor-default bg-white rounded-lg py-2 overflow-hidden"
+        <AnimatePresence>
+          {openSearch && (
+            <motion.div
+            variants={showVariant}
+            initial="initial"
+            animate="animate"
+            exit="exit"
+              onClick={() => SetOpenSearch(false)}
+              className="  backdrop-blur-xl cursor-not-allowed z-[2] overflow-y-hidden flex justify-evenly  absolute bg-[rgba(0,0,0,0.6)] top-0 left-0 min-h-screen w-full"
             >
-              {/* search input */}
-              <div className=" rounded-sm border-b">
-                <div className="mx-2 my-2">
-                  <div className="flex justify-between items-center px-2">
-                    <div className=" p-1 rounded flex gap-2 justify-start items-center w-[92%]">
-                      <div className=" rounded  text-base md:text-2xl  p-1">
-                        <BsSearch className="" />
-                      </div>
-                      <input
-                        className="px-2 outline-none font-medium h-8 w-full"
-                        placeholder="Search books"
-                        type="text"
-                        autoFocus
-                      />
-                    </div>
-                    {/*srarch close button*/}
-                    <div
-                      onClick={() => {
-                        SetOpenSearch(false);
-                        SetOpenProfile(false);
-                      }}
-                      className=" cursor-pointer rounded-lg text-base md:text-lg bg-default_secondary text-white p-1.5"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="size-5"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
-                          clip-rule="evenodd"
+              <motion.div
+              variants={showSearchVariant}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+                onClick={handleClickInsideModal}
+                className=" mx-auto mt-4 md:mt-8 mb-4  min-h-0  max-h-[26rem] md:max-h-[30rem] w-[85%] md:w-[35rem] lg:w-[40rem] cursor-default bg-white rounded-lg py-2 overflow-hidden"
+              >
+                {/* search input */}
+                <div className=" rounded-sm border-b">
+                  <div className="mx-2 my-2">
+                    <div className="flex justify-between items-center px-2">
+                      <div className=" p-1 rounded flex gap-2 justify-start items-center w-[92%]">
+                        <div className=" rounded  text-base md:text-2xl  p-1">
+                          <BsSearch className="" />
+                        </div>
+                        <input
+                          className="px-2 outline-none font-medium h-8 w-full"
+                          placeholder="Search books"
+                          type="text"
+                          autoFocus
                         />
-                      </svg>
+                      </div>
+                      {/*srarch close button*/}
+                      <div
+                        onClick={() => {
+                          SetOpenSearch(false);
+                          SetOpenProfile(false);
+                        }}
+                        className=" cursor-pointer rounded-lg text-base md:text-lg bg-default_secondary text-white p-1.5"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          className="size-5"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              {/* search filter display */}
+                {/* search filter display */}
 
-              <div className="w-full h-full  overflow-y-scroll">
-                {/* card */}
+                <div className="w-full h-full  overflow-y-scroll">
+                  {/* card */}
 
-                <div className="mx-4">
-                  <div className="mt-1  px-2 bg-white h-[6rem] content-start p-1  flex items-center gap-4 justify-start w-full border-b">
-                    {/*    search card image*/}
-                    <div className={"max-w-[4rem]  h-[6rem] overflow-hidden"}>
-                      <img
-                        className={"object-center bg-center h-[5.5rem]"}
-                        src={
-                          "https://images.bwbcovers.com/125/Juniper-s-Christmas-9781250321947.jpg"
-                        }
-                        alt={""}
-                      />
-                    </div>
+                  <div className="mx-4">
+                    <div className="mt-1  px-2 bg-white h-[6rem] content-start p-1  flex items-center gap-4 justify-start w-full border-b">
+                      {/*    search card image*/}
+                      <div className={"max-w-[4rem]  h-[6rem] overflow-hidden"}>
+                        <img
+                          className={"object-center bg-center h-[5.5rem]"}
+                          src={
+                            "https://images.bwbcovers.com/125/Juniper-s-Christmas-9781250321947.jpg"
+                          }
+                          alt={""}
+                        />
+                      </div>
 
-                    {/*    book title*/}
-                    <div className={"w-full flex flex-wrap gap-2"}>
-                      <p className={"w-full font-semibold text-xl"}>
-                        Junipers Christmas
-                      </p>
-                      <p className={"w-full font-medium text-lg"}>
-                        Junipers Christmas
-                      </p>
+                      {/*    book title*/}
+                      <div className={"w-full flex flex-wrap gap-2"}>
+                        <p className={"w-full font-semibold text-xl"}>
+                          Junipers Christmas
+                        </p>
+                        <p className={"w-full font-medium text-lg"}>
+                          Junipers Christmas
+                        </p>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            </div>
-          </div>
-        )}
-
+              </motion.div>
+            </motion.div>
+          )}
+        </AnimatePresence>
         {/*--------------------------------- user side dropdown -------------------------------*/}
         <AnimatePresence>
           {openProfile && (
@@ -228,15 +237,7 @@ export const Navbar = () => {
               }}
             >
               <motion.div
-                initial={{ opacity: 0, y: -50 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 0.6,
-                  type: "spring",
-                  bounce: 0.5,
-                  damping: 10,
-                }}
-                exit={{ opacity: 0, y: -50, transition: { duration: 0.25 } }}
+                variants={dropDownVariant}
                 // onMouseLeave={() => {
                 //   SetOpenProfile(false);
                 // }}
