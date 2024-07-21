@@ -329,7 +329,7 @@ export const Library = () => {
 
             <div className="w-[100%] overflow-hidden flex items-center justify-between">
               {/* arrow left */}
-              <div onClick={() => categoryClick("left")} className="border-r cursor-pointer border-l-0 flex items-center justify-center z-[2]  h-[3rem] w-[2rem] drop-shadow-md">
+              <div onClick={() => categoryClick("left")} className=" cursor-pointer  flex items-center justify-center z-[2]  h-[3rem] w-[2rem] drop-shadow-md">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
@@ -359,7 +359,7 @@ export const Library = () => {
                 </div>
               </div>
               {/* arrow right */}
-              <div onClick={() => categoryClick("right")} className="border-l flex items-center justify-center z-[2]  h-[3rem] w-[2rem] drop-shadow-md">
+              <div onClick={() => categoryClick("right")} className=" flex items-center justify-center z-[2]  h-[3rem] w-[2rem] drop-shadow-md">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
