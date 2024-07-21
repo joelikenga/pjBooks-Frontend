@@ -1,5 +1,5 @@
-import { useState, useRef, useEffect, ChangeEvent } from "react";
-import { BsCart3, BsSearch } from "react-icons/bs";
+import { useState, useRef,  ChangeEvent } from "react";
+import { BsCart3 } from "react-icons/bs";
 import { Link, NavLink } from "react-router-dom";
 import { BiSearch } from "react-icons/bi";
 import { motion, AnimatePresence } from "framer-motion";
