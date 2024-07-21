@@ -321,7 +321,7 @@ export const Library = () => {
           </div>
 
           {/* ----------mobile Category--------- */}
-          <div className=" flex max-w-full border-b sticky top-0 z-[2] py- h-12 w-full items-center md:hidden  justify-between pl-1 md:pl-8 lg:pl-0 bg-white">
+          <div className=" flex max-w-full border-b sticky top-[3.45rem] z-[2] py- h-12 w-full items-center md:hidden  justify-between pl-1 md:pl-8 lg:pl-0 bg-white">
             
             <div className=" border-r pr-0.5  h-full w-fit text-center font-semibold flex items-center">
               <p>Categories</p>
@@ -547,7 +547,7 @@ export const Library = () => {
           ) : (
             // when searchbar population is false
 
-            <div className={""}>
+            <div className={"h-full"}>
               <PreviousReading />
               <SubjectsSection />
               <NewBooks />
