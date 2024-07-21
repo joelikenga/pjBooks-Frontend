@@ -6,7 +6,7 @@ import {
 
 export const SubjectsSection = () => {
   return (
-    <div className={"mt-6  pl-1 md:pl-8 lg:pl-0"}>
+    <div className={"mt-6  px-2 md:pl-8 lg:pl-0"}>
       {/*-----------------text area ------------------*/}
       <div className={"flex justify-start items-center"}>
         <p className={"text-2xl font-bold leading-tight mb-4"}>

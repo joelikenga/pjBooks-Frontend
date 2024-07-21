@@ -135,12 +135,12 @@ export const LoveRomanceBooks = () => {
     };
 
     return (
-        <div className="snap-y snap-mandatory  w-full h-fit mt-3 ">
+        <div className="snap-y snap-mandatory px-2 md:px-0   w-full h-fit mt-3 ">
             <div className={"mx-auto max-w-7xl"}>
                 {/* section name */}
                 <div className="w-full flex items-baseline justify-between py-4">
                     <div className="text-md md:text-2xl font-semibold flex items-baseline gap-2">
-                        <p className="px-2">Love & Romance</p>
+                        <p className="">Love & Romance</p>
                     </div>
 
                     <p className="text-sm font-semibold">View all</p>

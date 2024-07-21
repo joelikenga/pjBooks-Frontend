@@ -105,7 +105,7 @@ export const PreviousReading = () => {
     }
   };
   return (
-    <div className={"mt-6  pl-1 md:pl-8 lg:pl-0"}>
+    <div className={"mt-6  px-2 md:pl-8 lg:pl-0"}>
       {/*------------------- text and filter section -----------------------*/}
 
       <div className={"flex justify-between items-end w-full relative"}>
