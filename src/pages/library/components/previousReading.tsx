@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import {  childVariants, heightVariant } from "../../../utils/variants.tsx";
+import { buttonBounceVariant, childVariants, heightVariant } from "../../../utils/variants.tsx";
+import { Link } from "react-router-dom";
 export const PreviousReading = () => {
   interface Book {
     id: number;
@@ -96,7 +97,6 @@ export const PreviousReading = () => {
 
   const [expand, setExpand] = useState<boolean>(false);
 
-
   const clickToExpand = () => {
     if (initialBooks.length <= 5) {
       setExpand(false);
@@ -152,70 +152,154 @@ export const PreviousReading = () => {
       {/*---------------------previously read books-------------------------*/}
       <AnimatePresence>
         <motion.div
-        variants={expand ? heightVariant : heightVariant}
-        initial="initial"
-        animate={expand ? "animate" : "exit"}
-        exit="exit"
+          variants={expand ? heightVariant : heightVariant}
+          initial="initial"
+          animate={expand ? "animate" : "exit"}
+          exit="exit"
           className={`w-full ${expand ? "h-[32.5rem]" : "h-[16.5rem]"}  bg-default_primary_1 rounded-lg mt-4`}
         >
           <div className={"w-full p-2"}>
             <div className=" content-start grid grid-cols-5  gap-2 justify-center items-center h-fit rounded-lg">
               {/* book card */}
-              <AnimatePresence>
-              {initialBooks.slice(0, expand ? 10 : 5).map((book) => (
-                <motion.div
-                variants={childVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                  key={book.id}
-                  className={
-                    "overflow-hidden rounded-md snap-x snap-mandatory bg-white cursor-pointer col-span-1  h-[15.5rem] relative font-medium z-0 capitalize"
-                  }
-                >
-                  {/* card Image */}
-                  <div
-                    className={
-                      "h-[12rem]  relative mx-1 mt-1 mb-0  overflow-hidden"
-                    }
-                  >
-                    <img
-                      alt={""}
-                      className={
-                        "w-full rounded h-full object-top object-cover bg-cover"
-                      }
-                      src={book.img}
-                    />
-                  </div>
 
-                  <div
-                    className={
-                      "w-full text-xs font-semibold p-1 flex flex-col gap-1 flex-wrap items-start justify-center"
-                    }
-                  >
-                    <p className={"truncate w-full"}>{book.title}</p>
-                    <div
+              <>
+                {/* Desktop  books card */}
+
+                {initialBooks.slice(0, expand ? 10 : 5).map((book) => (
+                  <AnimatePresence>
+                    <motion.div
+                      variants={childVariants}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      key={book.id}
                       className={
-                        "truncate w-full items-center gap-2 flex flex-nowrap justify-between"
+                        "hidden md:block overflow-hidden rounded-md snap-x snap-mandatory bg-white cursor-pointer col-span-1  h-[15.5rem] relative font-medium z-0 capitalize"
                       }
                     >
-                      <div className={"truncate text-ellipsis font-medium"}>
-                        {" "}
-                        <p className={"truncate w-full"}>{book.author}</p>
-                      </div>
+                      {/* card Image */}
                       <div
                         className={
-                          "h-[1.2rem] w-[3.5rem] text-center px-2 flex items-center rounded bg-default_secondary text-white"
+                          "h-[12rem]  relative mx-1 mt-1 mb-0  overflow-hidden"
                         }
                       >
-                        Fiction
+                        <img
+                          alt={""}
+                          className={
+                            "w-full rounded h-full object-top object-cover bg-cover"
+                          }
+                          src={book.img}
+                        />
                       </div>
-                    </div>
-                  </div>
-                </motion.div>
-                
-              ))}
-              </AnimatePresence>
+
+                      <div
+                        className={
+                          "w-full text-xs font-semibold p-1 flex flex-col gap-1 flex-wrap items-start justify-center"
+                        }
+                      >
+                        <p className={"truncate w-full"}>{book.title}</p>
+                        <div
+                          className={
+                            "truncate w-full items-center gap-2 flex flex-nowrap justify-between"
+                          }
+                        >
+                          <div className={"truncate text-ellipsis font-medium"}>
+                            {" "}
+                            <p className={"truncate w-full"}>{book.author}</p>
+                          </div>
+                          <div
+                            className={
+                              "h-[1.2rem] w-[3.5rem] text-center px-2 flex items-center rounded bg-default_secondary text-white"
+                            }
+                          >
+                            Fiction
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                ))}
+                {/* Mobile book cards */}
+
+                {initialBooks.slice(0, 2).map((book) => (
+                  <AnimatePresence>
+                    <motion.div
+                      variants={childVariants}
+                      initial="initial"
+                      animate="animate"
+                      exit="exit"
+                      key={book.id}
+                      className={
+                        "block md:hidden overflow-hidden rounded-md snap-x snap-mandatory bg-white cursor-pointer col-span-2  h-[15.5rem] relative font-medium z-0 capitalize"
+                      }
+                    >
+                      {/* card Image */}
+                      <div
+                        className={
+                          "h-[12rem]  relative mx-1 mt-1 mb-0  overflow-hidden"
+                        }
+                      >
+                        <img
+                          alt={""}
+                          className={
+                            "w-full rounded h-full object-top object-cover bg-cover"
+                          }
+                          src={book.img}
+                        />
+                      </div>
+
+                      <div
+                        className={
+                          "w-full text-xs font-semibold p-1 flex flex-col gap-1 flex-wrap items-start justify-center"
+                        }
+                      >
+                        <p className={"truncate w-full"}>{book.title}</p>
+                        <div
+                          className={
+                            "truncate w-full items-center gap-2 flex flex-nowrap justify-between"
+                          }
+                        >
+                          <div className={"truncate text-ellipsis font-medium"}>
+                            {" "}
+                            <p className={"truncate w-full"}>{book.author}</p>
+                          </div>
+                          <div
+                            className={
+                              "h-[1.2rem] w-[3.5rem] text-center px-2 flex items-center rounded bg-default_secondary text-white"
+                            }
+                          >
+                            Fiction
+                          </div>
+                        </div>
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                ))}
+                {/* Arrow right */}
+                <Link to={""} className="w-full md:hidden flex justify-center " >
+                  <motion.div
+                    variants={buttonBounceVariant}
+                    initial="initial"
+                    animate="animate"
+                    whileTap={"whileTap"}
+                  className="w-[3rem] h-[3rem] flex justify-center items-center rounded-full bg-default_primary_2">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth={1.8}
+                      stroke="currentColor"
+                      className="size-6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                  </motion.div>
+                </Link>
+              </>
             </div>
           </div>
         </motion.div>
